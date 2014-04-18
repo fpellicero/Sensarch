@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/', array('as' => 'home', 'uses' => 'HomeController@homePage'));
+Route::get('/', array('as' => 'home', 'uses' => 'HomeController@homePage'))->before('auth');;
 
-Route::get('login', array('as' => 'login', 'uses' => 'HomeController@loginPage'))->before('guest');
-Route::post('login', 'HomeController@loginAttempt');
+/*
+ * Routes handling the login system.
+ */
+Route::get('login', array('as' => 'login', 'uses' => 'LoginController@loginPage'))->before('guest');
+Route::post('login', 'LoginController@loginAttempt');
+Route::get('logout', array('as' => 'logout', 'uses' => 'LoginController@logout'))->before('auth');

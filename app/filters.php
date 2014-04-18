@@ -85,3 +85,10 @@ Route::filter('guest', function()
                 return Redirect::route('home')
                         ->with('flash_notice', 'You are already logged in!');
 });
+
+Route::filter('auth', function()
+{
+        if (Auth::guest())
+                return Redirect::route('login')
+                        ->with('flash_error', 'You must be logged in to view this page!');
+});
