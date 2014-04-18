@@ -12,7 +12,14 @@ class CreateUsersTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::create('users', function ($t)
+		{
+			$t->increments('id');
+			$t->string('username', 16);
+			$t->string('password', 64);
+
+			$t->timestamps();
+		});
 	}
 
 	/**
@@ -22,7 +29,7 @@ class CreateUsersTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('users');
 	}
 
 }
