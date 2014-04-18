@@ -78,3 +78,10 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+Route::filter('guest', function()
+{
+        if (Auth::check()) 
+                return Redirect::route('home')
+                        ->with('flash_notice', 'You are already logged in!');
+});

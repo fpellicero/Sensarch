@@ -11,4 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@loginPage');
+Route::get('/', array('as' => 'home', 'uses' => 'HomeController@homePage'));
+
+Route::get('login', array('as' => 'login', 'uses' => 'HomeController@loginPage'))->before('guest');
+Route::post('login', 'HomeController@loginAttempt');
