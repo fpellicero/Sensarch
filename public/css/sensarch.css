@@ -1,0 +1,69 @@
+#logo {
+	margin-left: 10%;
+	font-family:arial; 
+	font-size:50px; 
+	position:fixed;
+}
+
+/* fixe amb bg blanc */
+#header_fixe_blanc {
+	width: 100%;
+	height: 85px;
+	padding-bottom: 30px;
+	position:fixed;
+	z-index: -1;
+}
+
+#header_fixe_blanc #logo #thin {
+	font-family: 'Gauntlet Thin';
+	color:white;
+}
+#header_fixe_blanc #logo #negrita {
+	font-family: 'Gauntlet Classic';
+	color:white;
+}
+#login-input {
+	margin: auto;
+	width: 200px;
+	text-align: center;
+	margin-top: 50px;
+}
+
+#login-input button {
+	margin-top: 5px;	
+}
+
+#login_top_img {
+	min-height: 400px;
+	position: fixed;
+	z-index: -20;
+}
+
+#login_bot_img {
+	min-height: 400px;
+}
+
+#img-spacer {
+	height: 400px;
+}
+
+.login-icon {
+	width: 30%;
+}
+
+#icon-login-wrapper {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background: white;
+	box-shadow: 0 0 50px rgba(0,0,0,0.8);
+}
+
+#icon-login-wrapper p {
+	margin-top: 10px;
+	width: 60%;
+}
+
+#flash_error {
+	width: 70%;
+	margin-left: 15%;
+}
