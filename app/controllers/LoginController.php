@@ -21,7 +21,7 @@ class LoginController extends BaseController {
         }
         
         // authentication failure! lets go back to the login page
-        return Redirect::route('login#flash_error')
+        return Redirect::route('login')
             ->with('flash_error', 'Your username/password combination was incorrect.')
             ->withInput();
 	}
