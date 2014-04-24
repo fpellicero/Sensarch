@@ -17,7 +17,7 @@ class CreateProjectsTable extends Migration {
 			$t->increments('id');
 			$t->string('title', 64);
 			$t->longtext('description');
-			$t->string('ciutat', 32);
+			$t->string('city', 32);
 			$t->integer('author_id');
 
 			$t->timestamps();
