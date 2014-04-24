@@ -160,3 +160,23 @@ ul.icons a:hover {
 	position: relative;
 	top: 100px;
 }
+
+.project {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 15px;
+    height: 150px;
+}
+
+.project_title {
+    position: absolute;
+    text-align: center;
+    left: 0px;
+    bottom: 0px;
+    background: rgba(0, 0, 0, 0.63);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 100%;
+    color: white;
+}
