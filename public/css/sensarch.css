@@ -162,9 +162,9 @@ ul.icons a:hover {
 }
 
 .project {
+	position: relative;
     border: 1px solid lightgrey;
     border-radius: 5px;
-    padding: 5px;
     margin-bottom: 15px;
     height: 150px;
 }
