@@ -62,7 +62,7 @@
 			</h1>
 		</center>
 		@if (Session::has('flash_error'))
-		<div id="flash_error" class="alert alert-danger">{{ Session::get('flash_error') }}</div>
+			<div id="flash_error" class="alert alert-danger">{{ Session::get('flash_error') }}</div>
 		@endif
 		<form id='login-input' method='post'>
 			<div class='input-group'>

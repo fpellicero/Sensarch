@@ -19,3 +19,9 @@ Route::get('/', array('as' => 'home', 'uses' => 'HomeController@homePage'))->bef
 Route::get('login', array('as' => 'login', 'uses' => 'LoginController@loginPage'))->before('guest');
 Route::post('login', 'LoginController@loginAttempt');
 Route::get('logout', array('as' => 'logout', 'uses' => 'LoginController@logout'))->before('auth');
+
+/*
+ * Routes handling Projects
+ */
+Route::get('project/new', array('as' => 'newProject', 'uses' => 'ProjectController@create'))->before('auth');
+Route::post('project/new', 'ProjectController@store');
