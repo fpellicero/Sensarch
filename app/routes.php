@@ -25,3 +25,4 @@ Route::get('logout', array('as' => 'logout', 'uses' => 'LoginController@logout')
  */
 Route::get('project/new', array('as' => 'newProject', 'uses' => 'ProjectController@create'))->before('auth');
 Route::post('project/new', 'ProjectController@store');
+Route::get('project/{id}', 'ProjectController@show');

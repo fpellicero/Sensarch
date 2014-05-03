@@ -42,11 +42,12 @@ class ProjectController extends BaseController {
 		$project->img_home = $img_home->id;
 		$project->save();
 
+
 		foreach (Input::file('images') as $file) {
 
 			$destinationPath = 'uploads';
 			$filename = uniqid(md5_file($file->getRealPath())) . '.' . $file->getClientOriginalExtension();
-			$image->move($destinationPath, $filename);
+			$file->move($destinationPath, $filename);
 
 			$img = new Image();
 			$img->filename = $filename;
@@ -67,7 +68,8 @@ class ProjectController extends BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$project = Project::find($id);
+		return View::make('project/view')->with('project', $project);
 	}
 
 

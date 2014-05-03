@@ -194,3 +194,15 @@ ul.icons a:hover {
 	filter: none;
 	-webkit-filter:grayscale(0%);
 }
+
+#cover_picture img {
+    width: 100%;
+    margin-top: -45% !important;
+}
+#cover_picture {
+    width: 100%;
+    position: relative;
+}
+.img_project {
+	width: 100%;
+}

@@ -24,6 +24,7 @@
 		</div>
 	</div>
 	
+	@yield('cover_image')
 	<div class='container'>
 		@yield('content')
 	</div>
