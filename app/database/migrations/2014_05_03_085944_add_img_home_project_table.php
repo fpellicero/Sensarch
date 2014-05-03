@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImageTable extends Migration {
+class AddImgHomeProjectTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,9 @@ class CreateImageTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('images', function(Blueprint $table)
+		Schema::table('projects', function($table)
 		{
-			$table->increments('id');
-
-			$table->string('file_name');
-			$table->string('path');
-
-			$table->timestamps();
+			$table->integer('img_home');
 		});
 	}
 
@@ -30,7 +25,9 @@ class CreateImageTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('images');
-	}
+		Schema::table('projects', function($table)
+		{
+			$table->dropColumn('img_home');
+		});	}
 
-}
+	}
