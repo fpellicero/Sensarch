@@ -29,7 +29,9 @@
 
 			@if($image->img_type == 'normal')
 				<div class='col-md-2 col-md-offset-1'>
-					<img class='img_project' src="/sensarch/public/uploads/{{ $image->filename }}">
+					<a data-lightbox="{{$image->filename}}" href="/sensarch/public/uploads/{{ $image->filename }}">
+						<img class='img_project' src="/sensarch/public/uploads/{{ $image->filename }}">
+					</a>
 				</div>
 			@endif
 		@endforeach
