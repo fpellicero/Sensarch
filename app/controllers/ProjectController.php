@@ -69,7 +69,8 @@ class ProjectController extends BaseController {
 	public function show($id)
 	{
 		$project = Project::find($id);
-		return View::make('project/view')->with('project', $project);
+		$user = User::find($project->author_id);
+		return View::make('project/view', array('project' => $project, 'user' => $user));
 	}
 
 

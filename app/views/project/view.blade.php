@@ -9,8 +9,8 @@
 @section('content')
 <div id='project_page'>
 	<center>
-		<h1>{{ $project-> title }} <small>a {{ $project->city }}</small></h1>
-		<h2><small>NOM i COGNOM al ANY</small></h2>
+		<h1>{{ $project->title }} <small>a {{ $project->city }}</small></h1>
+		<h2><small>{{ $user->name }} i {{ $user->surname }} al {{ $project->year }}</small></h2>
 	</center>
 	
 	<div class='row'>
@@ -29,7 +29,7 @@
 
 			@if($image->img_type == 'normal')
 				<div class='col-md-2 col-md-offset-1'>
-					<a data-lightbox="{{$image->filename}}" href="/sensarch/public/uploads/{{ $image->filename }}">
+					<a data-lightbox="{{$project->title}}" href="/sensarch/public/uploads/{{ $image->filename }}">
 						<img class='img_project' src="/sensarch/public/uploads/{{ $image->filename }}">
 					</a>
 				</div>
