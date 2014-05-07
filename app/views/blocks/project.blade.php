@@ -5,10 +5,10 @@
 		</div>
 		<div class='project_block_text'>
 			<h3>
-				{{ $project->title }} <small>de FRANCESC PELLICERO</small>
+				{{ $project->title }} <small>de {{ User::find($project->author_id)->name }} {{User::find($project->author_id)->surname }}</small>
 			</h3>
 			<div>
-				{{ substr($project->description,0,255) }}
+				{{ substr($project->description,0,255) }}...
 			</div>
 		</div>
 	</a>
