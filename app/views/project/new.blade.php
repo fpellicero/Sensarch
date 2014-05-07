@@ -16,7 +16,6 @@
 		<div class='form-group'>
 			<label for='description'>Descripció</label>
 			<textarea class='form-control' rows='5' name='description' id='description'></textarea>
-				<script type="text/javascript">CKEDITOR.replace('description')</script>
 		</div>
 
 		<div class='form-group'>

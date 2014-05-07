@@ -28,8 +28,10 @@
 	</div>
 	
 	@yield('cover_image')
-	<div class='container'>
-		@yield('content')
+	<div id='content-wrapper'>
+		<div class='container'>
+			@yield('content')
+		</div>
 	</div>
 
 	<!-- Footer -->

@@ -194,21 +194,33 @@ ul.icons a:hover {
 	background: rgba(0,0,0,0.025);
 }
 
+#content-wrapper {
+	background-color: #EEEEEE;
+}
+
 .container {
 	position: relative;
+	height: 100%;
 	top: 100px;
 }
 
 .project {
 	position: relative;
-	border: 1px solid lightgrey;
-	margin-bottom: 15px;
-	height: auto;
 }
 
 .project_block_text {
+	position: absolute;
+	margin-top: 0;
+	border: 1px solid #999999;
 	padding-left: 15px;
 	padding-right: 15px;
+	background-color: white;
+	color: #3C3C3C;
+}
+
+.project_block_text p {
+	color: #3C3C3C;
+	font-family: Lucida Grande, Tahoma, Verdana, Arial, sans-serif;
 }
 
 .project_title {
