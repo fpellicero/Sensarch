@@ -21,7 +21,7 @@
 		</div>
 		<div id='nav_links_header'>
 			<a href={{ URL::route('home') }}>HOME</a>
-			<a href='#'>PERFIL</a>
+			<a href={{ URL::action('userProfile', array(Auth::user()->id)) }}>PERFIL</a>
 			<a href="#">SUEÑA</a>
 			<a href={{ URL::route('logout') }}>SALIR</a>
 		</div>

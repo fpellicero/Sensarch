@@ -25,4 +25,11 @@ Route::get('logout', array('as' => 'logout', 'uses' => 'LoginController@logout')
  */
 Route::get('project/new', array('as' => 'newProject', 'uses' => 'ProjectController@create'))->before('auth');
 Route::post('project/new', 'ProjectController@store');
-Route::get('project/{id}', 'ProjectController@show');
+Route::get('project/{id}', array('as' => 'showProject', 'uses' => 'ProjectController@show'));
+
+
+/*
+ * Routes handling Profile
+ */
+Route::get('user/{id}', array('as' => 'userProfile', 'uses' => 'ProfileController@show'));
+Route::get('user/{id}/edit', array('as' => 'editUserProfile', 'uses' => 'ProfileController@edit'));

@@ -1,5 +1,19 @@
 html {
-	min-height: 150%;
+	/*min-height: 150%;*/
+}
+
+html.login {
+	height: 100%;
+	background-image: url(http://upload.wikimedia.org/wikipedia/commons/6/6f/Disney_Concert_Hall_by_Carol_Highsmith.jpg);
+}
+
+.login body {
+	background: transparent;
+}
+
+#login_top {
+    position: relative;
+    top: -170px;
 }
 
 #logo {
@@ -9,6 +23,30 @@ html {
 	position: fixed;
 }
 
+#logo_login {
+	font-size: 50px;
+	margin-top: 20px;
+}
+
+#logo_login a {
+	position: relative;
+	top: 47px;
+}
+#logo_login #thin{
+	font-family: 'Gauntlet Thin';
+	color:white;	
+}
+
+#logo_login #negrita {
+	font-family: 'Gauntlet Classic';
+	color:white;
+}
+
+
+a:link, a:hover, a:active, a:visited {
+	color:black;
+	text-decoration: none;
+}
 /* fixe amb bg blanc */
 #header_fixe_blanc {
 	width: 100%;
@@ -164,9 +202,13 @@ ul.icons a:hover {
 .project {
 	position: relative;
 	border: 1px solid lightgrey;
-	border-radius: 5px;
 	margin-bottom: 15px;
-	height: 150px;
+	height: auto;
+}
+
+.project_block_text {
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 .project_title {
@@ -175,22 +217,19 @@ ul.icons a:hover {
 	left: 0px;
 	bottom: 0px;
 	background: rgba(0, 0, 0, 0.63);
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
 	width: 100%;
 	color: white;
 }
 
-.img_project_home {
+.project img {
 	width: 100%;
-	border-radius: 5px;
 	max-height: 100%;
 	-webkit-filter:grayscale(100%);
   filter: grayscale(100%);
   filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
   filter: gray; /* IE 6-9 */}
 
-.img_project_home:hover{
+.project img:hover{
 	filter: none;
 	-webkit-filter:grayscale(0%);
 }
