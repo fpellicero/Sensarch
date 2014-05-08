@@ -1,5 +1,10 @@
 @extends('layouts.layout')
 
+@section('includes')
+	{{ HTML::style('packages/lightbox/css/lightbox.css') }}
+	{{ HTML::script('packages/lightbox/js/lightbox.min.js') }}
+@stop
+
 @section('cover_image')
 <div id='cover_picture'>
 	<img src="http://upload.wikimedia.org/wikipedia/commons/6/6f/Disney_Concert_Hall_by_Carol_Highsmith.jpg">

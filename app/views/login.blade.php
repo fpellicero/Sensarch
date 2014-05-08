@@ -16,7 +16,7 @@
 					<span id="negrita">Sens</span><span id="thin">arch</span>
 				</a>
 			</div>
-			<div class='col-md-5 col-md-offset-7'>
+			<div class='col-md-6 col-md-offset-7'>
 				<form class='form-inline' method='post'>
 					<div class='form-group'>
 						<input type='text' class='form-control' placeholder='Username' name='username'>
@@ -33,7 +33,7 @@
 
 		<div class='row'>
 			<div class='col-md-7'>
-				<h1>
+				<h1 class='white'>
 					Relaciónate<br>
 					<small>Profesionalmente con tu portafolio</small>
 				</h1>

@@ -257,3 +257,9 @@ ul.icons a:hover {
 .img_project {
 	width: 100%;
 }
+
+h1.white {
+	color: white;
+	position: absolute;
+	bottom: -355px;
+}
