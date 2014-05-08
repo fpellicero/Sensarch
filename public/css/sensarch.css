@@ -1,7 +1,3 @@
-html {
-	/*min-height: 150%;*/
-}
-
 html.login {
 	height: 100%;
 	background-image: url(http://upload.wikimedia.org/wikipedia/commons/6/6f/Disney_Concert_Hall_by_Carol_Highsmith.jpg);
@@ -12,8 +8,8 @@ html.login {
 }
 
 #login_top {
-    position: relative;
-    top: -170px;
+	position: relative;
+	top: -170px;
 }
 
 #logo {
@@ -204,20 +200,6 @@ ul.icons a:hover {
 	top: 100px;
 }
 
-.project {
-	position: relative;
-}
-
-.project_block_text {
-	position: absolute;
-	margin-top: 0;
-	border: 1px solid #999999;
-	padding-left: 15px;
-	padding-right: 15px;
-	background-color: white;
-	color: #3C3C3C;
-}
-
 #user_info {
 	background: #FFFFFF;
 	color: #3C3C3C;
@@ -243,6 +225,10 @@ ul.icons a:hover {
 	height: 100%;
 }
 
+#edit_profile_link {
+	float: right;
+}
+
 .project_block_text p {
 	color: #3C3C3C;
 	font-family: Lucida Grande, Tahoma, Verdana, Arial, sans-serif;
@@ -254,17 +240,30 @@ ul.icons a:hover {
 	left: 0px;
 	bottom: 0px;
 	background: rgba(0, 0, 0, 0.63);
-	width: 100%;
+	width: 350;
 	color: white;
 }
 
+.project_block_text {
+	margin-top: 0;
+	margin-bottom: 25px;
+	border: 1px solid #999999;
+	padding-left: 15px;
+	padding-right: 15px;
+	background-color: white;
+	color: #3C3C3C;
+	width: 350px;
+
+}
+
 .project img {
-	width: 100%;
+	width: 350;
 	max-height: 100%;
 	-webkit-filter:grayscale(100%);
-  filter: grayscale(100%);
-  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
-  filter: gray; /* IE 6-9 */}
+	filter: grayscale(100%);
+	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+	filter: gray; /* IE 6-9 */
+}
 
 .project img:hover{
 	filter: none;
@@ -272,12 +271,12 @@ ul.icons a:hover {
 }
 
 #cover_picture img {
-    width: 100%;
-    margin-top: -45% !important;
+	width: 100%;
+	margin-top: -45% !important;
 }
 #cover_picture {
-    width: 100%;
-    position: relative;
+	width: 100%;
+	position: relative;
 }
 .img_project {
 	width: 100%;
@@ -290,3 +289,6 @@ h1.white {
 	/*dshbfjsdjfdsf*/
 }
 
+#container {
+  margin: 0 auto;
+}

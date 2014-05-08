@@ -18,6 +18,8 @@
 			@yield('content')
 
 		</div>
+		<div style='clear: both'></div>
+		<br><br><br><br><br>
 	</div>
 
 	@include('layouts.sections.footer')
