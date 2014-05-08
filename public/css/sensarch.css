@@ -218,6 +218,31 @@ ul.icons a:hover {
 	color: #3C3C3C;
 }
 
+#user_info {
+	background: #FFFFFF;
+	color: #3C3C3C;
+	border-top: 1px solid #999999;
+	border-bottom: 1px solid #999999;
+	border-right: 1px solid #999999;
+	font-family: Lucida Grande, Tahoma, Verdana, Arial, sans-serif;
+	height: 205px;
+}
+
+#profile_img {
+	position: relative;
+	left: 15px;
+	border-top: 1px solid #999999;
+	border-bottom: 1px solid #999999;
+	border-left: 1px solid #999999;
+	padding-left: 0;
+	margin-right: 0;
+	height: 205px;
+}
+
+#profile_img img {
+	height: 100%;
+}
+
 .project_block_text p {
 	color: #3C3C3C;
 	font-family: Lucida Grande, Tahoma, Verdana, Arial, sans-serif;
@@ -264,3 +289,4 @@ h1.white {
 	bottom: -355px;
 	/*dshbfjsdjfdsf*/
 }
+
