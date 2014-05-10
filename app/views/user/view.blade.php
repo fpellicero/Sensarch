@@ -22,12 +22,7 @@
 <br>
 
 <div id='container'>
-	@foreach($projects as $index => $project)
-	<div class='item'>
-		@include('blocks.project')->with('project', $project)
-	</div>
-	@endforeach
-
+	
 	@if(Auth::user()->id == $user->id)
 	<div class='item'>
 		<div class='project'>
@@ -45,5 +40,13 @@
 		</div>
 	</div>
 	@endif
+
+	@foreach($projects as $index => $project)
+	<div class='item'>
+		@include('blocks.project')->with('project', $project)
+	</div>
+	@endforeach
+
+	
 </div>
 @stop

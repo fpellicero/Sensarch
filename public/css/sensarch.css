@@ -1,5 +1,5 @@
 html.login {
-	height: 100%;
+	height: 100% !important;
 	background-image: url(http://upload.wikimedia.org/wikipedia/commons/6/6f/Disney_Concert_Hall_by_Carol_Highsmith.jpg);
 }
 
