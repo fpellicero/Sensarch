@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', array('as' => 'home', 'uses' => 'HomeController@homePage'));
+Route::get('/', array('as' => 'home', 'uses' => 'HomeController@homePage'))->before('auth');;
 
 /*
  * Routes handling the login system.
