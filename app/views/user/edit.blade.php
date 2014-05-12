@@ -1,20 +1,24 @@
 @extends('layouts.layout')
 
-@section('content')
+@section('includes')
+{{ HTML::script('js/edit_profile.js') }}
+@stop
 
 @section('content')
-<form method='post'>
+<form method='post' enctype="multipart/form-data">
 	<div id='user_info_wrapper'>
 		<div id='profile_img'>
-			{{ HTML::image('img/profile_blank.jpg') }}
+			{{ HTML::image($user->getProfilePicURL()) }}
+			<a href='#'>Cambiar</a>
 		</div>
 		<div id='user_info'>
 			<br>
+			<button type="submit" class="btn btn-success" style='float:right; margin-right: 5px;'>Save</button>
 			<div class='form-group form-inline'>
 				<input type='text' class='form-control' name='name' value="{{$user->name}}">
 				<input type='text' class='form-control' name='surname' value="{{$user->surname}}">
 			</div>
-			<button type="submit" class="btn btn-success">Save</button>
+			<input id='profile_pic_control' type='file' style='display: none' onchange="PreviewImage();" name='profile_pic'>
 		</div>
 	</div>
 </form>

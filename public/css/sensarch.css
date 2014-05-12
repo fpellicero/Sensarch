@@ -228,6 +228,7 @@ ul.icons a:hover {
 
 #profile_img {
 	float: left;
+	position: relative;
     z-index: 1;
 	border-top: 1px solid #999999;
 	border-bottom: 1px solid #999999;
@@ -238,6 +239,17 @@ ul.icons a:hover {
 
 #profile_img img {
 	height: 100%;
+}
+
+#profile_img a {
+	background: none repeat scroll 0 0 #000000;
+    border-radius: 5px;
+    bottom: 10px;
+    color: #FFFFFF;
+    opacity: 0.7;
+    padding: 5px;
+    position: absolute;
+    right: 10px;
 }
 
 #edit_profile_link {

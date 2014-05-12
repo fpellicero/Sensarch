@@ -42,9 +42,27 @@ class ProfileController extends BaseController {
 	public function update($id)
 	{
 		$user = User::find($id);
-		
+
 		$user->name = Input::get('name');
 		$user->surname = Input::get('surname');
+
+		if(Input::file('profile_pic') != NULL ) {
+			
+			$file = Input::file('profile_pic');
+
+			$destinationPath = 'uploads';
+			$filename = uniqid(md5_file($file->getRealPath())) . '.' . $file->getClientOriginalExtension();
+			$file->move($destinationPath, $filename);
+
+			$img_home = new Image();
+			$img_home->filename = $filename;
+			$img_home->project_id = 0;
+			$img_home->img_type = 'profile';
+			$img_home->save();
+
+			$user->profile_pic = $img_home->id;
+		}
+
 		$user->save();
 
 		return $this->show($id);

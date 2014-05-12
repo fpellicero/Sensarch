@@ -3,7 +3,7 @@
 @section('content')
 <div id='user_info_wrapper'>
 	<div id='profile_img'>
-		{{ HTML::image('img/profile_blank.jpg') }}
+		{{ HTML::image($user->getProfilePicURL()) }}
 	</div>
 	<div id='user_info'>
 		@if(Auth::user()->id == $user->id)
