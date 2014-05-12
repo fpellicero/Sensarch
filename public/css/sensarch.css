@@ -206,7 +206,17 @@ ul.icons a:hover {
 	top: 100px;
 }
 
+
+#user_info_wrapper {
+    width: 90%;
+    max-width: 960px;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+
 #user_info {
+	padding-left: 20px;
 	background: #FFFFFF;
 	color: #3C3C3C;
 	border-top: 1px solid #999999;
@@ -217,14 +227,13 @@ ul.icons a:hover {
 }
 
 #profile_img {
-	position: relative;
-	left: 15px;
+	float: left;
+    z-index: 1;
 	border-top: 1px solid #999999;
 	border-bottom: 1px solid #999999;
 	border-left: 1px solid #999999;
-	padding-left: 0;
-	margin-right: 0;
 	height: 205px;
+	margin-right: 10px;
 }
 
 #profile_img img {

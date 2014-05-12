@@ -37,3 +37,4 @@ Route::get('project/{id}', array('as' => 'showProject', 'uses' => 'ProjectContro
  */
 Route::get('user/{id}', array('as' => 'userProfile', 'uses' => 'ProfileController@show'));
 Route::get('user/{id}/edit', array('as' => 'editUserProfile', 'uses' => 'ProfileController@edit'));
+Route::post('user/{id}/edit', 'ProfileController@update');

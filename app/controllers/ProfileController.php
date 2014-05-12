@@ -41,7 +41,13 @@ class ProfileController extends BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$user = User::find($id);
+		
+		$user->name = Input::get('name');
+		$user->surname = Input::get('surname');
+		$user->save();
+
+		return $this->show($id);
 	}
 
 

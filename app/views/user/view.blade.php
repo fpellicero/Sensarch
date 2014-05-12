@@ -1,11 +1,11 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class='row'>
-	<div id='profile_img' class='col-md-2 col-md-offset-2 col-sm-6'>
+<div id='user_info_wrapper'>
+	<div id='profile_img'>
 		{{ HTML::image('img/profile_blank.jpg') }}
 	</div>
-	<div id='user_info' class='col-md-6 col-sm-6'>
+	<div id='user_info'>
 		@if(Auth::user()->id == $user->id)
 		<a id='edit_profile_link' href="{{URL::action('editUserProfile',array($user->id))}}">
 			<span class='glyphicon glyphicon-pencil'></span>
