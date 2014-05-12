@@ -1,5 +1,5 @@
 <div class='project'>
-	<a href="/sensarch/public/project/{{$project->id}}">
+	<a href="{{ URL::route('showProject', $project->id) }}">
 		<div>
 			{{ HTML::image('img/projects/thumb.jpg') }}
 		</div>
