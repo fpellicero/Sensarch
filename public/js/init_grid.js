@@ -6,5 +6,4 @@ $(function() {
 		gutter: 15,
 		isFitWidth: true
 	})
-	$('#content-wrapper').height($('#container').height() + 400)
 });

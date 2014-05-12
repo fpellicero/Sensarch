@@ -2,10 +2,10 @@
 
 @section('content')
 <div class='row'>
-	<div id='profile_img' class='col-md-2 col-md-offset-2'>
+	<div id='profile_img' class='col-md-2 col-md-offset-2 col-sm-6'>
 		{{ HTML::image('img/profile_blank.jpg') }}
 	</div>
-	<div id='user_info' class='col-md-6'>
+	<div id='user_info' class='col-md-6 col-sm-6'>
 		@if(Auth::user()->id == $user->id)
 		<a id='edit_profile_link' href="{{URL::action('editUserProfile',array($user->id))}}">
 			<span class='glyphicon glyphicon-pencil'></span>

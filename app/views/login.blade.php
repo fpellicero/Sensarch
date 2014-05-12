@@ -43,16 +43,16 @@
 					Promociónate<br>
 					<small>empieza, és gratis.</small>
 				</h1>
-				<form>
+				<form method='post' action="{{URL::route('register')}}">
 					<div class='form-group form-inline'>
 						<input type='text' class='form-control' placeholder='Nombre' name='name'>
 						<input type='text' class='form-control' placeholder='Apellidos' name='surname'>
 					</div>
 					<div class='form-group'>
-						<input type='email' class='form-control' placeholder='Correo electrónico' name='mail'>
+						<input type='email' class='form-control' placeholder='Correo electrónico' name='username'>
 					</div>
 					<div class='form-group'>
-						<input type='password' class='form-control' placeholder='Contraseña' name='pass'>
+						<input type='password' class='form-control' placeholder='Contraseña' name='password'>
 					</div>
 					<hr>
 					<button type="submit" class="btn btn-primary">Súmate!</button>

@@ -13,11 +13,7 @@
 	@yield('cover_image')
 
 	<div id='content-wrapper'>
-		<div class='container'>
-			
-			@yield('content')
-
-		</div>
+		@yield('content')
 		<div style='clear: both'></div>
 	</div>
 
