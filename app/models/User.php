@@ -75,7 +75,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		if($img) {
 			return "uploads/" . $img->filename;
 		}else {
-			return "img/profile_blank.jpg";
+			return "img/profile_blank.png";
 		}
 	}
 

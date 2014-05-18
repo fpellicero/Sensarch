@@ -7,10 +7,10 @@
 	</div>
 	<div id='user_info'>
 		@if(Auth::user()->id == $user->id)
-		<a id='edit_profile_link' href="{{URL::action('editUserProfile',array($user->id))}}">
-			<span class='glyphicon glyphicon-pencil'></span>
-			Editar
-		</a>
+			<a id='edit_profile_link' href="{{URL::action('editUserProfile',array($user->id))}}">
+				<span class='glyphicon glyphicon-pencil'></span>
+				Editar
+			</a>
 		@endif
 		<h3>{{$user->name}} {{$user->surname}}</h3>
 		<h3><small>CIUTAT</small></h3>

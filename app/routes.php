@@ -28,13 +28,13 @@ Route::post('register', array('as' => 'register', 'uses' => 'LoginController@reg
  * Routes handling Projects
  */
 Route::get('project/new', array('as' => 'newProject', 'uses' => 'ProjectController@create'))->before('auth');
-Route::post('project/new', 'ProjectController@store');
-Route::get('project/{id}', array('as' => 'showProject', 'uses' => 'ProjectController@show'));
+Route::post('project/new', 'ProjectController@store')->before('auth');
+Route::get('project/{id}', array('as' => 'showProject', 'uses' => 'ProjectController@show'))->before('auth');
 
 
 /*
  * Routes handling Profile
  */
-Route::get('user/{id}', array('as' => 'userProfile', 'uses' => 'ProfileController@show'));
-Route::get('user/{id}/edit', array('as' => 'editUserProfile', 'uses' => 'ProfileController@edit'));
-Route::post('user/{id}/edit', 'ProfileController@update');
+Route::get('user/{id}', array('as' => 'userProfile', 'uses' => 'ProfileController@show'))->before('auth');
+Route::get('user/{id}/edit', array('as' => 'editUserProfile', 'uses' => 'ProfileController@edit'))->before('auth');
+Route::post('user/{id}/edit', 'ProfileController@update')->before('auth');

@@ -5,36 +5,51 @@
 	{{ HTML::script('packages/lightbox/js/lightbox.min.js') }}
 @stop
 
+@section('header')
+	@include('layouts.sections.header_transparent')
+@overwrite
+
 @section('cover_image')
 <div id='cover_picture'>
-	<img src="http://upload.wikimedia.org/wikipedia/commons/6/6f/Disney_Concert_Hall_by_Carol_Highsmith.jpg">
+	<img src="{{ $project->getCoverImgURL() }}">
 </div>
+<div id='cover_picture_spacer'></div>
 @stop
 
 @section('content')
-<div id='project_page'>
-	<center>
-		<h1>{{ $project->title }} <small>a {{ $project->city }}</small></h1>
-		<h2><small>{{ $user->name }} i {{ $user->surname }} al {{ $project->year }}</small></h2>
-	</center>
-	
-	<div class='row'>
-		<div class='col-md-8 col-md-offset-2 description'>
 
-			{{ $project->description }}
+<div class='container'>
+	<div class='row'>
+		<div class='col-md-6 col-md-offset-3'>
+			<center>
+				<h1 class='project_page_title'>
+					{{ $project->title }}
+				</h1>
+				<h2 class='project_page_subtitle'>
+					<small>
+						<strong>
+							{{ $user->name }} {{ $user->surname }}
+						</strong>
+						en {{ $project->city }}
+					</small>
+				</h2>
+
+			</center>
 		</div>
 	</div>
+
+	<div class='row'>
+		<div class='col-md-10 col-md-offset-1 description'>
+			{{ nl2br($project->description) }}
+		</div>
+	</div>
+
 	<div class='row'>
 		@foreach ($project->images as $index => $image)
-			@if($index%4 == 0)
-				</div>
-				<div class='row'>
-					<div class='col-md-1'></div>
-			@endif
 
 			@if($image->img_type == 'normal')
-				<div class='col-md-2 col-md-offset-1'>
-					<a data-lightbox="{{$project->title}}" href="/sensarch/public/uploads/{{ $image->filename }}">
+				<div class='col-md-4 project_page_image'>
+					<a class='thumbnail' data-lightbox="{{$project->title}}" href="/sensarch/public/uploads/{{ $image->filename }}">
 						<img class='img_project' src="/sensarch/public/uploads/{{ $image->filename }}">
 					</a>
 				</div>

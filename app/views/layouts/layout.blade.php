@@ -1,14 +1,14 @@
 <html>
 <head>
 	<title>Sensarch</title>
-
 	@include('layouts.global_includes')
-	
 	@yield('includes')
-	
 </head>
 <body>
-	@include('layouts.sections.header_white_bg')
+	
+	@section('header')
+		@include('layouts.sections.header_white_bg')
+	@show
 	
 	@yield('cover_image')
 

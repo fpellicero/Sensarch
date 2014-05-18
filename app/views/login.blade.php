@@ -31,7 +31,7 @@
 			</div>
 		</div>
 
-		<div class='row'>
+		<div class='row' id='login_body'>
 			<div class='col-md-7'>
 				<h1 class='white'>
 					Relaciónate<br>

@@ -13,7 +13,10 @@
 		</div>
 		<div id='user_info'>
 			<br>
-			<button type="submit" class="btn btn-success" style='float:right; margin-right: 5px;'>Save</button>
+			<button type="submit" class='btn btn-success' style='float:right; margin-right: 10px;'>
+				<span class="glyphicon glyphicon-floppy-disk"></span>
+				Save
+			</button>
 			<div class='form-group form-inline'>
 				<input type='text' class='form-control' name='name' value="{{$user->name}}">
 				<input type='text' class='form-control' name='surname' value="{{$user->surname}}">

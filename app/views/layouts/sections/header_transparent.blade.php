@@ -1,4 +1,4 @@
-<div class='page-header' id="header_fixe_negre">
+<div class='page-header' id="header_fixe_blanc">
 	<div id="logo">
 		<a href={{ URL::route('home') }}>
 			<span id="negrita">Sens</span><span id="thin">arch</span>
@@ -23,5 +23,5 @@
 			<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
 		</ul>
 	</div>
+
 </div>
-<div class='header_spacer'></div>

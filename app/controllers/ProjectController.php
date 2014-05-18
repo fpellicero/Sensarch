@@ -21,6 +21,7 @@ class ProjectController extends BaseController {
 	public function store()
 	{
 		$project = new Project;
+
 		$project->title = Input::get('title');
 		$project->description = Input::get('description');
 		$project->city = Input::get('city');
