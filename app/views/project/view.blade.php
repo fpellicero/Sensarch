@@ -48,7 +48,7 @@
 		@foreach ($project->images as $index => $image)
 
 			@if($image->img_type == 'normal')
-				<div class='col-md-4 project_page_image'>
+				<div class='col-md-4 col-sm-6 project_page_image'>
 					<a class='thumbnail' data-lightbox="{{$project->title}}" href="/sensarch/public/uploads/{{ $image->filename }}">
 						<img class='img_project' src="/sensarch/public/uploads/{{ $image->filename }}">
 					</a>

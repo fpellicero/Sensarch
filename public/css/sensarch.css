@@ -1,6 +1,30 @@
+@font-face
+{
+	font-family: 'dincondensed';
+	src: url('/sensarch/public/font/dincondensed.eot');
+}
+
+@font-face
+{
+	font-family: 'Gauntlet Classic';
+	src: url('../font/GauntletClasic.otf');
+}
+
+@font-face
+{
+	font-family: 'Gauntlet Thin';
+	src: url('../font/GauntletThin.otf');
+}
+
+h1, h2, p, input {
+	font-family: 'Lato' !important;
+}
+
 html.login {
-	height: 100% !important;
-	background-image: url(http://upload.wikimedia.org/wikipedia/commons/6/6f/Disney_Concert_Hall_by_Carol_Highsmith.jpg);
+	/*height: 100% !important;*/
+	overflow-x: hidden; 
+	background-image: url('../img/login_background.jpg');
+	background-size: cover;
 }
 
 .login body {
@@ -12,14 +36,68 @@ html.login {
 }
 
 #login_top {
-	position: relative;
-	top: -70px;
+	padding-left: 100px;
+}
+
+#login_top form {
+	margin-top: 25px;
 }
 
 #login_body {
-	position: absolute;
-	bottom: 10px;
-	width: inherit;
+	height: 70%;
+}
+
+#login_body h1.white {
+	margin-top: 150px;
+}
+
+#triangle, .white_bg {
+	height: 30px;
+	text-align: center;
+}
+.white_bg{background: white;}
+.triangle_1{
+	background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    height: 30px;
+    left: 0;
+    margin-left: -20px;
+    position: absolute;
+    width: 50%;
+}
+.triangle_2 {
+	background: none repeat scroll 0 0 #FFFFFF;
+    float: right;
+    height: 30px;
+    right: 0;
+    margin-right: -20px;
+    position: absolute;
+    width: 50%;
+    margin-top: -30px;
+}
+#login_form {
+	text-align: right;
+}
+
+#login-bottom {
+	background: #cfe79d;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+#login-bottom .quote{
+	padding: 25px;
+	color: white;
+	margin-top: 50px;
+	border-radius: 10px;
+	text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+	font-style: italic;
+	font-size: 1.5em;
+
+}
+
+.quote p.author {
+	text-align: right;
 }
 
 #logo {
@@ -31,13 +109,10 @@ html.login {
 
 #logo_login {
 	font-size: 50px;
-	margin-top: 20px;
+	text-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+
 }
 
-#logo_login a {
-	position: relative;
-	top: 47px;
-}
 #logo_login #thin{
 	font-family: 'Gauntlet Thin';
 	color:white;	
@@ -60,7 +135,7 @@ a:link, a:hover, a:active, a:visited {
 	margin: 0px;
 	border: none;
 	position:fixed;	
-	text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+	text-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
 	z-index: 2;
 }
 
@@ -150,7 +225,6 @@ a:link, a:hover, a:active, a:visited {
 	padding-top: 30px;
 	padding-bottom: 30px;
 	background: white;
-	box-shadow: 0 0 50px rgba(0,0,0,0.8);
 }
 
 #icon-login-wrapper p {
@@ -164,7 +238,7 @@ a:link, a:hover, a:active, a:visited {
 }
 
 #footer {
-	width: 100%;
+	width: 105%;
 	text-align: center;
 	padding: 29px 0 15px  0;
 	box-shadow: inset 0 1px 0 0 #e6e6e6;
@@ -351,9 +425,7 @@ ul.icons a:hover {
 
 h1.white {
 	color: white;
-	position: absolute;
-	bottom: -355px;
-	/*dshbfjsdjfdsf*/
+	text-align: center;
 }
 
 #container {
