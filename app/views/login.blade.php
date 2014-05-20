@@ -20,14 +20,14 @@
 			<div class='col-md-7' id='login_form'>
 				<form class='form-inline' method='post'>
 					<div class='form-group' style='width: 50%'>
-						<input type='text' class='form-control' placeholder='Username' name='username'>
+						<input type='text' class='form-control' placeholder='Email' name='email'>
 					</div>
 
 					<div class='form-group'>
-						<input type='password' class='form-control' placeholder='Password' name='password'>
+						<input type='password' class='form-control' placeholder='Contraseña' name='password'>
 					</div>
 
-					<button type="submit" class="btn btn-primary">Inicia Sesión</button>
+					<button type="submit" class="btn btn-primary">Entra</button>
 				</form>
 			</div>
 		</div>
@@ -90,7 +90,7 @@
 					<form method='post' action="{{URL::route('register')}}">
 						<div class='form-group form-inline'>
 							<input type='text' class='form-control' placeholder='Nombre' name='name'>
-							<input type='text' class='form-control' placeholder='Apellidos' name='surname'>
+							<input type='text' class='form-control' placeholder='Apellido' name='surname'>
 						</div>
 						<div class='form-group'>
 							<input type='email' class='form-control' placeholder='Correo electrónico' name='username'>
