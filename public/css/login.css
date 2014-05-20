@@ -1,0 +1,138 @@
+h1 {
+	font-family: 'Din Condensed' !important;
+	color: #af1d1d !important;
+	font-size: 4.5em !important;
+}
+
+h1 small {
+	color: white !important;
+	text-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+
+}
+
+h2 {
+	font-family: 'Din Condensed' !important;
+	color: #af1d1d !important;
+	font-size: 3.25em !important;
+}
+
+h3 {
+	font-family: 'Din Condensed' !important;
+	color: white !important;
+	font-size: 3.25em !important;
+}
+
+h3 small {
+	color: white !important;
+}
+
+html.login {
+	/*height: 100% !important;*/
+	overflow-x: hidden; 
+}
+
+#login_img {
+    left: 0;
+    width: 100%;
+    position: absolute;
+    top: -250px;
+    z-index: -50;
+}
+
+.login body {
+	background: transparent;
+}
+
+.login .container {
+	height: 100%;
+}
+
+#login_top {
+	margin-top: 30px;
+}
+
+#login_top form {
+	margin-top: 25px;
+}
+
+#login_body {
+	height: 75%;
+}
+
+#login_body h1 {
+	margin-top: 130px;
+}
+
+#triangle, .white_bg {
+	height: 30px;
+	text-align: center;
+}
+.white_bg{background: white;}
+.triangle_1{
+	background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    height: 30px;
+    left: 0;
+    margin-left: -20px;
+    position: absolute;
+    width: 50%;
+}
+.triangle_2 {
+	background: none repeat scroll 0 0 #FFFFFF;
+    float: right;
+    height: 30px;
+    right: 0;
+    margin-right: -20px;
+    position: absolute;
+    width: 50%;
+    margin-top: -30px;
+}
+#login_form {
+	text-align: right;
+}
+
+#login-bottom {
+	background: #f4726d;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+#login-bottom .quote{
+	font-family: Georgia, serif;
+	padding: 25px;
+	color: white;
+	margin-top: 50px;
+	border-radius: 10px;
+	text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+	font-style: italic;
+	font-size: 1.7em;
+
+}
+
+.quote p.author {
+	font-family: 'Din Condensed';
+	text-align: right;
+}
+
+#logo {
+	margin-left: 10%;
+	font-family: arial; 
+	font-size: 50px; 
+	position: fixed;
+}
+
+#logo_login {
+	font-size: 50px;
+	text-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+
+}
+
+#logo_login #thin{
+	font-family: 'Gauntlet Thin';
+	color:white;	
+}
+
+#logo_login #negrita {
+	font-family: 'Gauntlet Classic';
+	color:white;
+}

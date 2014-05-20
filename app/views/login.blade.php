@@ -2,7 +2,7 @@
 <head>
 	<title>Sensarch</title>
 	@include('layouts.global_includes')
-	{{ HTML::style('css/sensarch.css'); }}
+	{{ HTML::style('css/login.css') }}
 	{{ HTML::style('css/icons.css'); }}
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -36,7 +36,7 @@
 
 		<div class='row' id='login_body'>
 				<h1 class='white'>
-					PROMOCIONATE<br>
+					PROMOCIÓNATE<br>
 					<small class='green'>PROFESIONALMENTE CON TU PORTAFOLIO</small>
 				</h1>
 		</div>
@@ -50,28 +50,28 @@
 
 		<div id='icon-login-wrapper' class='row'>
 			<center>
-				<h1>¿Qué hacemos?</h1>
+				<h2>¿QUÉ HACEMOS?</h2>
 			</center>
 			<br><br><br>
-			<div class='col-md-4'>
+			<div class='col-md-3 col-md-offset-1'>
 				<center>
-					{{ HTML::image('img/cloud.png', '', array('class' => 'login-icon')); }}
+					{{ HTML::image('img/cloud.jpg', '', array('class' => 'login-icon')); }}
 					<br>
-					<p>Cuelga todos los proyectos que hayas realizado, en nuestro portafolio estandarizado</p>
+					<p>sube tus proyectos que te permitan promocionarte</p>
 				</center>
 			</div>
-			<div class='col-md-4'>
+			<div class='col-md-4 login-icons-mid'>
 				<center>
-					{{ HTML::image('img/share.png', '', array('class' => 'login-icon')); }}
+					{{ HTML::image('img/share.jpg', '', array('class' => 'login-icon')); }}
 					<br>
-					<p>Compártelos con quien desees, hazte visible y enseñanos de lo que eres capaz</p>
+					<p>considéralos públicos para <br> que te puedan descubrir</p>
 				</center>
 			</div>
-			<div class='col-md-4'>
+			<div class='col-md-3'>
 				<center>
-					{{ HTML::image('img/eye.png', '', array('class' => 'login-icon')); }}
+					{{ HTML::image('img/eye.jpg', '', array('class' => 'login-icon')); }}
 					<br>
-					<p>Descubre nuevos talentos y haz contactos profesionales</p>
+					<p>descubre nuevos talentos y haz contactos profesionales</p>
 				</center>		
 			</div>
 		</div>
@@ -79,14 +79,14 @@
 		<div class='row' id='login-bottom'>
 			<div class='col-md-5 col-md-offset-1 quote'>
 				<p>La inspiración existe, pero tiene que encontrarte trabajando</p>
-				<p class='author'>- P. Picasso</p>
+				<p class='author'>- P. PICASSO</p>
 			</div>
-			<div class='col-md-5 col-md-offset-1'>
+			<div class='col-md-4 col-md-offset-1'>
 				<div id='login_register'>
-					<h1>
-						ENTRA AHORA<br>
-						<small>es gratis, y lo seguirá siendo</small>
-					</h1>
+					<h3>
+						REGÍSTRATE<br>
+						<small>ES GRATIS, Y LO SEGUIRÁ SIENDO</small>
+					</h3>
 					<form method='post' action="{{URL::route('register')}}">
 						<div class='form-group form-inline'>
 							<input type='text' class='form-control' placeholder='Nombre' name='name'>
