@@ -23,8 +23,14 @@ h1, h2, p, input {
 html.login {
 	/*height: 100% !important;*/
 	overflow-x: hidden; 
-	background-image: url('../img/login_background.jpg');
-	background-size: cover;
+}
+
+#login_img {
+    left: 0;
+    width: 100%;
+    position: fixed;
+    top: -250px;
+    z-index: -50;
 }
 
 .login body {
@@ -36,7 +42,7 @@ html.login {
 }
 
 #login_top {
-	padding-left: 100px;
+	margin-top: 50px;
 }
 
 #login_top form {
@@ -44,7 +50,7 @@ html.login {
 }
 
 #login_body {
-	height: 70%;
+	height: 65%;
 }
 
 #login_body h1.white {
@@ -460,4 +466,8 @@ textarea {
 	font-size: 35px;
 	text-align: center;
 	font-style: italic;
+}
+
+.project_page_image {
+	max-height: 200px;
 }

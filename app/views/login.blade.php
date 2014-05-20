@@ -1,5 +1,4 @@
 <html class='login'>
-<div id='login_background'></div>
 <head>
 	<title>Sensarch</title>
 	@include('layouts.global_includes')
@@ -13,12 +12,12 @@
 <body>
 	<div class='container-fluid'>
 		<div class='row' id='login_top'>
-			<div class='col-md-6' id="logo_login">
+			<div class='col-md-3 col-md-offset-1' id="logo_login">
 				<a href={{ URL::route('home') }}>
 					<span id="negrita">Sens</span><span id="thin">arch</span>
 				</a>
 			</div>
-			<div class='col-md-6' id='login_form'>
+			<div class='col-md-7' id='login_form'>
 				<form class='form-inline' method='post'>
 					<div class='form-group' style='width: 50%'>
 						<input type='text' class='form-control' placeholder='Username' name='username'>
@@ -32,11 +31,13 @@
 				</form>
 			</div>
 		</div>
+		<img id='login_img' src="/sensarch/public/img/login_background.jpg">
+
 
 		<div class='row' id='login_body'>
 				<h1 class='white'>
-					Promociónate<br>
-					<small class='green'>Profesionalmente con tu portafolio</small>
+					PROMOCIONATE<br>
+					<small class='green'>PROFESIONALMENTE CON TU PORTAFOLIO</small>
 				</h1>
 		</div>
 
@@ -54,33 +55,33 @@
 			<br><br><br>
 			<div class='col-md-4'>
 				<center>
-					{{ HTML::image('img/ic1.png', '', array('class' => 'login-icon')); }}
+					{{ HTML::image('img/cloud.png', '', array('class' => 'login-icon')); }}
 					<br>
 					<p>Cuelga todos los proyectos que hayas realizado, en nuestro portafolio estandarizado</p>
 				</center>
 			</div>
 			<div class='col-md-4'>
 				<center>
-					{{ HTML::image('img/ic2.png', '', array('class' => 'login-icon')); }}
+					{{ HTML::image('img/share.png', '', array('class' => 'login-icon')); }}
 					<br>
 					<p>Compártelos con quien desees, hazte visible y enseñanos de lo que eres capaz</p>
 				</center>
 			</div>
 			<div class='col-md-4'>
 				<center>
-					{{ HTML::image('img/ic3.png', '', array('class' => 'login-icon')); }}
+					{{ HTML::image('img/eye.png', '', array('class' => 'login-icon')); }}
 					<br>
-					<p>Con las visitas de estudios profesionales, ¿tus proyectos serán capaces de atraerlos?</p>
+					<p>Descubre nuevos talentos y haz contactos profesionales</p>
 				</center>		
 			</div>
 		</div>
 
 		<div class='row' id='login-bottom'>
-			<div class='col-md-4 col-md-offset-1 quote'>
-				<p>I don't build in order to have clients. I have clients in order to build.</p>
-				<p class='author'>- Ayn Rand</p>
+			<div class='col-md-5 col-md-offset-1 quote'>
+				<p>La inspiración existe, pero tiene que encontrarte trabajando</p>
+				<p class='author'>- P. Picasso</p>
 			</div>
-			<div class='col-md-5 col-md-offset-2'>
+			<div class='col-md-5 col-md-offset-1'>
 				<div id='login_register'>
 					<h1>
 						ENTRA AHORA<br>
