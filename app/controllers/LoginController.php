@@ -11,50 +11,63 @@ class LoginController extends BaseController {
 	public function loginAttempt()
 	{
 		$user = array(
-			'username' => Input::get('username'),
+			'email' => Input::get('email'),
 			'password' => Input::get('password')
 			);
 
-		if (Auth::attempt($user)) {
+		if (Sentry::authenticate($user)) {
 			return Redirect::route('home')
-			->with('flash_notice', 'You are successfully logged in.');
+					->with('flash_notice', 'You are successfully logged in.');
 		}
 
         // authentication failure! lets go back to the login page
 		return Redirect::route('login')
-		->with('flash_error', 'Your username/password combination was incorrect.')
-		->withInput();
+					->with('flash_error', 'Your username/password combination was incorrect.')
+					->withInput();
 	}
 
 	public function logout()
 	{
-		Auth::logout();
+		Sentry::logout();
 
-		return Redirect::route('home')
-		->with('flash_notice', 'You are successfully logged out.');
+		return Redirect::route('login')
+			->with('flash_notice', 'You are successfully logged out.');
 	}
 
 	public function register()
 	{
-		$user = new User;
+		try {
+			$user = array();
 
-		$user->username = Input::get('username');
-		$user->password = Hash::make(Input::get('password'));
-		$user->name = Input::get('name');
-		$user->surname = Input::get('surname');
+			$user['first_name'] = Input::get('first_name');
+			$user['last_name'] = Input::get('last_name');
 
-		$user->save();
+			$user['email'] = Input::get('email');
+			$user['password'] = Input::get('password');
+			
+			Sentry::register($user, true);
 
-		$user = array(
-			'username' => $user->username, 
-			'password' => Input::get('password')
-		);
+			$credentials = array(
+				'email' => $user['email'],
+				'password' => $user['password']
+			);
 
-		if (Auth::attempt($user)) {
-			return Redirect::route('home')
-			->with('flash_notice', 'You are successfully logged in.');
+			if (Sentry::authenticate($credentials, false)) {
+				return Redirect::route('home');
+			}
 		}
-		
+		catch (Cartalyst\Sentry\Users\LoginRequiredException $e)
+		{
+			echo 'Login field is required.';
+		}
+		catch (Cartalyst\Sentry\Users\PasswordRequiredException $e)
+		{
+			echo 'Password field is required.';
+		}
+		catch (Cartalyst\Sentry\Users\UserExistsException $e)
+		{
+			echo 'User with this login already exists.';
+		}
 	}
 
 }

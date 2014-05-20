@@ -11,25 +11,25 @@
 |
 */
 
-Route::get('/', array('as' => 'home', 'uses' => 'HomeController@homePage'))->before('auth');;
+Route::get('/', array('as' => 'home', 'uses' => 'HomeController@homePage'));
 
 /*
  * Routes handling the login system.
  */
-Route::get('login', array('as' => 'login', 'uses' => 'LoginController@loginPage'))->before('guest');
+Route::get('login', array('as' => 'login', 'uses' => 'LoginController@loginPage'));
 Route::post('login', 'LoginController@loginAttempt');
-Route::get('logout', array('as' => 'logout', 'uses' => 'LoginController@logout'))->before('auth');
+Route::get('logout', array('as' => 'logout', 'uses' => 'LoginController@logout'));
 
 /*
  *	User register
  */
-Route::post('register', array('as' => 'register', 'uses' => 'LoginController@register'))->before('guest');
+Route::post('register', array('as' => 'register', 'uses' => 'LoginController@register'));
 /*
  * Routes handling Projects
  */
-Route::get('project/new', array('as' => 'newProject', 'uses' => 'ProjectController@create'))->before('auth');
-Route::post('project/new', 'ProjectController@store')->before('auth');
-Route::get('project/{id}', array('as' => 'showProject', 'uses' => 'ProjectController@show'))->before('auth');
+Route::get('project/new', array('as' => 'newProject', 'uses' => 'ProjectController@create'));
+Route::post('project/new', 'ProjectController@store');
+Route::get('project/{id}', array('as' => 'showProject', 'uses' => 'ProjectController@show'));
 
 
 /*

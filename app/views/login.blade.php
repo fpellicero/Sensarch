@@ -89,11 +89,11 @@
 					</h3>
 					<form method='post' action="{{URL::route('register')}}">
 						<div class='form-group form-inline'>
-							<input type='text' class='form-control' placeholder='Nombre' name='name'>
-							<input type='text' class='form-control' placeholder='Apellido' name='surname'>
+							<input type='text' class='form-control' placeholder='Nombre' name='first_name'>
+							<input type='text' class='form-control' placeholder='Apellido	' name='last_name'>
 						</div>
 						<div class='form-group'>
-							<input type='email' class='form-control' placeholder='Correo electrónico' name='username'>
+							<input type='email' class='form-control' placeholder='Correo electrónico' name='email'>
 						</div>
 						<div class='form-group'>
 							<input type='password' class='form-control' placeholder='Contraseña' name='password'>
