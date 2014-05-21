@@ -114,13 +114,6 @@ html.login {
 	text-align: right;
 }
 
-#logo {
-	margin-left: 10%;
-	font-family: arial; 
-	font-size: 50px; 
-	position: fixed;
-}
-
 #logo_login {
 	font-size: 50px;
 	text-shadow: 0 0 50px rgba(0, 0, 0, 0.8);

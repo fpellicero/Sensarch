@@ -10,12 +10,9 @@ class ProfileController extends BaseController {
 	 */
 	public function show($id)
 	{
-		if($id == NULL) {
-			$user = Auth::user();
-		}else {
-			$user = User::find($id);
-		}
-		$projects = $user->projects;
+		$user = Sentry::findUserById($id);
+		
+		$projects = $user->projects();
 		return View::make('user/view', array('user' => $user, 'projects' => $projects));
 	}
 

@@ -31,7 +31,7 @@
 					<div class='form-group form-inline'>
 						<h2>
 							<small>
-								<strong>Francesc Pellicero</strong> en  
+								<strong>{{Sentry::getUser()->getFirstName()}} {{Sentry::getUser()->getLastName()}}</strong> en  
 								<input type='text' class='form-control' name='city' placeholder='Ciutat'>
 							</small>
 						</h2>

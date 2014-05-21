@@ -6,13 +6,13 @@
 		{{ HTML::image($user->getProfilePicURL()) }}
 	</div>
 	<div id='user_info'>
-		@if(Auth::user()->id == $user->id)
+		@if(Sentry::getUser()->id == $user->id)
 			<a id='edit_profile_link' href="{{URL::action('editUserProfile',array($user->id))}}">
 				<span class='glyphicon glyphicon-pencil'></span>
 				Editar
 			</a>
 		@endif
-		<h3>{{$user->name}} {{$user->surname}}</h3>
+		<h3>{{ $user->getFirstName() }} {{ $user->getLastName() }}</h3>
 		<h3><small>CIUTAT</small></h3>
 		<h4><small>UNIVERSITAT ACTUAL i CURS</small></h4>
 
@@ -23,7 +23,7 @@
 
 <div id='container'>
 	
-	@if(Auth::user()->id == $user->id)
+	@if(Sentry::getUser()->id == $user->id)
 	<div class='item'>
 		<div class='project'>
 			<a href="{{URL::action('newProject')}}">

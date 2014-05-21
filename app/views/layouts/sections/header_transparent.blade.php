@@ -6,8 +6,9 @@
 	</div>
 	<div id='nav_links_header' class='hidden-xs'>
 		<a href={{ URL::route('home') }}>HOME</a>
-		<a href={{ URL::action('userProfile', array(Auth::user()->id)) }}>PERFIL</a>
-		<a href={{ URL::route('logout') }}>SALIR</a>
+		@if(Sentry::check())
+			<a href={{ URL::action('userProfile', array(Sentry::getUser()->id)) }}>PERFIL</a>
+		@endif		<a href={{ URL::route('logout') }}>SALIR</a>
 	</div>
 
 	<div class="dropdown visible-xs">

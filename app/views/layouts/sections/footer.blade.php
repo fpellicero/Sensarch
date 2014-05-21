@@ -6,7 +6,7 @@
 	</ul>
 	<div class="copyright">
 		<ul class="menu">
-			<li>&copy; Sensarch 2014 - <a href="terms.php" style="text-decoration:none;">Condiciones de servicio</a></li>
+			<li>&copy; Sensarch 2014 - <a href="{{URL::route('terms')}}" style="text-decoration:none;">Condiciones de servicio</a></li>
 		</ul>
 	</div>
 </div>

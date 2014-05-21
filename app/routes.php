@@ -14,6 +14,10 @@
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@homePage'));
 
 /*
+ *	Static pages
+ */
+Route::get('terms', array('as' => 'terms', 'uses' => 'BaseController@termsPage'));
+/*
  * Routes handling the login system.
  */
 Route::get('login', array('as' => 'login', 'uses' => 'LoginController@loginPage'));

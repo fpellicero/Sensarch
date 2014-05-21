@@ -20,4 +20,9 @@ class BaseController extends Controller {
 		}
 	}
 
+	public function termsPage()
+	{
+		return View::make('pages.terms');
+	}
+
 }
