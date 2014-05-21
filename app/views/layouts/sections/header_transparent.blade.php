@@ -5,10 +5,13 @@
 		</a>
 	</div>
 	<div id='nav_links_header' class='hidden-xs'>
-		<a href={{ URL::route('home') }}>HOME</a>
 		@if(Sentry::check())
+			<a href={{ URL::route('home') }}>HOME</a>
 			<a href={{ URL::action('userProfile', array(Sentry::getUser()->id)) }}>PERFIL</a>
-		@endif		<a href={{ URL::route('logout') }}>SALIR</a>
+			<a href={{ URL::route('logout') }}>SALIR</a>
+		@else
+			<a href="{{ URL::route('login') }}#login-bottom">CREA TU CUENTA</a>
+		@endif
 	</div>
 
 	<div class="dropdown visible-xs">

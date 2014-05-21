@@ -401,3 +401,18 @@ textarea {
 	font-family: 'Lato';
 	font-size: 2em;
 }
+
+#new_project_block {
+	font-family: 'Din Condensed';
+    background: none repeat scroll 0 0 #FAFAFA;
+    border: 2px dashed #E6E6E6;
+    font-size: 1.5em;
+    height: 100px;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #969696;
+}
+#new_project_block > div {
+	position: relative;
+	top: 25px;
+}
