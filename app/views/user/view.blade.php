@@ -21,7 +21,7 @@
 
 		<div class='col-md-9 col-md-offset-1'>
 			@foreach($projects as $index => $project)
-				@include('blocks.project')->with('project', $project)
+				@include('blocks.project', array('project' => $project, 'user' => NULL))
 			@endforeach
 		</div>
 	</div>

@@ -10,7 +10,14 @@
 				{{ $project->title }}
 			</a>
 			<br>
-			<small>{{ $project->city }}</small>
+			<small>
+				@if($user)
+					<a href="{{ URL::route('userProfile', $user->id) }}">
+						<strong>{{ $user->getFirstName() }} {{ $user->getLastName() }}</strong>
+					</a> en
+				@endif
+				{{ $project->city }}
+			</small>
 		</h2>
 
 		<p>
