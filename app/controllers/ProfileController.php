@@ -11,8 +11,7 @@ class ProfileController extends BaseController {
 	public function show($id)
 	{
 		$user = Sentry::findUserById($id);
-		
-		$projects = $user->projects();
+		$projects = $user->projects;
 		return View::make('user/view', array('user' => $user, 'projects' => $projects));
 	}
 

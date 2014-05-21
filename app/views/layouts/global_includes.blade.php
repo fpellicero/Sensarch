@@ -1,4 +1,7 @@
 <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+{{ HTML::style('css/fonts.css'); }}
+
 {{ HTML::style('css/sensarch.css'); }}
 {{ HTML::style('css/icons.css'); }}
 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>

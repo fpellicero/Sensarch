@@ -1,0 +1,17 @@
+@font-face
+{
+	font-family: 'Din Condensed';
+	src: url('../font/DinCondensedLight.otf');
+}
+
+@font-face
+{
+	font-family: 'Gauntlet Classic';
+	src: url('../font/GauntletClasic.otf');
+}
+
+@font-face
+{
+	font-family: 'Gauntlet Thin';
+	src: url('../font/GauntletThin.otf');
+}

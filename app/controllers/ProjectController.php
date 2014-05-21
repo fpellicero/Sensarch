@@ -25,7 +25,7 @@ class ProjectController extends BaseController {
 		$project->title = Input::get('title');
 		$project->description = Input::get('description');
 		$project->city = Input::get('city');
-		$project->author_id = Auth::user()->id;
+		$project->author_id = Sentry::getUser()->id;
 		$project->save();
 
 		$file = Input::file('img_home');
