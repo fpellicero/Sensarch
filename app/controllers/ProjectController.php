@@ -25,7 +25,8 @@ class ProjectController extends BaseController {
 			'title' => 'Required',
 			'city' => 'Required',
 			'description' => 'Required',
-			'img_home' => 'Required'
+			'img_home' => 'Required',
+			'images' => 'Required'
 		);
 
 		$validator = Validator::make(Input::all(), $rules);
@@ -121,7 +122,15 @@ class ProjectController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$project = Project::find($id);
+
+		if(Sentry::getUser()->id != $project->author_id) {
+			return Redirect::route('home');
+		}else {
+			Project::destroy($id);
+			return Redirect::route('userProfile', Sentry::getUser()->id);	
+		}
+		
 	}
 
 

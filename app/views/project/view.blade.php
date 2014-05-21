@@ -19,6 +19,13 @@
 @section('content')
 
 <div class='container'>
+	@if(Sentry::check() && Sentry::getUser()->id == $project->author_id)
+	<div class='col-md-1 col-md-offset-10 project_context_links'>
+		<a href="{{ URL::route('destroyProject', $project->id) }}">
+			<i class="fa fa-trash-o"></i> Delete
+		</a>
+	</div>
+	@endif
 	<div class='row'>
 		<div class='col-md-6 col-md-offset-3'>
 			<center>

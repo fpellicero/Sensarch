@@ -17,7 +17,7 @@
 					<span id="negrita">Sens</span><span id="thin">arch</span>
 				</a>
 			</div>
-			<div class='col-md-7' id='login_form'>
+			<div class='col-md-5 col-md-offset-2' id='login_form'>
 				<form class='form-inline' method='post'>
 					<div class='form-group' style='width: 50%'>
 						<input type='text' class='form-control' placeholder='Email' name='email'>
@@ -29,16 +29,28 @@
 
 					<button type="submit" class="btn btn-primary">Entra</button>
 				</form>
+				@if (Session::has('errors'))
+				<div class="alert alert-danger" style='width: 300px; float: right; text-align: left;'>
+					<ul>
+						{{ implode('', $errors->all('<li>:message</li>')) }}
+					</ul>
+				</div>
+				@endif
 			</div>
 		</div>
 		<img id='login_img' src="/sensarch/public/img/login_background.jpg">
 
 
 		<div class='row' id='login_body'>
-				<h1 class='white'>
-					PROMOCIÓNATE<br>
-					<small class='green'>PROFESIONALMENTE CON TU PORTAFOLIO</small>
-				</h1>
+			<h1 class='white'>
+				PROMOCIÓNATE<br>
+				<small>
+					PROFESIONALMENTE CON TU PORTAFOLIO <br><br>
+					<a href="#login-bottom">
+						<i class="fa fa-angle-down"></i>
+					</a>
+				</small>
+			</h1>
 		</div>
 
 		<div id='triangle'>
@@ -52,7 +64,7 @@
 			<center>
 				<h2>¿QUÉ HACEMOS?</h2>
 			</center>
-			<br><br><br>
+			<br><br>
 			<div class='col-md-3 col-md-offset-1'>
 				<center>
 					{{ HTML::image('img/cloud.jpg', '', array('class' => 'login-icon')); }}
@@ -98,10 +110,15 @@
 						<div class='form-group'>
 							<input type='password' class='form-control' placeholder='Contraseña' name='password'>
 						</div>
-						<hr>
 						<button type="submit" class="btn btn-success">Súmate!</button>
-
 					</form>
+					<hr>
+					<h3>
+						<small>O entra a echar un vistazo!</small>
+					</h3>
+					<a href="{{ URL::route('home') }}">
+						<button class='btn btn-primary'>Entrar como visitante</button>
+					</a>
 				</div>
 			</div>
 		</div>

@@ -34,6 +34,7 @@ Route::post('register', array('as' => 'register', 'uses' => 'LoginController@reg
 Route::get('project/new', array('as' => 'newProject', 'uses' => 'ProjectController@create'));
 Route::post('project/new', 'ProjectController@store');
 Route::get('project/{id}', array('as' => 'showProject', 'uses' => 'ProjectController@show'));
+Route::get('project/{id}/delete', array('as' => 'destroyProject', 'uses' => 'ProjectController@destroy'));
 
 
 /*

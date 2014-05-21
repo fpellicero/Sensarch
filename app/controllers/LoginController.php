@@ -10,6 +10,17 @@ class LoginController extends BaseController {
 
 	public function loginAttempt()
 	{
+		$rules = array(
+			'email' => 'Required',
+			'password' => 'Required'
+		);
+
+		$validator = Validator::make(Input::all(), $rules);
+
+		if($validator->fails()) {
+			return Redirect::route('login')->withErrors($validator);
+		}
+
 		$user = array(
 			'email' => Input::get('email'),
 			'password' => Input::get('password')
@@ -56,17 +67,9 @@ class LoginController extends BaseController {
 				return Redirect::route('home');
 			}
 		}
-		catch (Cartalyst\Sentry\Users\LoginRequiredException $e)
+		catch (Exception $e)
 		{
-			echo 'Login field is required.';
-		}
-		catch (Cartalyst\Sentry\Users\PasswordRequiredException $e)
-		{
-			echo 'Password field is required.';
-		}
-		catch (Cartalyst\Sentry\Users\UserExistsException $e)
-		{
-			echo 'User with this login already exists.';
+			return Redirect::route('login');
 		}
 	}
 

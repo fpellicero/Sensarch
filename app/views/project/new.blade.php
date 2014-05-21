@@ -32,14 +32,14 @@
 				<center>
 					<div class='form-group'>
 						<h1>
-							<input type='text' class='form-control' name='title' placeholder='Títol' >					
+							<input type='text' class='form-control' name='title' placeholder='Título del proyecto' >					
 						</h1>
 					</div>
 					<div class='form-group form-inline'>
 						<h2>
 							<small>
 								<strong>{{Sentry::getUser()->getFirstName()}} {{Sentry::getUser()->getLastName()}}</strong> en  
-								<input type='text' class='form-control' name='city' placeholder='Ciutat'>
+								<input type='text' class='form-control' name='city' placeholder='Ciudad del proyecto'>
 							</small>
 						</h2>
 					</div>
@@ -50,10 +50,10 @@
 		<div class='row'>
 			<div class='col-md-8 col-md-offset-2 description'>
 				<br>
-				<textarea rows='15' placeholder='Description' name='description'></textarea>
+				<textarea rows='15' placeholder='Descripción del proyecto' name='description'></textarea>
 				<div class='form-group'>
 					<br><br>
-					<label>Imatges</label>
+					<label>Imágenes</label>
 					<input id='images' class='form-control' type="file" name="images[]" multiple>
 				</div>
 			</div>
