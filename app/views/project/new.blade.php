@@ -5,7 +5,7 @@
 @stop
 
 @section('header')
-	@include('layouts.sections.header_transparent')
+@include('layouts.sections.header_transparent')
 @overwrite
 
 @section('cover_image')
@@ -19,6 +19,13 @@
 @section('content')
 <form method='post' enctype="multipart/form-data">
 	<div class='container'>
+		@if (Session::has('errors'))
+		<div class="alert alert-danger">
+			<ul>
+				{{ implode('', $errors->all('<li>:message</li>')) }}
+			</ul>
+		</div>
+		@endif
 		<button type="submit" class="btn btn-success" style='float: right;'><i class='fa fa-save'></i> Crear</button>
 		<div class='row'>
 			<div class='col-md-6 col-md-offset-3'>

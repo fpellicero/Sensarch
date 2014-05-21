@@ -20,6 +20,20 @@ class ProjectController extends BaseController {
 	 */
 	public function store()
 	{
+
+		$rules = array(
+			'title' => 'Required',
+			'city' => 'Required',
+			'description' => 'Required',
+			'img_home' => 'Required'
+		);
+
+		$validator = Validator::make(Input::all(), $rules);
+
+		if ($validator->fails()) {
+			return Redirect::route('newProject')->withInput()->withErrors($validator);
+		}
+
 		$project = new Project;
 
 		$project->title = Input::get('title');
