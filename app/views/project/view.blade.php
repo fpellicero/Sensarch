@@ -28,7 +28,9 @@
 				<h2 class='project_page_subtitle'>
 					<small>
 						<strong>
-							{{ $user->name }} {{ $user->surname }}
+							<a href="{{ URL::route('userProfile', $user->id) }}">
+								{{ $user->getFirstName() }} {{ $user->getLastName() }}
+							</a>
 						</strong>
 						en {{ $project->city }}
 					</small>

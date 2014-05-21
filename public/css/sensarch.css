@@ -292,8 +292,8 @@ ul.icons a:hover {
 }
 
 #cover_picture img {
-	width: 100%;
-	margin-top: -45% !important;
+	min-height: 100%;
+	min-width: 100%;
 }
 #cover_picture {
 	height: 400px;
@@ -363,6 +363,7 @@ textarea {
 
 .project_page_image {
 	max-height: 200px;
+	margin-bottom: 100px;
 }
 
 #legal-sidebar {
