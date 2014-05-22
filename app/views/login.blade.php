@@ -38,7 +38,7 @@
 				@endif
 			</div>
 		</div>
-		<img id='login_img' src="/sensarch/public/img/login_background.jpg">
+		<img id='login_img' src="img/login_background.jpg">
 
 
 		<div class='row' id='login_body'>
