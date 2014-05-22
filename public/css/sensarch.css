@@ -416,6 +416,10 @@ textarea {
     text-align: center;
     color: #969696;
 }
+
+#new_project_block:hover {
+	color: #af1d1d;
+}
 #new_project_block > div {
 	position: relative;
 	top: 25px;

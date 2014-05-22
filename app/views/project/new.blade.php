@@ -10,7 +10,7 @@
 
 @section('cover_image')
 <div id='cover_picture'>
-	<img src="http://upload.wikimedia.org/wikipedia/commons/6/6f/Disney_Concert_Hall_by_Carol_Highsmith.jpg">
+	<img src="">
 	<a href="#">Cambiar</a>
 </div>
 <div id='cover_picture_spacer'></div>
