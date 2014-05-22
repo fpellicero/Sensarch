@@ -5,6 +5,7 @@ class LoginController extends BaseController {
 	
 	public function loginPage()
 	{
+		Session::put('newcomer', false);
 		return View::make('login');
 	}
 
