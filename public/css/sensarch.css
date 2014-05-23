@@ -321,9 +321,6 @@ ul.icons a:hover {
 	padding: 5px;
 	position: absolute;
 }
-.img_project {
-	width: 100%;
-}
 
 h1.white {
 	color: white;
@@ -365,8 +362,17 @@ textarea {
 }
 
 .project_page_image {
-	max-height: 200px;
+	height: 250px;
 	margin-bottom: 100px;
+}
+
+.project_page_image a {
+	height: 100%;
+}
+
+.project_page_image img {
+	max-width: 100%;
+	max-height: 100%;
 }
 
 #legal-sidebar {
