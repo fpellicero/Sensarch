@@ -23,5 +23,5 @@
 		<p>
 			{{ substr($project->description,0,400) }}...
 		</div>
-
+		<hr>
 	</div>

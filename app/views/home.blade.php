@@ -3,9 +3,7 @@
 @section('content')
 <div class='container'>
 	<div class='col-md-3'>
-		<center>
-			<span id='beta'>BETA</span>
-		</center>
+		<span id='beta'>BETA</span>
 		<p style='text-align: left;'>
 			<i>
 				Si tienes dudas, comentarios, sugerencias... háznoslo saber en
