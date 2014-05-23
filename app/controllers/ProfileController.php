@@ -11,8 +11,8 @@ class ProfileController extends BaseController {
 	public function show($id)
 	{
 		$user = Sentry::findUserById($id);
-		$projects = $user->projects->sortBy(function($created_at) {
-			return !$created_at;
+		$projects = $user->projects->sortBy(function($project) {
+			return !$project->created_at;
 		});
 		return View::make('user/view', array('user' => $user, 'projects' => $projects));
 	}

@@ -58,7 +58,7 @@
 
 			@if($image->img_type == 'normal')
 				<div class='col-md-4 col-sm-6 project_page_image'>
-					<a class='thumbnail' data-lightbox="{{$project->title}}" href="/sensarch/public/uploads/{{ $image->filename }}">
+					<a class='thumbnail' data-lightbox="{{$project->title}}" href="/uploads/{{ $image->filename }}">
 						<img class='img_project' src="/uploads/{{ $image->filename }}">
 					</a>
 				</div>
