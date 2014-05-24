@@ -7,9 +7,16 @@
 	font-size: 1.3em;
 }
 
-#profile_img_old a {
+#profile_sidebar #profile_img_old a {
 	position: absolute;
 	top: 0;
 	right: 0;
 }
 
+
+#profile_top {
+	width: 250px;
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom: 50px;
+}
