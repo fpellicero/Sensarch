@@ -6,28 +6,16 @@
 
 @section('content')
 <div class='container'>
-	<div class='col-md-2'>
+	<div class='col-md-2 hidden-sm hidden-xs'>
 		<div id='profile_sidebar'>
-			@if(Sentry::check() && Sentry::getUser()->id == $user->id)
-			<a id='edit_profile_link' href="{{URL::action('editUserProfile',array($user->id))}}">
-				<span class='glyphicon glyphicon-pencil'></span>
-				Editar
-			</a>
-			@endif
-			<div id='profile_img_old'>
-				{{ HTML::image($user->getProfilePicURL(),'profile_picture', array('class' => 'img-circle')) }}
-			</div>
-
-			<div id='profile_info_old'>
-				<p>
-					{{ $user->getFirstName() }}
-					{{ $user->getLastName() }}
-				</p>
-			</div>
+			@include('blocks.user_info')->with('user', $user)
 		</div>
 	</div>
 
-	<div class='col-md-9 col-md-offset-1'>
+	<div class='col-md-9 col-md-offset-1 col-sm-12 col-xs-12'>
+		<div id='profile_top' class='hidden-md hidden-lg'>
+			@include('blocks.user_info')->with('user', $user)
+		</div>
 		<a href="{{ URL::route('newProject') }}">
 			@if(Sentry::check() && Sentry::getUser()->id == $user->id)
 				<div id='new_project_block'>
