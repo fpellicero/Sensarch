@@ -464,3 +464,9 @@ textarea {
 	height: 100%;
 	background: #E5E5E5;
 }
+
+#profile_sidebar {
+	position: fixed;
+	width: 15%;
+	text-align: center;
+}
