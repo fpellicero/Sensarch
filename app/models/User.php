@@ -21,7 +21,11 @@ class User extends SentryModel {
 
 	public function getProfilePicURL()
 	{
-		return 'img/profile_blank.png';
+		if ($this->profile_pic != 0) {
+			return 'profiles/' . Image::find($this->profile_pic)->filename;
+		}else {
+			return 'img/profile_blank.png';
+		}
 	}
 
 }
