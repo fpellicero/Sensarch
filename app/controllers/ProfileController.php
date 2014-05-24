@@ -26,8 +26,15 @@ class ProfileController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		$user = User::find($id);
-		return View::make('user/edit')->with('user', $user);
+		if (!Sentry::check() || Sentry::getUser()->id != $id) {
+			App::abort(403, 'Unauthorized');
+		}
+		
+		$user = Sentry::findUserById($id);
+		$projects = $user->projects->sortBy(function($project) {
+			return !$project->created_at;
+		});
+		return View::make('user/edit', array('user' => $user, 'projects' => $projects));
 	}
 
 
@@ -39,26 +46,40 @@ class ProfileController extends BaseController {
 	 */
 	public function update($id)
 	{
+		if (!Sentry::check() || Sentry::getUser()->id != $id) {
+			App::abort(403, 'Unauthorized');
+		}
+
 		$user = User::find($id);
 
-		$user->name = Input::get('name');
-		$user->surname = Input::get('surname');
+		$user->first_name = Input::get('first_name');
+		$user->last_name = Input::get('last_name');
 
 		if(Input::file('profile_pic') != NULL ) {
+
+			/*
+			 * Delete the old profile picture
+			 */
+			$filepath = public_path() . '/profiles/' . Image::find($user->profile_pic)->filename;
+			File::delete($filepath);
+			Image::destroy($user->profile_pic);
 			
+			/*
+			 * Stores the new one and assign to user
+			 */
 			$file = Input::file('profile_pic');
 
-			$destinationPath = 'uploads';
-			$filename = uniqid(md5_file($file->getRealPath())) . '.' . $file->getClientOriginalExtension();
+			$destinationPath = 'profiles';
+			$filename = $user->id . '.' . $file->getClientOriginalExtension();
 			$file->move($destinationPath, $filename);
 
-			$img_home = new Image();
-			$img_home->filename = $filename;
-			$img_home->project_id = 0;
-			$img_home->img_type = 'profile';
-			$img_home->save();
+			$img = new Image();
+			$img->filename = $filename;
+			$img->project_id = 0;
+			$img->img_type = 'profile';
+			$img->save();
 
-			$user->profile_pic = $img_home->id;
+			$user->profile_pic = $img->id;
 		}
 
 		$user->save();
