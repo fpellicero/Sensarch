@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
+
 <div class='container'>
 	<div class='col-md-3'>
 		<span id='beta'>BETA</span>

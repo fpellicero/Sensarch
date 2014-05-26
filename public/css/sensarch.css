@@ -299,7 +299,6 @@ ul.icons a:hover {
 	min-width: 100%;
 }
 #cover_picture {
-	height: 400px;
 	overflow: hidden;
 	position: fixed;
 	width: 100%;
@@ -307,7 +306,7 @@ ul.icons a:hover {
 }
 
 #cover_picture_spacer {
-	height: 400px;
+	height: 80%;
 }
 
 #cover_picture a {

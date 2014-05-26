@@ -1,7 +1,7 @@
 <div class='project_old'>
 	<div class='project_cover_old'>
 		<a href="{{ URL::route('showProject', $project->id) }}">
-			<img class='project_cover_old' src="{{ $project->getCoverImgURL() }}">
+			<img class='project_cover_old' src="{{ Croppa::url($project->getCoverImgURL(), 825, 300,  array('quadrant' => 'C'))  }}">
 		</a>
 	</div>
 	<div class='project_info_old'>

@@ -45,7 +45,7 @@ class ProjectController extends BaseController {
 
 		$file = Input::file('img_home');
 
-		$destinationPath = 'uploads';
+		$destinationPath = 'projects/' . $project->id;
 		$filename = uniqid(md5_file($file->getRealPath())) . '.' . $file->getClientOriginalExtension();
 		$file->move($destinationPath, $filename);
 
@@ -61,7 +61,6 @@ class ProjectController extends BaseController {
 
 		foreach (Input::file('images') as $file) {
 
-			$destinationPath = 'uploads';
 			$filename = uniqid(md5_file($file->getRealPath())) . '.' . $file->getClientOriginalExtension();
 			$file->move($destinationPath, $filename);
 

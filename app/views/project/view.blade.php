@@ -11,7 +11,7 @@
 
 @section('cover_image')
 <div id='cover_picture'>
-	<img src="{{ $project->getCoverImgURL() }}">
+	<img src="{{ Croppa::url($project->getCoverImgURL(),1366,600, array('quadrant' => 'C')) }}">
 </div>
 <div id='cover_picture_spacer'></div>
 @stop
@@ -58,8 +58,8 @@
 
 			@if($image->img_type == 'normal')
 				<div class='col-md-4 col-sm-6 project_page_image'>
-					<a class='thumbnail' data-lightbox="{{$project->title}}" href="/uploads/{{ $image->filename }}">
-						<img class='img_project' src="/uploads/{{ $image->filename }}">
+					<a class='thumbnail' data-lightbox="{{$project->title}}" href="/projects/{{ $project->id }}/{{ $image->filename }}">
+						<img class='img_project' src="{{ Croppa::url('/projects/' . $project->id . '/' . $image->filename, 320, 250); }}">
 					</a>
 				</div>
 			@endif
