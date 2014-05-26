@@ -4,7 +4,7 @@
 			<span class='glyphicon glyphicon-pencil'></span>
 			Cambiar
 		</a>
-		{{ HTML::image($user->getProfilePicURL(),'profile_picture', array('class' => 'img-circle')) }}
+		{{ HTML::image(Croppa::url($user->getProfilePicURL(),250),'profile_picture', array('class' => 'img-circle')) }}
 	</div>
 
 	<div id='profile_info_old' class='form-group form-inline'>
