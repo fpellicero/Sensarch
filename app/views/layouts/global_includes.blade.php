@@ -11,4 +11,5 @@
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/masonry/3.1.2/masonry.pkgd.min.js"></script>
-{{HTML::script('js/init_grid.js')}}
+{{ HTML::script('js/init_grid.js') }}
+{{ HTML::script('js/google_analytics.js') }}
