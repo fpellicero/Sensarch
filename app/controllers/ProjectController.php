@@ -24,6 +24,7 @@ class ProjectController extends BaseController {
 		$rules = array(
 			'title' => 'Required',
 			'city' => 'Required',
+			'user_id' => 'Required',
 			'description' => 'Required',
 			'img_home' => 'Required',
 			'images' => 'Required'
@@ -40,14 +41,19 @@ class ProjectController extends BaseController {
 		$project->title = Input::get('title');
 		$project->description = Input::get('description');
 		$project->city = Input::get('city');
-		$project->author_id = Sentry::getUser()->id;
+		$project->author_id = Input::get('user_id');
 		$project->save();
 
-		$file = Input::file('img_home');
 
-		$destinationPath = 'projects/' . $project->id;
-		$filename = uniqid(md5_file($file->getRealPath())) . '.' . $file->getClientOriginalExtension();
-		$file->move($destinationPath, $filename);
+		/*
+		 * Saving new image
+		 */
+		$file = file_get_contents(Input::get('img_home'));
+		$path = public_path() . '/projects/' . $project->id . '/';
+		$filename = uniqid() . '.png'; 
+	
+		File::makeDirectory('projects/' . $project->id);
+		file_put_contents($path . $filename, $file);
 
 		$img_home = new Image();
 		$img_home->filename = $filename;
@@ -59,16 +65,22 @@ class ProjectController extends BaseController {
 		$project->save();
 
 
-		foreach (Input::file('images') as $file) {
 
-			$filename = uniqid(md5_file($file->getRealPath())) . '.' . $file->getClientOriginalExtension();
-			$file->move($destinationPath, $filename);
+		$images = Input::get('images');
+		foreach ($images as $image) {
+			
+			$image = file_get_contents($image);
+			$path = public_path() . '/projects/' . $project->id . '/';
+			$filename = uniqid() . '.png';
+			
+			file_put_contents($path . $filename, $image);
 
 			$img = new Image();
 			$img->filename = $filename;
 			$img->project_id = $project->id;
 			$img->img_type = 'normal';
 			$img->save();
+			
 		}
 
 		return Redirect::to('project/new')->with('flash_notice', 'El projecte s\'ha creat correctament!');

@@ -17,6 +17,7 @@ Route::get('/', array('as' => 'home', 'uses' => 'HomeController@homePage'));
  *	Static pages
  */
 Route::get('terms', array('as' => 'terms', 'uses' => 'BaseController@termsPage'));
+
 /*
  * Routes handling the login system.
  */
@@ -28,6 +29,7 @@ Route::get('logout', array('as' => 'logout', 'uses' => 'LoginController@logout')
  *	User register
  */
 Route::post('register', array('as' => 'register', 'uses' => 'LoginController@register'));
+
 /*
  * Routes handling Projects
  */

@@ -10,7 +10,9 @@
 
 @section('cover_image')
 <div id='cover_picture'>
-	<img src="">
+	<canvas id='canvas' width='1366' height='600'>
+		No HTML5
+	</canvas>
 	<a href="#">Cambiar</a>
 </div>
 <div id='cover_picture_spacer'></div>
@@ -32,14 +34,14 @@
 				<center>
 					<div class='form-group'>
 						<h1>
-							<input type='text' class='form-control' name='title' placeholder='Título del proyecto' >					
+							<input type='text' class='form-control' id='title' name='title' placeholder='Título del proyecto' >					
 						</h1>
 					</div>
 					<div class='form-group form-inline'>
 						<h2>
 							<small>
 								<strong>{{Sentry::getUser()->getFirstName()}} {{Sentry::getUser()->getLastName()}}</strong> en  
-								<input type='text' class='form-control' name='city' placeholder='Ciudad del proyecto'>
+								<input type='text' class='form-control' id='city' name='city' placeholder='Ciudad del proyecto'>
 							</small>
 						</h2>
 					</div>
@@ -50,7 +52,7 @@
 		<div class='row'>
 			<div class='col-md-8 col-md-offset-2 description'>
 				<br>
-				<textarea rows='15' placeholder='Descripción del proyecto' name='description'></textarea>
+				<textarea rows='15' placeholder='Descripción del proyecto' id='description' name='description'></textarea>
 				<div class='form-group'>
 					<br><br>
 					<label>Imágenes</label>
@@ -63,6 +65,7 @@
 		</div>
 	</div>
 	<input id='cover_file' class='form-control hidden' type="file" name="img_home">
+	<input id='user_id' type='hidden' value="{{Sentry::getUser()->id}}">
 
 </div>
 </form>

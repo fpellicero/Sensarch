@@ -312,7 +312,7 @@ ul.icons a:hover {
 #cover_picture a {
 	background: none repeat scroll 0 0 #000000;
 	border-radius: 5px;
-	bottom: 10px;
+	top: 70%;
 	color: #FFFFFF;
 	display: none;
 	right: 100px;
