@@ -62,7 +62,7 @@ class ProfileController extends BaseController {
 			 */
 			if ($user->profile_pic != 0) {
 				$filepath = public_path() . '/profiles/' . Image::find($user->profile_pic)->filename;
-				File::delete($filepath);
+				Croppa::delete($filepath);
 				Image::destroy($user->profile_pic);
 			}
 			

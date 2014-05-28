@@ -13,6 +13,7 @@ class ProjectController extends BaseController {
 		return View::make('project/new');
 	}
 
+
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -26,14 +27,13 @@ class ProjectController extends BaseController {
 			'city' => 'Required',
 			'user_id' => 'Required',
 			'description' => 'Required',
-			'img_home' => 'Required',
-			'images' => 'Required'
-		);
+			'img_home' => 'Required'
+			);
 
 		$validator = Validator::make(Input::all(), $rules);
 
 		if ($validator->fails()) {
-			return Redirect::route('newProject')->withInput()->withErrors($validator);
+			return Response::json('404');
 		}
 
 		$project = new Project;
@@ -51,7 +51,7 @@ class ProjectController extends BaseController {
 		$file = file_get_contents(Input::get('img_home'));
 		$path = public_path() . '/projects/' . $project->id . '/';
 		$filename = uniqid() . '.png'; 
-	
+
 		File::makeDirectory('projects/' . $project->id);
 		file_put_contents($path . $filename, $file);
 
@@ -64,26 +64,25 @@ class ProjectController extends BaseController {
 		$project->img_home = $img_home->id;
 		$project->save();
 
-
-
 		$images = Input::get('images');
-		foreach ($images as $image) {
-			
-			$image = file_get_contents($image);
-			$path = public_path() . '/projects/' . $project->id . '/';
-			$filename = uniqid() . '.png';
-			
-			file_put_contents($path . $filename, $image);
+		if (count($images) > 0) {
+			foreach ($images as $image) {
 
-			$img = new Image();
-			$img->filename = $filename;
-			$img->project_id = $project->id;
-			$img->img_type = 'normal';
-			$img->save();
-			
+				$image = file_get_contents($image);
+				$path = public_path() . '/projects/' . $project->id . '/';
+				$filename = uniqid() . '.png';
+
+				file_put_contents($path . $filename, $image);
+
+				$img = new Image();
+				$img->filename = $filename;
+				$img->project_id = $project->id;
+				$img->img_type = 'normal';
+				$img->save();		
+			}
 		}
-
-		return Redirect::to('project/new')->with('flash_notice', 'El projecte s\'ha creat correctament!');
+		
+		return Response::json(array('project_id' => $project->id), '201');
 	}
 
 

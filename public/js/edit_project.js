@@ -1,8 +1,8 @@
 $(function () {
 	$('#cover_picture a').click(function() {$('#cover_file').trigger('click')})
-	$('#cover_picture a').hide()
-	$('#cover_picture').mouseenter(function() { $('#cover_picture a').show() })
-	$('#cover_picture').mouseleave(function() { $('#cover_picture a').hide() })
+	//$('#cover_picture a').hide()
+	//$('#cover_picture').mouseenter(function() { $('#cover_picture a').show() })
+	//$('#cover_picture').mouseleave(function() { $('#cover_picture a').hide() })
 	$("#cover_file").change(function() {
 		preview_cover(this);
 	});
@@ -13,27 +13,59 @@ $(function () {
 
 	$('form').submit(function () {
 
-		var data = {
-			'title': $('#title').val(),
-			'user_id': $('#user_id').val(),
-			'description': $('#description').val(),
-			'city': $('#city').val(),
-			'img_home': img_home.src,
-			'images': images
-		};
+		if(!validateInput()) {
+			var data = {
+				'title': $('#title').val(),
+				'user_id': $('#user_id').val(),
+				'description': $('#description').val(),
+				'city': $('#city').val(),
+				'img_home': img_home.src,
+				'images': images
+			};
 
-		$.ajax({
-			type: 'POST',
-			data: data			
-		});
+			$.ajax({
+				type: 'POST',
+				data: data,
+				success: function (data) {
+					window.location.href = data.project_id;
+				}
+			});
+		}
 
 		return false;
-
 	});
-})
+});
 
 var img_home;
 var images;
+
+
+function validateInput () {
+	var errors = false;
+
+	if (!img_home) {
+		errors = true;
+
+		$('.add_pic_message').addClass('red');
+	}
+
+	if(!$('#title').val()) {
+		$('#title_form').addClass('has-error');
+		errors = true;
+	}
+
+	if (!$('#description').val()) {
+		$('#description_form').addClass('has-error');
+		errors = true;
+	}
+
+	if (!$('#city').val()) {
+		$('#city_form').addClass('has-error');
+		errors = true;
+	}
+
+	return errors;
+}
 
 function preview_cover(input) {
 	var canvas = $("canvas")[0];

@@ -10,6 +10,12 @@
 
 @section('cover_image')
 <div id='cover_picture'>
+	<a href="javascript::void(0)">
+		<div class='add_pic_message'>
+			<i class="fa fa-camera"></i><br>
+			SUBE UNA IMAGEN DE PORTADA
+		</div>
+	</a>
 	<canvas id='canvas' width='1366' height='600'>
 		No HTML5
 	</canvas>
@@ -32,12 +38,12 @@
 		<div class='row'>
 			<div class='col-md-6 col-md-offset-3'>
 				<center>
-					<div class='form-group'>
+					<div id='title_form' class='form-group'>
 						<h1>
 							<input type='text' class='form-control' id='title' name='title' placeholder='Título del proyecto' >					
 						</h1>
 					</div>
-					<div class='form-group form-inline'>
+					<div id='city_form' class='form-group form-inline'>
 						<h2>
 							<small>
 								<strong>{{Sentry::getUser()->getFirstName()}} {{Sentry::getUser()->getLastName()}}</strong> en  
@@ -52,7 +58,9 @@
 		<div class='row'>
 			<div class='col-md-8 col-md-offset-2 description'>
 				<br>
-				<textarea rows='15' placeholder='Descripción del proyecto' id='description' name='description'></textarea>
+				<div id='description_form' class='form-group'>
+					<textarea rows='15' placeholder='Descripción del proyecto' class='form-control' id='description' name='description'></textarea>
+				</div>
 				<div class='form-group'>
 					<br><br>
 					<label>Imágenes</label>
