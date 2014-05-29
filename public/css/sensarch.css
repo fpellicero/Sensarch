@@ -483,3 +483,7 @@ width: 100%;
 .red {
 	color: #a94442;
 }
+
+#canvas {
+	width: 100% !important;
+}
