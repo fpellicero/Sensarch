@@ -193,7 +193,7 @@ ul.icons a:hover {
 }
 
 #content-wrapper {
-	background: white;
+	background: #fafafa;
 	text-align: justify;
 	position: relative;
 	z-index: 3;
@@ -438,6 +438,8 @@ textarea {
 }
 
 .project_old {
+	background: white;
+	border: 1px solid #DDDDDD;
 	margin-bottom: 30px;
 }
 
