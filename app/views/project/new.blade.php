@@ -16,9 +16,7 @@
 			SUBE UNA IMAGEN DE PORTADA
 		</div>
 	</a>
-	<canvas id='canvas' width='1366' height='600'>
-		No HTML5
-	</canvas>
+	<img src='' id='img_home'>
 	<a href="#">Cambiar</a>
 </div>
 <div id='cover_picture_spacer'></div>

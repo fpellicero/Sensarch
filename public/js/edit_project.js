@@ -67,34 +67,41 @@ function validateInput () {
 }
 
 function preview_cover(input) {
-	var canvas = $("canvas")[0];
-	var context = canvas.getContext("2d");
 	
 	if (input.files && input.files[0]) {
 
 		var reader = new FileReader();
 
 		reader.onload = function(e) {
-			img_home = new Image();
-			
-			img_home.onload = function() {
-				var height = canvas.width * (img_home.height / img_home.width)
-				context.drawImage(img_home, 0, 0, 1366, height);
-				$.ajax({
-					type: 'POST',
-					url: '/images',
-					data: {
-						"img_type": "cover",
-						"img_data": canvas.toDataURL('image/png')
-					},
-					success: function (response) {
-						img_home = response.image_id
-					}
-				})
-			};
 
-			img_home.src = e.target.result;
+
+			img_home = $('#img_home').attr('src', e.target.result);
+
+			var img = new Image;
+			img.src = e.target.result;
+
+			var canvas = document.createElement('canvas');
+
+			canvas.width = 1366;
+			var height = canvas.width * (img.height / img.width);
+			canvas.height = height;
+			
+			var ctx = canvas.getContext("2d");
+			ctx.drawImage(img, 0, 0, 1366, height);
+
+			$.ajax({
+				type: 'POST',
+				url: '/images',
+				data: {
+					"img_type": "cover",
+					"img_data": canvas.toDataURL('image/png')
+				},
+				success: function (response) {
+					img_home = response.image_id
+				}
+			})
 		};
+
 		reader.readAsDataURL( input.files[0] );
 	}
 }
