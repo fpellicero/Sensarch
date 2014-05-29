@@ -1,6 +1,7 @@
 <div class='project_old'>
 	<div class='project_cover_old'>
 		<a href="{{ URL::route('showProject', $project->id) }}">
+			<i class="fa fa-refresh fa-spin"></i>
 			<img class='project_cover_old' src="{{ Croppa::url($project->getCoverImgURL(), 825, 300,  array('quadrant' => 'C'))  }}">
 		</a>
 	</div>
@@ -9,18 +10,23 @@
 			<a href="{{ URL::route('showProject', $project->id) }}">
 				{{ $project->title }}
 			</a>
-			<br>
-			<small>
-				@if($user)
-					<a href="{{ URL::route('userProfile', $user->id) }}">
-						<strong>{{ $user->getFirstName() }} {{ $user->getLastName() }}</strong>
-					</a> en
-				@endif
-				{{ $project->city }}
-			</small>
-		</h2>
+		</h2>			
+		@if($user)
+		<span class='project_author'>
+			<i>
+				<a href="{{ URL::route('userProfile', $user->id) }}">
+					{{$user->getFirstName()}} {{$user->getLastName()}}</a> en
+			</i>
+		@endif
+		<i>
+			{{ $project->city }}
+		</i>
+		</span>
 
-		<p>
+		<div class='project_description'>
 			{{ substr($project->description,0,400) }}...
 		</div>
+
+		<a class='project_more_info' href="{{ URL::route('showProject', $project->id) }}">Leer más</a>
 	</div>
+</div>
