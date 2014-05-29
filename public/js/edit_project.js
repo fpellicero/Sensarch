@@ -11,7 +11,6 @@ $(function () {
 
 	$('form').submit(function () {
 
-		return false;
 		if(!validateInput()) {
 			var data = {
 				'title': $('#title').val(),

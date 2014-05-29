@@ -59,7 +59,8 @@ class ProfileController extends BaseController {
 			/*
 			 * Delete the old profile picture
 			 */
-			if ($user->profile_pic != 0) {
+			$img_old = Image::find($user->profile_pic);
+			if ($img_old) {
 				$filepath = 'profiles/' . Image::find($user->profile_pic)->filename;
 				Croppa::delete($filepath);
 				Image::destroy($user->profile_pic);
