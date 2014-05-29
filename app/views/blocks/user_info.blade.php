@@ -5,7 +5,7 @@
 </a>
 @endif
 <div id='profile_img_old'>
-	{{ HTML::image(Croppa::url($user->getProfilePicURL(),250),'profile_picture', array('class' => 'img-circle')) }}
+	{{ HTML::image($user->getProfilePicURL(),'profile_picture', array('class' => 'img-circle')) }}
 </div>
 
 <div id='profile_info_old'>

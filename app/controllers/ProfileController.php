@@ -31,9 +31,8 @@ class ProfileController extends BaseController {
 		}
 		
 		$user = Sentry::findUserById($id);
-		$projects = $user->projects->sortBy(function($project) {
-			return !$project->created_at;
-		});
+		$projects = $user->projects;
+		
 		return View::make('user/edit', array('user' => $user, 'projects' => $projects));
 	}
 
@@ -61,7 +60,7 @@ class ProfileController extends BaseController {
 			 * Delete the old profile picture
 			 */
 			if ($user->profile_pic != 0) {
-				$filepath = public_path() . '/profiles/' . Image::find($user->profile_pic)->filename;
+				$filepath = 'profiles/' . Image::find($user->profile_pic)->filename;
 				Croppa::delete($filepath);
 				Image::destroy($user->profile_pic);
 			}

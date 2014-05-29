@@ -5,6 +5,7 @@
 	class Project extends Eloquent
 	{
 		protected $table = 'projects';
+		protected $softDelete = true;
 
 		function images()
 		{

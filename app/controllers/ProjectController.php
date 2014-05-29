@@ -33,7 +33,7 @@ class ProjectController extends BaseController {
 		$validator = Validator::make(Input::all(), $rules);
 
 		if ($validator->fails()) {
-			return Response::json('404');
+			App::abort(500, $validator->messages());
 		}
 
 		$project = new Project;
@@ -42,46 +42,46 @@ class ProjectController extends BaseController {
 		$project->description = Input::get('description');
 		$project->city = Input::get('city');
 		$project->author_id = Input::get('user_id');
+		$project->img_home = Input::get('img_home');
 		$project->save();
 
 
 		/*
-		 * Saving new image
+		 *	Creem el directori de projecte
 		 */
-		$file = file_get_contents(Input::get('img_home'));
-		$path = public_path() . '/projects/' . $project->id . '/';
-		$filename = uniqid() . '.png'; 
+		$project_path = 'projects/' . $project->id . '/';
+		if (!File::isDirectory($project_path)) {
+			File::makeDirectory($project_path);
+		}
 
-		File::makeDirectory('projects/' . $project->id);
-		file_put_contents($path . $filename, $file);
-
-		$img_home = new Image();
-		$img_home->filename = $filename;
+		/*
+		 * Assignem la imatge de portada
+		 */
+		$img_home = Image::find(Input::get('img_home'));
 		$img_home->project_id = $project->id;
-		$img_home->img_type = 'cover';
 		$img_home->save();
 
 		$project->img_home = $img_home->id;
 		$project->save();
 
+		File::move('tmp/' . $img_home->filename, $project_path . $img_home->filename);
+
+		/*
+		 * Guardem les imatges de projecte
+		 */
 		$images = Input::get('images');
-		if (count($images) > 0) {
-			foreach ($images as $image) {
 
-				$image = file_get_contents($image);
-				$path = public_path() . '/projects/' . $project->id . '/';
-				$filename = uniqid() . '.png';
+		if (is_array($images)) {
+			foreach ($images as $image_id) {
 
-				file_put_contents($path . $filename, $image);
-
-				$img = new Image();
-				$img->filename = $filename;
+				$img = Image::find($image_id);
 				$img->project_id = $project->id;
-				$img->img_type = 'normal';
-				$img->save();		
+				$img->save();
+
+				File::move('tmp/' . $img->filename, $project_path . $img->filename);	
 			}
 		}
-		
+
 		return Response::json(array('project_id' => $project->id), '201');
 	}
 

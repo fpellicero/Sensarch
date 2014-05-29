@@ -1,8 +1,6 @@
 $(function () {
 	$('#cover_picture a').click(function() {$('#cover_file').trigger('click')})
-	//$('#cover_picture a').hide()
-	//$('#cover_picture').mouseenter(function() { $('#cover_picture a').show() })
-	//$('#cover_picture').mouseleave(function() { $('#cover_picture a').hide() })
+
 	$("#cover_file").change(function() {
 		preview_cover(this);
 	});
@@ -13,13 +11,14 @@ $(function () {
 
 	$('form').submit(function () {
 
+		return false;
 		if(!validateInput()) {
 			var data = {
 				'title': $('#title').val(),
 				'user_id': $('#user_id').val(),
 				'description': $('#description').val(),
 				'city': $('#city').val(),
-				'img_home': img_home.src,
+				'img_home': img_home,
 				'images': images
 			};
 
@@ -45,7 +44,6 @@ function validateInput () {
 
 	if (!img_home) {
 		errors = true;
-
 		$('.add_pic_message').addClass('red');
 	}
 
@@ -64,6 +62,8 @@ function validateInput () {
 		errors = true;
 	}
 
+
+
 	return errors;
 }
 
@@ -77,11 +77,23 @@ function preview_cover(input) {
 
 		reader.onload = function(e) {
 			img_home = new Image();
+			
 			img_home.onload = function() {
 				var height = canvas.width * (img_home.height / img_home.width)
 				context.drawImage(img_home, 0, 0, 1366, height);
-				img_home.src = canvas.toDataURL('image/png');
+				$.ajax({
+					type: 'POST',
+					url: '/images',
+					data: {
+						"img_type": "cover",
+						"img_data": canvas.toDataURL('image/png')
+					},
+					success: function (response) {
+						img_home = response.image_id
+					}
+				})
 			};
+
 			img_home.src = e.target.result;
 		};
 		reader.readAsDataURL( input.files[0] );
@@ -89,11 +101,21 @@ function preview_cover(input) {
 }
 
 function preview_images (input) {
-	images = [];
-
-	$('#images_wrapper').html('');
+	images = []
+	$('#images_wrapper').html('<i class="fa fa-circle-o-notch fa-spin"></i>');
+	
 	if (!input.files) return;
+	
 	var files = input.files;
+
+	if(files.length > 6) {
+		$('#images_form').addClass('has-error');
+		alert('Por favor, introducid 6 imagenes como máximo');
+		return false;
+	}else {
+		$('#images_form').removeClass('has-error');
+	}
+
 	for (var i = files.length - 1; i >= 0; i--) {
 		var reader = new FileReader();
 		reader.onloadend = function(e) {
@@ -112,10 +134,17 @@ function preview_images (input) {
 
 			console.log(imgcanvas.toDataURL('image/png'));
 
-			images.push(imgcanvas.toDataURL('image/png'));
-
-
-
+			$.ajax({
+				url: '/images',
+				type: 'POST',
+				data: {
+					'img_type': 'normal',
+					'img_data': imgcanvas.toDataURL('image/png')
+				},
+				success: function (response) {
+					images.push(response.image_id);
+				}
+			});
 			
 		}
 		reader.readAsDataURL(files[i]);

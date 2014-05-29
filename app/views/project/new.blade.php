@@ -61,7 +61,7 @@
 				<div id='description_form' class='form-group'>
 					<textarea rows='15' placeholder='Descripción del proyecto' class='form-control' id='description' name='description'></textarea>
 				</div>
-				<div class='form-group'>
+				<div id='images_form' class='form-group'>
 					<br><br>
 					<label>Imágenes</label>
 					<input id='images' class='form-control' type="file" name="images[]" multiple>
