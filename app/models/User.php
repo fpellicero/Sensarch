@@ -9,6 +9,11 @@ class User extends SentryModel {
 		return $this->hasMany('Project', 'author_id');
 	}
 
+	public function languages()
+	{
+		return $this->belongsToMany('Language');
+	}
+
 	public function getFirstName()
 	{
 		return $this['attributes']['first_name'];

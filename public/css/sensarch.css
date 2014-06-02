@@ -204,10 +204,9 @@ ul.icons a:hover {
 
 
 #user_info_wrapper {
-	width: 90%;
-	max-width: 960px;
-	margin: 0 auto;
-	margin-top: 25px;
+	background: white;
+	margin-bottom: 30px;
+	margin-top: -17px;
 }
 
 
@@ -215,19 +214,36 @@ ul.icons a:hover {
 	padding-left: 20px;
 	background: #FFFFFF;
 	color: #3C3C3C;
-	border-top: 1px solid #999999;
-	border-bottom: 1px solid #999999;
-	border-right: 1px solid #999999;
+	
 	font-family: Lucida Grande, Tahoma, Verdana, Arial, sans-serif;
 	height: 205px;
 }
 
+.user_occupation {
+	position: relative;
+	top: 90px;
+}
+
+.user_social {
+	position: absolute;
+	right: 30px;
+	color: #b2b2b2;
+	bottom: 70px;
+	font-size: 1.4em;
+}
+
+.user_lang {
+	position: absolute;
+	right: 30px;
+	bottom: 40px;
+}
+
+.tag {
+	color: grey;
+}
+
 #profile_img {
 	float: left;
-	position: relative;
-	border-top: 1px solid #999999;
-	border-bottom: 1px solid #999999;
-	border-left: 1px solid #999999;
 	height: 205px;
 	margin-right: 10px;
 	width: 260px;
@@ -250,7 +266,8 @@ ul.icons a:hover {
 }
 
 #edit_profile_link {
-	float: right;
+	position: absolute;
+	right: 30px;
 }
 
 .project_block_text p {
@@ -310,17 +327,7 @@ ul.icons a:hover {
 	height: 80%;
 }
 
-/*#cover_picture a {
-	background: none repeat scroll 0 0 #000000;
-	border-radius: 5px;
-	top: 70%;
-	color: #FFFFFF;
-	display: none;
-	right: 100px;
-	opacity: 0.7;
-	padding: 5px;
-	position: absolute;
-}*/
+
 
 h1.white {
 	color: white;
@@ -427,13 +434,13 @@ textarea {
 
 #new_project_block {
 	font-family: 'Din Condensed';
-    background: white;
-    border: 2px dashed #E6E6E6;
-    font-size: 1.5em;
-    height: 100px;
-    margin-bottom: 25px;
-    text-align: center;
-    color: #969696;
+	background: white;
+	border: 2px dashed #E6E6E6;
+	font-size: 1.5em;
+	height: 100px;
+	margin-bottom: 25px;
+	text-align: center;
+	color: #969696;
 }
 
 #new_project_block:hover {
@@ -488,11 +495,11 @@ textarea {
 
 .add_pic_message {
 	text-align: center;
-position: absolute;
-margin-top: 20%;
-font-size: 2em;
-font-family: Din Condensed;
-width: 100%;
+	position: absolute;
+	margin-top: 20%;
+	font-size: 2em;
+	font-family: Din Condensed;
+	width: 100%;
 }
 
 .red {
@@ -537,6 +544,6 @@ width: 100%;
 }
 
 #beta_home {
-position: fixed;
-width: 20%;
+	position: fixed;
+	width: 20%;
 }
