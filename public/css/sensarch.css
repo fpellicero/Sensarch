@@ -266,7 +266,8 @@ ul.icons a:hover {
 }
 
 #edit_profile_link {
-	float: right;
+	position: absolute;
+	right: 30px;
 }
 
 .project_block_text p {

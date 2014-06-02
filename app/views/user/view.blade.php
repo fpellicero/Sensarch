@@ -11,6 +11,10 @@
 
 		<div class='col-md-12'>
 			<div id='user_info_wrapper'>
+				@if(Sentry::check() && Sentry::getUser()->id == $user->id)
+					<a id='edit_profile_link' href="edit"><i class="fa fa-pencil-square-o"></i> Editar</a>
+				@endif
+
 				<div id='profile_img'>
 					{{ HTML::image($user->getProfilePicURL()) }}
 				</div>
