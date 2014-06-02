@@ -44,7 +44,7 @@ Route::get('project/{id}/delete', array('as' => 'destroyProject', 'uses' => 'Pro
  */
 Route::get('user/{id}', array('as' => 'userProfile', 'uses' => 'ProfileController@show'))->before('auth');
 Route::get('user/{id}/edit', array('as' => 'editUserProfile', 'uses' => 'ProfileController@edit'))->before('auth');
-Route::post('user/{id}/edit', 'ProfileController@update')->before('auth');
+Route::post('user/{id}', 'ProfileController@update')->before('auth');
 
 /*
  */

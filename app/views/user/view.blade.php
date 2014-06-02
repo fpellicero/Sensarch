@@ -8,11 +8,13 @@
 
 <div class='container' style='margin-top: -24px;'>
 	<div class='row'>
+
 		<div class='col-md-12'>
 			<div id='user_info_wrapper'>
 				<div id='profile_img'>
 					{{ HTML::image($user->getProfilePicURL()) }}
 				</div>
+	
 				<div id='user_info'>
 					<h1>{{ $user->first_name }} {{ $user->last_name}}</h1>
 					@if ($user->current_address)
@@ -29,7 +31,16 @@
 					</div>
 
 					<div class='user_lang'>
-						<i class="fa fa-comment-o"></i> Hablo Catalan, Castellano, Inglés, Klingon.
+						<i class="fa fa-comment-o"></i> Hablo
+						<strong>
+							@foreach($languages as $index => $lang)
+								@if($languages->count() > $index+1)
+									{{ $lang->name }},
+								@else
+									{{ $lang->name }}
+								@endif
+							@endforeach
+						</strong> 
 					</div>
 
 					<div class='user_social'>

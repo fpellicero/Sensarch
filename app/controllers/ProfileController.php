@@ -14,7 +14,8 @@ class ProfileController extends BaseController {
 		$projects = $user->projects->sortBy(function($project) {
 			return !$project->created_at;
 		});
-		return View::make('user/view', array('user' => $user, 'projects' => $projects));
+		$languages = $user->languages;
+		return View::make('user/view', array('user' => $user, 'projects' => $projects, 'languages' => $languages));
 	}
 
 
@@ -31,9 +32,9 @@ class ProfileController extends BaseController {
 		}
 		
 		$user = Sentry::findUserById($id);
-		$projects = $user->projects;
+		$languages = Language::all();
 		
-		return View::make('user/edit', array('user' => $user, 'projects' => $projects));
+		return View::make('user/edit', array('user' => $user, 'languages' => $languages));
 	}
 
 
@@ -49,12 +50,55 @@ class ProfileController extends BaseController {
 			App::abort(403, 'Unauthorized');
 		}
 
+		/*
+		 * Validate input
+		 */
+		$validator = Validator::make(
+			Input::all(), 
+			array(
+				'first_name' => 'required',
+				'last_name' => 'required',
+				'email' => 'required|email',
+				'profile_pic' => 'image',
+				'password' => 'sometimes|confirmed',
+				'facebook' => 'url',
+				'twitter' => 'url',
+				'linkedin' => 'url',
+				'instagram' => 'url',
+				'languages' => 'exists:languages,id'
+				)
+			);
+
+		if ($validator->fails()) {
+			return Redirect::back()->withErrors($validator);
+		}
+
 		$user = User::find($id);
 
 		$user->first_name = Input::get('first_name');
 		$user->last_name = Input::get('last_name');
+		$user->email = Input::get('email');
 
-		if(Input::file('profile_pic') != NULL ) {
+		if (Input::has('password')) {
+			$user->password = Input::get('password');
+		}
+
+		$user->current_address = Input::get('current_address');
+		$user->current_job = Input::get('current_job');
+		$user->past_job = Input::get('past_job');
+
+		$user->facebook = Input::get('facebook');
+		$user->twitter = Input::get('twitter');
+		$user->linkedin = Input::get('linkedin');
+		$user->instagram = Input::get('instagram');
+
+		$languages = Input::get('languages');
+		if (count($languages) > 0) {
+			$user->languages()->sync($languages);
+		}
+
+		$file = Input::file('profile_pic');
+		if ($file) {
 
 			/*
 			 * Delete the old profile picture
@@ -65,12 +109,6 @@ class ProfileController extends BaseController {
 				Croppa::delete($filepath);
 				Image::destroy($user->profile_pic);
 			}
-			
-			
-			/*
-			 * Stores the new one and assign to user
-			 */
-			$file = Input::file('profile_pic');
 
 			$destinationPath = 'profiles';
 			$filename = $user->id . '.' . $file->getClientOriginalExtension();
