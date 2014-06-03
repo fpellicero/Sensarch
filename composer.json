@@ -6,7 +6,8 @@
 	"require": {
 		"laravel/framework": "4.1.*",
 		"cartalyst/sentry": "2.1.*",
-		"bkwld/croppa": "~3.0"
+		"bkwld/croppa": "~3.0",
+		"jones/web-artisan": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
