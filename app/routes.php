@@ -38,6 +38,8 @@ Route::post('project/new', 'ProjectController@store');
 Route::get('project/{id}', array('as' => 'showProject', 'uses' => 'ProjectController@show'));
 Route::get('project/{id}/delete', array('as' => 'destroyProject', 'uses' => 'ProjectController@destroy'))->before('auth');
 
+Route::get('project/list/{offset}', 'HomeController@getProjects');
+
 
 /*
  * Routes handling Profile

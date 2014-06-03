@@ -1,5 +1,9 @@
 @extends('layouts.layout')
 
+@section('includes')
+	{{ HTML::script('js/home.js') }}
+@stop
+
 @section('content')
 
 <div class='container'>
@@ -16,9 +20,18 @@
 	</div>
 
 	<div class='col-md-9'>
-		@foreach($projects as $index => $project)
-			@include('blocks.project', array('project' => $project, 'user' => User::find($project->author_id)))
-		@endforeach
+		<div id='project-feed'>
+			<span id='num-projects' class='hidden'>3</span>
+			@foreach($projects as $index => $project)
+				@include('blocks.project', array('project' => $project, 'user' => User::find($project->author_id)))
+			@endforeach
+		</div>
+		
+		<div class='load_more_block'>
+			<a id='load_more_link' href="javascript::void(0)">
+				VER MAS
+			</a>
+		</div>
 	</div>
 </div>
 @stop

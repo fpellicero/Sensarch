@@ -547,3 +547,15 @@ textarea {
 	position: fixed;
 	width: 20%;
 }
+
+.load_more_block {
+	width: 100%;
+	background: white;
+	height: 2.5em;
+	padding-top: 0.5em; 
+	text-align: center;
+	border: 2px dashed #DDDDDD;
+	font-family: Din Condensed;
+	font-size: 1.5em;
+	color: #969696;
+}

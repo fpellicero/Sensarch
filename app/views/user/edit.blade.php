@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 
 @section('includes')
-{{ HTML::style('css/user.profile.css') }}
-{{ HTML::script('js/edit_profile.js') }}
+	{{ HTML::style('css/user.profile.css') }}
+	{{ HTML::script('js/edit_profile.js') }}
 @stop
 
 @section('content')
