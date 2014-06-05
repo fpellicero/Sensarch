@@ -7,7 +7,7 @@
 @section('content')
 
 <div class='container'>
-	<div class='col-md-3'>
+	<div class='col-md-3 hidden-sm hidden-xs'>
 		<div id='beta_home'>
 			<span id='beta'>BETA</span>
 			<p style='text-align: left;'>

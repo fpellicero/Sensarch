@@ -206,7 +206,7 @@ ul.icons a:hover {
 #user_info_wrapper {
 	background: white;
 	margin-bottom: 30px;
-	margin-top: -17px;
+	margin-top: -10px;
 }
 
 
@@ -313,7 +313,6 @@ ul.icons a:hover {
 
 #cover_picture img {
 	min-height: 100%;
-	width: 100%;
 }
 #cover_picture {
 	overflow: hidden;
@@ -409,7 +408,6 @@ textarea {
 }
 
 .project_cover_old img {
-	width: 100%;
 	height: auto;
 	position: relative;
 	top: -120px;
@@ -558,4 +556,45 @@ textarea {
 	font-family: Din Condensed;
 	font-size: 1.5em;
 	color: #969696;
+}
+
+.navbar {
+}
+.navbar-brand {
+	font-size: 50px !important;
+}
+.navbar-brand .sens {
+	font-family: 'Gauntlet Classic';
+}
+
+.navbar-brand .arch {
+	font-family: 'Gauntlet Thin';
+}
+
+.navbar-nav {
+	text-align: center;
+}
+.navbar-nav li a {
+	font-family: 'Lato';
+	font-size: 1.2em;
+	letter-spacing: 5px;
+	margin-left: 35px;
+}
+
+.navbar-nav li a:hover {
+	background: none !important;
+}
+
+.navbar-transparent {
+	color: white;
+	text-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+	z-index: 2 !important;
+
+}
+
+.navbar-white {
+	background: white;
+	z-index: 4 !important;
+	margin-bottom: 70px;
+	border-bottom: 1px solid #E6E6E6 !important;
 }

@@ -1,32 +1,32 @@
-<div class='page-header' id="header_fixe_negre">
-	<div id="logo">
-		<a href={{ URL::route('home') }}>
-			<span id="negrita">Sens</span><span id="thin">arch</span>
-		</a>
-	</div>
-	<div id='nav_links_header' class='hidden-xs'>
-		
-		@if(Sentry::check())
-			<a href={{ URL::route('home') }}>HOME</a>
-			<a href={{ URL::action('userProfile', array(Sentry::getUser()->id)) }}>PERFIL</a>
-			<a href={{ URL::route('logout') }}>SALIR</a>
-		@else
-			<a href="{{ URL::route('login') }}#login-bottom">CREA TU CUENTA</a>
-		@endif
-	</div>
+<nav class="navbar navbar-white navbar-fixed-top" role="navigation">
+	<div class="container">
+		<div class='col-md-12'>
 
-	<div class="dropdown visible-xs">
-		<button class="btn dropdown-toggle sr-only" type="button" id="dropdown" data-toggle="dropdown">
-			Dropdown
-			<span class="caret"></span>
-		</button>
-		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-			<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-			<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-			<li role="presentation" class="divider"></li>
-			<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-		</ul>
-	</div>
-</div>
-<div class='header_spacer'></div>
+
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<i class="fa fa-bars" style='margin-top: 5px;'></i>
+				</button>
+				<a class="navbar-brand" href="#">
+					<span class="sens">Sens</span><span class="arch">arch</span>
+				</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
+				<ul class="nav navbar-nav navbar-right" style='margin-top: 10px;'>
+					@if(Sentry::check())
+					<li><a href={{ URL::route('home') }}>HOME</a></li>
+					<li><a href={{ URL::action('userProfile', array(Sentry::getUser()->id)) }}>PERFIL</a></li>
+					<li><a href={{ URL::route('logout') }}>SALIR</a></li>
+					@else
+					<li><a href="{{ URL::route('login') }}#login-bottom">CREA TU CUENTA</a></li>
+					@endif
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div>
+	</div><!-- /.container-fluid -->
+</nav>
+<div style='height: 50px;'></div>
