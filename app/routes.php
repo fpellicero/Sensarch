@@ -51,3 +51,5 @@ Route::post('user/{id}', 'ProfileController@update')->before('auth');
 /*
  */
 Route::post('images', 'ImageController@store');
+
+Route::get('email', 'HomeController@email');

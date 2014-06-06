@@ -18,4 +18,9 @@ class HomeController extends BaseController {
 		return View::make('ajax/projects_blocks')->with('projects', $projects);
 	}
 
+	public function email()
+	{
+		return View::make('emails.welcome')->with('user', Sentry::getUser());
+	}
+
 }
