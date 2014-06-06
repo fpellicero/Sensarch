@@ -38,8 +38,6 @@ Route::post('project/new', 'ProjectController@store');
 Route::get('project/{id}', array('as' => 'showProject', 'uses' => 'ProjectController@show'));
 Route::get('project/{id}/delete', array('as' => 'destroyProject', 'uses' => 'ProjectController@destroy'))->before('auth');
 
-Route::get('project/list/{offset}', 'HomeController@getProjects');
-
 
 /*
  * Routes handling Profile
@@ -49,5 +47,7 @@ Route::get('user/{id}/edit', array('as' => 'editUserProfile', 'uses' => 'Profile
 Route::post('user/{id}', 'ProfileController@update')->before('auth');
 
 /*
+ * AJAX
  */
 Route::post('images', 'ImageController@store');
+Route::get('project/list/{offset}', 'HomeController@getProjects');
