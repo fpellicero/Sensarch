@@ -23,7 +23,21 @@ class ImageController extends BaseController {
 		$img->img_type = $img_type;
 		$img->save();
 
-		return Response::json(array('image_id' => $img->id), 201);
+		return Response::json(array('image_id' => $img->id, 'url' => '/tmp/' . $filename), 201);
+	}
+
+	public function delete($id)
+	{
+		$img = Image::find($id);
+
+		/*
+		 * Deleting files from disk
+		 */
+
+
+		$img->delete();
+
+		return Response::json(array('id' => $id), 200);
 	}
 
 }

@@ -17,7 +17,6 @@
 		</div>
 	</a>
 	<img src='' id='img_home'>
-	<a href="#">Cambiar</a>
 </div>
 <div id='cover_picture_spacer'></div>
 @stop
@@ -66,8 +65,10 @@
 				</div>
 			</div>
 		</div>
-		<div class='row' id='images_wrapper'>
+		<div class='row'>
+			<div id='images_wrapper' class='col-md-8 col-md-offset-2'>
 
+			</div>
 		</div>
 	</div>
 	<input id='cover_file' class='form-control hidden' type="file" name="img_home">

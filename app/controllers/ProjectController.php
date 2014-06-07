@@ -108,7 +108,9 @@ class ProjectController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$project = Project::find($id);
+
+		return View::make('project/edit', array('project' => $project));
 	}
 
 
@@ -120,7 +122,61 @@ class ProjectController extends BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$project = Project::find($id);
+
+		$project->title = Input::get('title');
+		$project->city = Input::get('city');
+		$project->description = Input::get('description');
+		$project->save();
+
+		if (Input::has('img_home')) {
+			$img_id = Input::get('img_home');
+
+			$img_home = Image::find($img_id);
+			$img_home->project_id = $id;
+			$img_home->save();
+
+			$project->img_home = $img_home->id;
+			$project->save();
+
+			$from = 'tmp/' . $img_home->filename;
+			$to = 'projects/' . $id . '/' . $img_home->filename;
+			File::move($from, $to);
+		}
+
+		/*
+		 * Guardem les imatges de projecte noves
+		 */
+		$images = Input::get('images');
+
+		if (is_array($images)) {
+			foreach ($images as $image_id) {
+
+				$img = Image::find($image_id);
+				$img->project_id = $project->id;
+				$img->save();
+
+				$from = 'tmp/' . $img->filename;
+				$to = 'projects/' . $id . '/' . $img->filename;
+				File::move($from, $to);	
+			}
+		}
+
+		/*
+		 * Delete old photos
+		 */
+		$images = Input::get('images_delete');
+
+		if (is_array($images)) {
+			foreach ($images as $image_id) {
+				$img = Image::destroy($image_id);
+			}
+		}
+
+
+
+		return Response::json(array('project_id' => $project->id), '200');
+
 	}
 
 

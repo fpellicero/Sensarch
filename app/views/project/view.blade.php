@@ -1,12 +1,12 @@
 @extends('layouts.layout')
 
 @section('includes')
-	{{ HTML::style('packages/lightbox/css/lightbox.css') }}
-	{{ HTML::script('packages/lightbox/js/lightbox.min.js') }}
+{{ HTML::style('packages/lightbox/css/lightbox.css') }}
+{{ HTML::script('packages/lightbox/js/lightbox.min.js') }}
 @stop
 
 @section('header')
-	@include('layouts.sections.header_transparent')
+@include('layouts.sections.header_transparent')
 @overwrite
 
 @section('cover_image')
@@ -20,7 +20,11 @@
 
 <div class='container'>
 	@if(Sentry::check() && Sentry::getUser()->id == $project->author_id)
-	<div class='col-md-1 col-md-offset-10 project_context_links'>
+	<div class='col-md-2 col-md-offset-9 project_context_links'>
+		<a href="{{ URL::route('editProject', $project->id) }}">
+			<i class='fa fa-edit'></i> Edit
+		</a>
+		|
 		<a href="{{ URL::route('destroyProject', $project->id) }}">
 			<i class="fa fa-trash-o"></i> Delete
 		</a>
@@ -54,16 +58,21 @@
 	</div>
 
 	<div class='row'>
-		@foreach ($project->images as $index => $image)
+		<div id='images_wrapper' class='col-md-8 col-md-offset-2'>
+			@foreach ($project->images as $index => $image)
 
 			@if($image->img_type == 'normal')
-				<div class='col-md-4 col-sm-6 project_page_image'>
-					<a class='thumbnail' data-lightbox="{{$project->title}}" href="/projects/{{ $project->id }}/{{ $image->filename }}">
+			<div class='col-md-4 col-sm-6 project_page_image' id="image-{{$image->id}}">
+				<div class='thumbnail'>
+					<a data-lightbox="{{$project->title}}" href="/projects/{{ $project->id }}/{{ $image->filename }}">
 						<img class='img_project' src="{{ Croppa::url('/projects/' . $project->id . '/' . $image->filename, 320, 250); }}">
 					</a>
 				</div>
+
+			</div>
 			@endif
-		@endforeach
+			@endforeach
+		</div>
 	</div>
 </div>
 @stop
