@@ -1,19 +1,20 @@
 @extends('layouts.layout')
 
 @section('includes')
-{{ HTML::style('packages/lightbox/css/lightbox.css') }}
-{{ HTML::script('packages/lightbox/js/lightbox.min.js') }}
+	{{ HTML::style('packages/lightbox/css/lightbox.css') }}
+	{{ HTML::script('packages/lightbox/js/lightbox.min.js') }}
+	{{ HTML::script('js/home.js') }}
 @stop
 
 @section('header')
-@include('layouts.sections.header_transparent')
+	@include('layouts.sections.header_transparent')
 @overwrite
 
 @section('cover_image')
-<div id='cover_picture'>
-	<img src="{{ Croppa::url($project->getCoverImgURL(),1366,600, array('quadrant' => 'C')) }}">
-</div>
-<div id='cover_picture_spacer'></div>
+	<div id='cover_picture'>
+		<img src="{{ Croppa::url($project->getCoverImgURL(),1366,600, array('quadrant' => 'C')) }}">
+	</div>
+	<div id='cover_picture_spacer'></div>
 @stop
 
 @section('content')
@@ -46,6 +47,27 @@
 						en {{ $project->city }}
 					</small>
 				</h2>
+
+				<div class='contextual'>
+					<div class='likes'>
+						<span id="like-{{$project->id}}" class='count'>{{ count($project->likes) }}</span>
+						@if(Sentry::check() && Sentry::getUser()->likesProject($project->id))
+							<div project-id="{{$project->id}}" class='heart img-circle dislike active'>
+								<i class="fa fa-heart-o"></i>
+							</div>
+						@elseif (Sentry::check())
+							<div project-id="{{$project->id}}" class='heart img-circle like active'>
+								<i class="fa fa-heart-o"></i>
+							</div>
+						@else
+							<div class='heart img-circle'>
+								<i class="fa fa-heart-o"></i>
+							</div>
+						@endif
+					</div>
+
+
+				</div>
 
 			</center>
 		</div>

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UserSpeaksLanguageTable extends Migration {
+class CreateLikeTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,13 @@ class UserSpeaksLanguageTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('language_user', function(Blueprint $table)
+		Schema::create('likes', function(Blueprint $table)
 		{
 			$table->integer('user_id');
-			$table->integer('language_id');
-			$table->primary(array('user_id', 'language_id'));
+			$table->integer('project_id');
+			$table->timestamps();
+			
+			$table->primary(array('user_id', 'project_id'));
 		});
 	}
 
@@ -27,7 +29,7 @@ class UserSpeaksLanguageTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('language_user');
+		Schema::drop('likes');
 	}
 
 }

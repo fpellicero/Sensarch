@@ -199,5 +199,28 @@ class ProjectController extends BaseController {
 		
 	}
 
+	public function like($id)
+	{
+		$user_id = Input::get('user_id');
+
+		$project = Project::find($id);
+		$project->likes()->attach($user_id);
+
+		return Response::json(array('', '200'));
+
+	}
+
+	public function dislike($id)
+	{
+		$user_id = Input::get('user_id');
+
+		$project = Project::find($id);
+		$project->likes()->detach($user_id);
+
+		return Response::json(array('', '200'));
+
+	}
+
+
 
 }

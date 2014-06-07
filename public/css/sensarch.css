@@ -609,3 +609,32 @@ textarea {
 	margin-bottom: 70px;
 	border-bottom: 1px solid #E6E6E6 !important;
 }
+
+.contextual {
+	width: 65px;
+}
+
+.project_info_old .contextual {
+	float: right;
+}
+
+.contextual .heart {
+	transition: background-color 0.5s ease;
+	height: 40px;
+	width: 40px;
+	padding: 12px 11px;
+	background: #DFDFDF;
+	color: white;
+	float: right;
+}
+
+.contextual .count {
+	color: #DFDFDF;
+	line-height: 40px;
+	font-size: 1.5em;
+}
+
+.contextual .heart.like:hover, .contextual .heart.dislike {
+	cursor: pointer;
+	background-color: #af1d1d;	
+}

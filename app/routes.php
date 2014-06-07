@@ -40,6 +40,12 @@ Route::get('project/{id}/edit', array('as' => 'editProject', 'uses' => 'ProjectC
 Route::post('project/{id}/edit', 'ProjectController@update');
 Route::get('project/{id}/delete', array('as' => 'destroyProject', 'uses' => 'ProjectController@destroy'))->before('auth');
 
+/*
+ * Routes handling likes
+ */
+Route::post('project/{id}/like', 'ProjectController@like');
+Route::post('project/{id}/dislike', 'ProjectController@dislike');
+
 
 /*
  * Routes handling Profile

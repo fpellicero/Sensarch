@@ -18,5 +18,8 @@
 	</div>
 
 	@include('layouts.sections.footer')
+	@if(Sentry::check())
+		<div id='user_id' style='display: none;' user-id="{{Sentry::getUser()->id}}"></div>
+	@endif
 </body>
 </html>
