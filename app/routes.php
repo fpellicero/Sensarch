@@ -37,7 +37,7 @@ Route::get('project/new', array('as' => 'newProject', 'uses' => 'ProjectControll
 Route::post('project/new', 'ProjectController@store');
 Route::get('project/{id}', array('as' => 'showProject', 'uses' => 'ProjectController@show'));
 Route::get('project/{id}/edit', array('as' => 'editProject', 'uses' => 'ProjectController@edit'));
-Route::post('project/{id}/edit', array('as' => 'editProject', 'uses' => 'ProjectController@update'));
+Route::post('project/{id}/edit', 'ProjectController@update');
 Route::get('project/{id}/delete', array('as' => 'destroyProject', 'uses' => 'ProjectController@destroy'))->before('auth');
 
 
