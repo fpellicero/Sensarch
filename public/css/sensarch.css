@@ -313,6 +313,7 @@ ul.icons a:hover {
 
 #cover_picture img {
 	min-height: 100%;
+	min-width: 100%;
 }
 #cover_picture {
 	overflow: hidden;
@@ -370,10 +371,19 @@ textarea {
 .project_page_subtitle {
 	margin-top: 10px;
 }
-.project_page_image {
-	height: 250px;
-	margin-bottom: 100px;
+
+.link_delete {
+	position: absolute;
+	font-size: 2em;
+	right: 20;
+	top: 5;
+	display: none;
 }
+
+.project_page_image:hover a.link_delete {
+	display: block;
+}
+
 
 .project_page_image a {
 	height: 100%;
@@ -409,6 +419,7 @@ textarea {
 
 .project_cover_old img {
 	height: auto;
+	min-width: 100%;
 	position: relative;
 	top: -120px;
 	-webkit-filter:grayscale(100%);

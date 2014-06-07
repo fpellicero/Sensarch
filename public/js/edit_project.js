@@ -1,5 +1,18 @@
+var img_home;
+var images;
+var images_delete;
+
 $(function () {
+	images_delete = [];
 	$('#cover_picture a').click(function() {$('#cover_file').trigger('click')})
+
+	$('.link_delete').click(function () {
+
+		var id = $(this).attr('img');
+		images_delete.push(id);
+		$('#image-' + id).fadeOut();
+
+	});
 
 	$("#cover_file").change(function() {
 		preview_cover(this);
@@ -18,14 +31,15 @@ $(function () {
 				'description': $('#description').val(),
 				'city': $('#city').val(),
 				'img_home': img_home,
-				'images': images
+				'images': images,
+				'images_delete': images_delete
 			};
 
 			$.ajax({
 				type: 'POST',
 				data: data,
 				success: function (data) {
-					window.location.href = data.project_id;
+					window.location.href = '/project/' + data.project_id;
 				}
 			});
 		}
@@ -34,14 +48,10 @@ $(function () {
 	});
 });
 
-var img_home;
-var images;
-
-
 function validateInput () {
 	var errors = false;
 
-	if (!img_home) {
+	if (!img_home && !$('form#edit-project').length) {
 		errors = true;
 		$('.add_pic_message').addClass('red');
 	}
@@ -106,9 +116,19 @@ function preview_cover(input) {
 	}
 }
 
+function deleteImageNew (id) {
+	$("#image-new-"+id).fadeOut();
+
+	var index = images.indexOf(id);
+	if(index!=-1){
+
+	   images.splice(index, 1);
+	}
+
+}
+
 function preview_images (input) {
 	images = []
-	$('#images_wrapper').html('<i class="fa fa-circle-o-notch fa-spin"></i>');
 	
 	if (!input.files) return;
 	
@@ -125,7 +145,6 @@ function preview_images (input) {
 	for (var i = files.length - 1; i >= 0; i--) {
 		var reader = new FileReader();
 		reader.onloadend = function(e) {
-			$('#images_wrapper').append("<div class='col-md-3 col-md-offset-1'><img class='img_upload_preview' src='" + e.target.result + "'></a></div>");
 			
 			var img = new Image;
 			img.src = e.target.result;
@@ -149,6 +168,8 @@ function preview_images (input) {
 				},
 				success: function (response) {
 					images.push(response.image_id);
+					$('#images_wrapper').prepend("<div id='image-new-" + response.image_id + "' class='col-md-4 col-sm-6 project_page_image'><div class='thumbnail'><a href='javascript:void(0)' class='link_delete' onclick='deleteImageNew(" + response.image_id + ")'><i class='fa fa-times-circle'></i></a><img class='img_project' src=" + response.url + "></div></div>");
+
 				}
 			});
 			
