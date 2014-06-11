@@ -127,6 +127,7 @@ class ProjectController extends BaseController {
 		$project->title = Input::get('title');
 		$project->city = Input::get('city');
 		$project->description = Input::get('description');
+		$project->private = Input::get('private');
 		$project->save();
 
 		if (Input::has('img_home')) {

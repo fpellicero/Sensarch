@@ -11,8 +11,12 @@ class ProfileController extends BaseController {
 	public function show($id)
 	{
 		$user = Sentry::findUserById($id);
-		$projects = $user->projects->sortBy(function($project) {
-			return !$project->created_at;
+		$projects = $user->projects->filter(function($project) use ($id) {
+			if (Sentry::check() && Sentry::getUser()->id == $id) {
+				return true;
+			}else {
+				return !$project->private;
+			}
 		});
 		$languages = $user->languages;
 		return View::make('user/view', array('user' => $user, 'projects' => $projects, 'languages' => $languages));

@@ -53,8 +53,17 @@
 		</div>
 
 		<div class='row'>
+			<br>
+			<div class='col-md-4 col-md-offset-4'>
+				<div class='form-group'>
+					<label for='private'>
+						<i class="fa fa-lock" style='font-size: 0.8em; color: #999;'></i>
+						Visibilidad del proyecto:
+					</label>
+					{{ Form::select('private', array('0' => 'Público', '1' => 'Privado'), NULL, array('id' => 'private', 'class' => 'form-control')); }}
+				</div>
+			</div>
 			<div class='col-md-8 col-md-offset-2 description'>
-				<br>
 				<div id='description_form' class='form-group'>
 					<textarea rows='15' placeholder='Descripción del proyecto' class='form-control' id='description' name='description'></textarea>
 				</div>

@@ -50,7 +50,7 @@ Route::post('project/{id}/dislike', 'ProjectController@dislike');
 /*
  * Routes handling Profile
  */
-Route::get('user/{id}', array('as' => 'userProfile', 'uses' => 'ProfileController@show'))->before('auth');
+Route::get('user/{id}', array('as' => 'userProfile', 'uses' => 'ProfileController@show'));
 Route::get('user/{id}/edit', array('as' => 'editUserProfile', 'uses' => 'ProfileController@edit'))->before('auth');
 Route::post('user/{id}', 'ProfileController@update')->before('auth');
 

@@ -28,6 +28,9 @@
 
 		<h2>
 			<a href="{{ URL::route('showProject', $project->id) }}">
+				@if($project->private)
+					<i class="fa fa-lock" style='font-size: 0.8em; color: #DFDFDF;'></i>
+				@endif
 				{{ $project->title }}
 			</a>
 		</h2>

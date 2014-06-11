@@ -41,17 +41,29 @@
 				<div id='city_form' class='form-group form-inline'>
 					<h2>
 						<small>
-							<strong>{{Sentry::getUser()->getFirstName()}} {{Sentry::getUser()->getLastName()}}</strong> en  
+							<strong>
+								{{Sentry::getUser()->getFirstName()}} {{Sentry::getUser()->getLastName()}}
+							</strong> en  
 							{{ Form::text('city', NULL, array('id' => 'city', 'class' => 'form-control')) }}
-						</h2>
-					</div>
+						</small>
+					</h2>
 				</center>
 			</div>
 		</div>
-
+		<br>
 		<div class='row'>
+			<div class='col-md-4 col-md-offset-4'>
+				<div class='form-group'>
+					<label for='private'>
+						<i class="fa fa-lock" style='font-size: 0.8em; color: #999;'></i>
+						Visibilidad del proyecto:
+					</label>
+					{{ Form::select('private', array('0' => 'Público', '1' => 'Privado'), NULL, array('id' => 'private', 'class' => 'form-control')); }}
+				</div>
+			</div>
 			<div class='col-md-8 col-md-offset-2 description'>
-				<br>
+
+				
 				<div id='description_form' class='form-group'>
 					{{ Form::textarea('description', NULL,array('id' => 'description', 'class' => 'form-control')) }}
 				</div>

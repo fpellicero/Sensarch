@@ -125,7 +125,7 @@
           <table border="0" cellpadding="0" cellspacing="0" width="100%">
             <tbody><tr>
               <td width="100%" style="width:100%;vertical-align:top;color:#8d9aa5;font-size:14px;line-height:150%;text-align:center;border-collapse:collapse;display:inline;">
-                <a href="http://www.sensarch.com" target="_blank"><img width="100%" style="width:100%;height:auto;border:0;line-height:100%;text-decoration:none;display:inline;" src="http://www.archallenge.es/mail/img/background.jpg"></a>
+                <a href="http://www.sensarch.com" target="_blank"><img width="100%" style="width:100%;height:auto;border:0;line-height:100%;text-decoration:none;display:inline;" src="http://www.sensarch.com/mail/img/background.jpg"></a>
               </td>
             </tr>
           </tbody></table>

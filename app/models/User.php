@@ -23,7 +23,8 @@ class User extends SentryModel {
 	 */
 	public function likesProject($id)
 	{
-		$like = DB::table('likes')->where('project_id', '=', $id)->count();
+		$user_id = Sentry::getUser()->id;
+		$like = DB::table('likes')->where('project_id', '=', $id)->where('user_id', '=', $user_id)->count();
 
 		if ($like > 0) {
 			return true;
