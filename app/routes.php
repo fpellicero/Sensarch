@@ -59,3 +59,10 @@ Route::post('user/{id}', 'ProfileController@update')->before('auth');
  */
 Route::post('images', 'ImageController@store');
 Route::get('project/list/{offset}', 'HomeController@getProjects');
+
+
+/*
+ * Admin
+ */
+Route::get('admin/users', 'AdminUsers@index')->before('isAdmin');
+Route::get('admin/users/create', array('as' => 'adminAddUser', 'uses' => 'AdminUsers@create'))->before('isAdmin');

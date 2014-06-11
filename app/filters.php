@@ -42,6 +42,12 @@ Route::filter('auth', function()
 	
 });
 
+Route::filter('isAdmin', function()
+{
+	if (!Sentry::check() || Sentry::getUser()->email != 'pelly.obn91@gmail.com') {
+		return Redirect::to('login');
+	}
+});
 
 Route::filter('auth.basic', function()
 {
