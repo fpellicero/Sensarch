@@ -312,7 +312,7 @@ ul.icons a:hover {
 }
 
 #cover_picture img {
-	min-height: 100%;
+	min-height: 80%;
 	min-width: 100%;
 }
 #cover_picture {
@@ -569,16 +569,14 @@ textarea {
 	color: #969696;
 }
 
-.navbar {
-}
 .navbar-brand {
 	font-size: 50px !important;
 }
-.navbar-brand .sens {
+.sens {
 	font-family: 'Gauntlet Classic';
 }
 
-.navbar-brand .arch {
+.arch {
 	font-family: 'Gauntlet Thin';
 }
 
@@ -598,9 +596,15 @@ textarea {
 
 .navbar-transparent {
 	color: white;
-	text-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
 	z-index: 2 !important;
+}
 
+.navbar-transparent  {
+	transition: background-color 0.5s ease;
+}
+
+.navbar-transparent:hover {
+	background: rgba(0, 0, 0, 0.2);
 }
 
 .navbar-white {

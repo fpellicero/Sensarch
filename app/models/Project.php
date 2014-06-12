@@ -7,6 +7,11 @@
 		protected $table = 'projects';
 		protected $softDelete = true;
 
+		function user()
+		{
+			return $this->belongsTo('User', 'author_id');
+		}
+
 		function images()
 		{
 			return $this->hasMany('Image', 'project_id');

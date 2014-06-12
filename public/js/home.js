@@ -2,6 +2,9 @@ var num_projects = 10;
 
 $(function  () {
 	$('#load_more_link').click(function () {
+		
+		$('.load_more_block a').hide();
+		$('.load_more_block span').show();
 		var request = $.ajax({
 			type: "GET",
 			url: "/project/list/" + num_projects,
@@ -11,6 +14,8 @@ $(function  () {
 		request.done(function  (projects) {
 			$(projects).appendTo('#project-feed');
 			num_projects += 10;
+			$('.load_more_block a').show();
+			$('.load_more_block span').hide();		
 		});
 	});
 

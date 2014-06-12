@@ -14,6 +14,67 @@ class AdminUsers extends BaseController {
 		return View::make('admin.user.index', array('users' => $users));
 	}
 
+	public function import()
+	{
+		$result = DB::table('sensarch')->get();
+		foreach ($result as $record) {
+
+			$user['email'] = $record->email;
+			$user['password'] = uniqid();
+
+			$user['first_name'] = $record->nombre;
+			$user['last_name'] = $record->apellidos;
+
+			$user['current_job'] = 'Estudiante en ' . $record->anterior_empresa;
+			$user['past_job'] = 'Participante en Archallenge';
+
+			$user['current_address'] = $record->ciudad . ', ' . $record->pais;
+
+			Sentry::register($user);
+		}
+	}
+
+
+	public function activate($id, $auth_code) {
+		/*
+		 * Validate input
+		 */
+		$validator = Validator::make(
+			Input::all(), 
+			array(
+				'password' => 'required|confirmed'
+				)
+		);
+
+		if ($validator->fails()) {
+			return Redirect::back()->withErrors(array('Las contraseñas no coinciden'));
+		}
+
+		$user = Sentry::findUserById($id);
+
+		if ($user->attemptActivation($auth_code)) {
+			$password_reset = $user->getResetPasswordCode();
+
+			$user->attemptResetPassword($password_reset, $password);
+
+			return Redirect::to('editUserProfile', array($id));
+			
+		}else {
+			return Redirect::back()->withErrors(array('Código de activación erroneo. Por favor contacte con nosotros en info@sensarch.com.'));
+		}
+	}
+
+	public function activate_form($id, $auth_code) {
+		$user = Sentry::findUserById($id);
+
+		return View::make('admin.user.activate', array('user' => $user, 'auth_code'=> $auth_code));
+	}
+
+	public function activation_email($id) {
+		$user = User::find($id);
+		return View::make('emails.activate', array('user' => $user));
+	}
+
 
 	/**
 	 * Show the form for creating a new resource.

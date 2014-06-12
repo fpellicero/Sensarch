@@ -66,3 +66,11 @@ Route::get('project/list/{offset}', 'HomeController@getProjects');
  */
 Route::get('admin/users', 'AdminUsers@index')->before('isAdmin');
 Route::get('admin/users/create', array('as' => 'adminAddUser', 'uses' => 'AdminUsers@create'))->before('isAdmin');
+Route::get('admin/users/import', 'AdminUsers@import')->before('isAdmin');
+Route::get('activate/user/{id}/{auth_code}', 'AdminUsers@activate_form');
+Route::post('activate/user/{id}/{auth_code}', 'AdminUsers@activate');
+Route::get('email/{id}', 'AdminUsers@activation_email');
+
+
+Route::get('admin/projects', 'AdminProjects@index')->before('isAdmin');
+Route::get('admin/projects/import', 'AdminProjects@import')->before('isAdmin');

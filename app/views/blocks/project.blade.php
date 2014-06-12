@@ -1,6 +1,6 @@
 <div class='project_old'>
 	<div class='project_cover_old'>
-		<a href="{{ URL::route('showProject', $project->id) }}">
+		<a href="{{ URL::route('showProject', $project->id) }}" target='_blank'>
 			<i class="fa fa-refresh fa-spin"></i>
 			<img class='project_cover_old' src="{{ Croppa::url($project->getCoverImgURL(), 825, 300,  array('quadrant' => 'C'))  }}">
 		</a>

@@ -9,7 +9,7 @@
 					<span class="sr-only">Toggle navigation</span>
 					<i class="fa fa-bars" style='margin-top: 5px;'></i>
 				</button>
-				<a class="navbar-brand" href="#">
+				<a class="navbar-brand" href="{{ URL::route('home') }}">
 					<span class="sens">Sens</span><span class="arch">arch</span>
 				</a>
 			</div>

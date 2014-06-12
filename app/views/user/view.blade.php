@@ -87,11 +87,22 @@
 	</div>
 
 	<div class='row'>
-		<div class='col-md-2 hidden-sm hidden-xs'>
-			
+		<div class='col-md-3 hidden-sm hidden-xs'>
+			@if(!$user->isActivated())
+			<a href="/activate/user/{{$user->id}}/{{$user->activation_code}}">
+				<style type="text/css">
+					.alert:hover {
+						box-shadow: 0px 0px 10px #f5e79e;
+					}
+				</style>
+				<div class='alert alert-warning' style='width: 100%;'>
+					Este perfil aún no está activado. Si deseas activarlo, haz click aqui.
+				</div>
+			</a>
+			@endif
 		</div>
 
-		<div class='col-md-9 col-md-offset-1 col-sm-12 col-xs-12'>
+		<div class='col-md-9 col-sm-12 col-xs-12'>
 			<a href="{{ URL::route('newProject') }}">
 				@if(Sentry::check() && Sentry::getUser()->id == $user->id)
 				<div id='new_project_block'>
