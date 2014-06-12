@@ -38,7 +38,10 @@
 				@endif
 			</div>
 		</div>
-		<img id='login_img' src="img/login_background.jpg">
+		
+		<div id='login_img_wrapper' style='width: 100% !important; overflow-x: hidden !important;'>
+			<img id='login_img' src="img/login_background.jpg">
+		</div>
 
 
 		<div class='row' id='login_body'>

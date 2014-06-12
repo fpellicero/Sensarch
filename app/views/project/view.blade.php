@@ -7,14 +7,20 @@
 @stop
 
 @section('header')
-	@include('layouts.sections.header_transparent')
+@include('layouts.sections.header_transparent')
 @overwrite
 
 @section('cover_image')
-	<div id='cover_picture'>
-		<img src="{{ Croppa::url($project->getCoverImgURL(),1366,600, array('quadrant' => 'C')) }}">
-	</div>
-	<div id='cover_picture_spacer'></div>
+<div id='cover_picture'>
+	<img src="{{ Croppa::url($project->getCoverImgURL(),1366,600, array('quadrant' => 'C')) }}">
+</div>
+<div id='cover_picture_spacer'></div>
+@stop
+
+@section('tags')
+	<meta property='og:title' content="{{$project->title}}">
+	<meta property='og:url' content="{{ URL::route('showProject', array($project->id)) }}">
+	<meta property='og:description' content="{{$project->description}}">
 @stop
 
 @section('content')
@@ -52,17 +58,17 @@
 					<div class='likes'>
 						<span id="like-{{$project->id}}" class='count'>{{ count($project->likes) }}</span>
 						@if(Sentry::check() && Sentry::getUser()->likesProject($project->id))
-							<div project-id="{{$project->id}}" class='heart img-circle dislike active'>
-								<i class="fa fa-heart-o"></i>
-							</div>
+						<div project-id="{{$project->id}}" class='heart img-circle dislike active'>
+							<i class="fa fa-heart-o"></i>
+						</div>
 						@elseif (Sentry::check())
-							<div project-id="{{$project->id}}" class='heart img-circle like active'>
-								<i class="fa fa-heart-o"></i>
-							</div>
+						<div project-id="{{$project->id}}" class='heart img-circle like active'>
+							<i class="fa fa-heart-o"></i>
+						</div>
 						@else
-							<div class='heart img-circle'>
-								<i class="fa fa-heart-o"></i>
-							</div>
+						<div class='heart img-circle'>
+							<i class="fa fa-heart-o"></i>
+						</div>
 						@endif
 					</div>
 
@@ -96,5 +102,36 @@
 			@endforeach
 		</div>
 	</div>
+
+	<div class='row'>
+		
+		<div class='col-md-10 col-md-offset-1 sharer' style='font-size: 1.7em; text-align: center; margin-bottom: 50px;'>
+			<h3>COMPARTE</h3>
+			<div class='sharer'>
+				<span class="twitter">
+					<a onclick="window.open('http://twitter.com/share?url={{ URL::route('showProject', array($project->id)) }}&text={{$project->title}}, por {{ $user->first_name }} {{ $user->last_name }}. Via @sens_arch.','targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=500')" 
+						href="javascript:void(0)" title="Comparte en Twitter">
+						<i class='fa fa-twitter-square'></i>
+					</a>
+				</span>
+				<span class="facebook">
+					<a onclick="window.open('http://www.facebook.com/sharer.php?s=100&p[url]={{ URL::route('showProject', array($project->id)) }}','targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=500')" 
+						href="javascript:void(0)" title="Comparte en Facebook">
+						<i class='fa fa-facebook-square'></i>
+					</a>
+				</span>
+				<span class="google">
+					<a onclick="window.open('https://plus.google.com/share?url={{ URL::route('showProject', array($project->id)) }}','targetWindow',
+						'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=500')" 
+						href="javascript:void(0)" title="Comparte en Google+">
+						<i class='fa fa-google-plus-square'></i>
+					</a>
+				</span>
+			</div>
+		</div>
+	</div>
 </div>
 @stop
+
+@section('footer')
+@overwrite	

@@ -1,7 +1,8 @@
 <html>
 <head>
 	<title>Sensarch</title>
-	@include('layouts.global_includes')
+	@yield('tags')
+		@include('layouts.global_includes')
 	@yield('includes')
 </head>
 <body>
@@ -17,7 +18,10 @@
 		<div style='clear: both'></div>
 	</div>
 
-	@include('layouts.sections.footer')
+	@section('footer')
+		@include('layouts.sections.footer')
+	@show
+
 	@if(Sentry::check())
 		<div id='user_id' style='display: none;' user-id="{{Sentry::getUser()->id}}"></div>
 	@endif
