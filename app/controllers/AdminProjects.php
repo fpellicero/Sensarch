@@ -34,6 +34,7 @@ class AdminProjects extends BaseController {
 			$project->description = $record->descripcion_projet;
 			$project->city = 'Barcelona, España';
 			$project->author_id = $record->id;
+			$project->private = true;
 			$project->save();
 
 			$project_path = 'projects/' . $project->id . '/';
@@ -52,7 +53,7 @@ class AdminProjects extends BaseController {
 
 			$from = 'old/' . $record->id_projet . '.jpg';
 			$to = $project_path . $img->filename;
-			File::move($from, $to);
+			File::copy($from, $to);
 		}
 	}
 

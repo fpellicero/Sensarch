@@ -15,14 +15,19 @@ class HomeController extends BaseController {
 		$projects = Project::orderBy('created_at', 'DESC')
 			->where('private', 0)
 			->orWhere('author_id', $user_id)
-			->take(10)
+			->take(5)
 			->get();
 		return View::make('home')->with('projects', $projects);
 	}
 
-	public function getProjects($offset)
+	public function getProjects($offset, $user_id)
 	{
-		$projects = Project::orderBy('created_at', 'DESC')->skip($offset)->take(10)->get();
+		$projects = Project::orderBy('created_at', 'DESC')
+			->where('private', 0)
+			->orWhere('author_id', $user_id)
+			->skip($offset)
+			->take(5)
+			->get();
 		return View::make('ajax/projects_blocks')->with('projects', $projects);
 	}
 

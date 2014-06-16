@@ -58,7 +58,7 @@ Route::post('user/{id}', 'ProfileController@update')->before('auth');
  * AJAX
  */
 Route::post('images', 'ImageController@store');
-Route::get('project/list/{offset}', 'HomeController@getProjects');
+Route::get('project/list/{offset}/{user_id}', 'HomeController@getProjects');
 
 
 /*

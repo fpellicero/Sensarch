@@ -5,9 +5,10 @@ $(function  () {
 		
 		$('.load_more_block a').hide();
 		$('.load_more_block span').show();
+		var user_id = $('#user_id').attr('user-id');
 		var request = $.ajax({
 			type: "GET",
-			url: "/project/list/" + num_projects,
+			url: "/project/list/" + num_projects + "/" + user_id,
 			dataType: "html"
 		});
 
