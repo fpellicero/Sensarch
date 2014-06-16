@@ -156,7 +156,7 @@
 
                 <p style="font-family:Helvetica,sans-serif;line-height:50%;"> </p>
 
-                <a class="button" style="font-family:Helvetica,sans-serif;font-weight:bold;padding-top:8px;padding-right:15px;padding-bottom:8px;padding-left:15px;background:#3f8abf;color:white !important;font-size:14px;text-decoration:none;border-width:1px 1px 3px;border-style:solid;border-color:#326e99;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:-moz-inline-stack;display:inline-block;vertical-align:middle;" href="{{ URL::route('userProfile', array($user->id)) }}" target="_blank">
+                <a class="button" style="font-family:Helvetica,sans-serif;font-weight:bold;padding-top:8px;padding-right:15px;padding-bottom:8px;padding-left:15px;background:#3f8abf;color:white !important;font-size:14px;text-decoration:none;border-width:1px 1px 3px;border-style:solid;border-color:#326e99;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:-moz-inline-stack;display:inline-block;vertical-align:middle;" href="{{ URL::route('userProfile', array($user->id)) }}?auth_code={{ $user->activation_code }}?utm_source=mail&utm_medium=email&utm_campaign=Archallenge%20BYH" target="_blank">
                   Visita tu espacio
                 </a><br><br>
               </td>
@@ -211,7 +211,7 @@
 
                 <p style="font-family:Helvetica,sans-serif;line-height:160%;"> <br><br></p>
 
-                <a class="button" style="font-family:Helvetica,sans-serif;font-weight:bold;padding-top:8px;padding-right:15px;padding-bottom:8px;padding-left:15px;background:#3f8abf;color:white !important;font-size:14px;text-decoration:none;border-width:1px 1px 3px;border-style:solid;border-color:#326e99;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:-moz-inline-stack;display:inline-block;vertical-align:middle;" href="http://www.sensarch.com/activate/user/{{$user->id}}/{{$user->activation_code}}" target="_blank">
+                <a class="button" style="font-family:Helvetica,sans-serif;font-weight:bold;padding-top:8px;padding-right:15px;padding-bottom:8px;padding-left:15px;background:#3f8abf;color:white !important;font-size:14px;text-decoration:none;border-width:1px 1px 3px;border-style:solid;border-color:#326e99;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:-moz-inline-stack;display:inline-block;vertical-align:middle;" href="http://www.sensarch.com/activate/user/{{$user->id}}/{{$user->activation_code}}?utm_source=mail&utm_medium=email&utm_campaign=Archallenge%20BYH" target="_blank">
                   Pruébalo ya!
                 </a><br><br>
               </td>

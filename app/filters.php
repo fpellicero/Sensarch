@@ -49,6 +49,26 @@ Route::filter('isAdmin', function()
 	}
 });
 
+Route::filter('userActive', function($route) {
+	$action = $route->getAction();
+
+	$user = '';
+	if ($action['as'] == 'userProfile') {
+		$user = User::find($route->getParameter('id'));
+	}else {
+		$project = Project::find($route->getParameter('id'));
+		$user = User::find($project->author_id);
+	}
+
+	if (!$user->isActivated()) {
+		$code = Input::get('auth_code');
+
+		if ($code != $user->activation_code) {
+			App::abort(404);
+		}
+	}
+});
+
 Route::filter('auth.basic', function()
 {
 	return Auth::basic();

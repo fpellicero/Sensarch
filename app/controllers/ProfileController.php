@@ -12,6 +12,11 @@ class ProfileController extends BaseController {
 	{
 		$user = Sentry::findUserById($id);
 		$projects = $user->projects->filter(function($project) use ($id) {
+			if (Input::has('auth_code')) {
+				$user = User::find($id);
+				return Input::get('auth_code') == $user->activation_code;
+			}
+
 			if (Sentry::check() && Sentry::getUser()->id == $id) {
 				return true;
 			}else {

@@ -1,6 +1,10 @@
 <div class='project_old'>
 	<div class='project_cover_old'>
+		@if(Input::has('auth_code'))
+		<a href="{{ URL::route('showProject', $project->id) }}?auth_code={{Input::get('auth_code')}}" target='_blank'>
+		@else
 		<a href="{{ URL::route('showProject', $project->id) }}" target='_blank'>
+		@endif
 			<i class="fa fa-refresh fa-spin"></i>
 			<img class='project_cover_old' src="{{ Croppa::url($project->getCoverImgURL(), 825, 300,  array('quadrant' => 'C'))  }}">
 		</a>

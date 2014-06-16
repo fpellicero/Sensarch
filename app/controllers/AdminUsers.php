@@ -77,7 +77,7 @@ class AdminUsers extends BaseController {
 		}
 
 		Mail::send('emails.activate', array('user' => $user), function ($message) use ($user) {
-			$message->to('pelly.obn91@gmail.com')->subject('Exposición digital BYH Archallenge');
+			$message->to($user->email)->subject('Exposición digital BYH Archallenge');
 		});
 
 		return View::make('emails.activate', array('user' => $user));
