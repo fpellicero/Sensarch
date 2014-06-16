@@ -48,6 +48,7 @@ html.login {
 
 #login_img {
     min-height: 100% !important;
+    min-width: 100% !important;
 }
 
 .login body {

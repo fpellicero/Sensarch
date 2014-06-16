@@ -48,7 +48,7 @@
 			</span>
 
 			<div class='project_description'>
-				{{ substr($project->description,0,400) }}...
+				{{ substr($project->description,0,240) }}...
 			</div>
 
 			<a class='project_more_info' href="{{ URL::route('showProject', $project->id) }}">Leer más</a>
