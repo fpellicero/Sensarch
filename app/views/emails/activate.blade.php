@@ -172,7 +172,7 @@
               </td>
               <td style="vertical-align:top;color:#8d9aa5;font-size:14px;line-height:150%;text-align:left;border-collapse:collapse;">
                 <h3 style="font-family:Helvetica,sans-serif;color:#384047;display:block;font-size:18px;font-weight:bold;line-height:130%;letter-spacing:normal;text-align:left;position:relative;margin-top:-10px;">
-                  <br><br>Activa tu perfil
+                  <br>Activa tu perfil
                 </h3>
                 <p style="font-family:Helvetica,sans-serif;line-height:160%;">¿Te gusta lo que ves? Pues activa ahora tu perfil y empieza a promocionarte. Tú decides si quieres probar nuestra plataforma.</p>
               </td>
@@ -185,7 +185,7 @@
               </td>
               <td style="vertical-align:top;color:#8d9aa5;font-size:14px;line-height:150%;text-align:left;border-collapse:collapse;">
                 <h3 style="font-family:Helvetica,sans-serif;color:#384047;display:block;font-size:18px;font-weight:bold;line-height:130%;letter-spacing:normal;text-align:left;position:relative;margin-top:-10px;">
-                  <br><br>Haz pública tu propuesta
+                  <br>Haz pública tu propuesta
                 </h3>
                 <p style="font-family:Helvetica,sans-serif;line-height:160%;">Enseña a todo el mundo lo que fuiste capaz de presentar y compártelo en tus redes sociales.</p>
               </td>
@@ -198,7 +198,7 @@
               </td>
               <td style="vertical-align:top;color:#8d9aa5;font-size:14px;line-height:150%;text-align:left;border-collapse:collapse;">
                 <h3 style="font-family:Helvetica,sans-serif;color:#384047;display:block;font-size:18px;font-weight:bold;line-height:130%;letter-spacing:normal;text-align:left;position:relative;margin-top:-10px;">
-                  <br><br>Descubre a los demás
+                  <br>Descubre a los demás
                 </h3>
                 <p style="font-family:Helvetica,sans-serif;line-height:160%;">Echa un vistazo a las propuestas que comparten otros usuarios.</p>
               </td>

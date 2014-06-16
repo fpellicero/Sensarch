@@ -72,6 +72,14 @@ class AdminUsers extends BaseController {
 
 	public function activation_email($id) {
 		$user = User::find($id);
+		if (!$user->activation_code) {
+			$user->getActivationCode();
+		}
+
+		Mail::send('emails.activate', array('user' => $user), function ($message) use ($user) {
+			$message->to('pelly.obn91@gmail.com')->subject('Exposición digital BYH Archallenge');
+		});
+
 		return View::make('emails.activate', array('user' => $user));
 	}
 

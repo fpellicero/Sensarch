@@ -21,6 +21,7 @@
 				<th>Nom i cognom</th>
 				<th>Email</th>
 				<th>Activat</th>
+				<th>Batman</th>
 			</tr>
 		</thead>
 		@foreach($users as $user)
@@ -33,6 +34,13 @@
 						<i class="fa fa-check"></i>
 					@else
 						<i class="fa fa-times"></i>
+					@endif
+				</td>
+				<td>
+					@if (!$user->activated)
+						<a href="{{ URL::route('activationEmail', $user->id) }}" target='_blank'>
+							<i class="fa fa-envelope-o"></i> 
+						</a>
 					@endif
 				</td>
 			</tr>

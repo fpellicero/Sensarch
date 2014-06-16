@@ -69,7 +69,7 @@ Route::get('admin/users/create', array('as' => 'adminAddUser', 'uses' => 'AdminU
 Route::get('admin/users/import', 'AdminUsers@import')->before('isAdmin');
 Route::get('activate/user/{id}/{auth_code}', 'AdminUsers@activate_form');
 Route::post('activate/user/{id}/{auth_code}', 'AdminUsers@activate');
-Route::get('email/{id}', 'AdminUsers@activation_email');
+Route::get('email/{id}', array('as' => 'activationEmail', 'uses' => 'AdminUsers@activation_email'));
 
 
 Route::get('admin/projects', 'AdminProjects@index')->before('isAdmin');

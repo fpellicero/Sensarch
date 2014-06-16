@@ -36,7 +36,7 @@
 						@endif
 
 						<div style='text-align: right;'>
-							{{ Form::submit("Probar", array('class' => 'btn btn-success'))}}
+							{{ Form::submit("Activar", array('class' => 'btn btn-success'))}}
 						</div>
 					{{ Form::close() }}
 
