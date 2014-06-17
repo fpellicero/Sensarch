@@ -25,43 +25,62 @@
 <body>
 	<nav class="navbar navbar-white navbar-fixed-top" role="navigation">
 		<div class="container">
-			<div class='col-md-12'>
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<i class="fa fa-bars" style='margin-top: 5px;'></i>
-					</button>
-					<a class="navbar-brand" href="{{ URL::route('home') }}">
-						<span class="sens">Sens</span><span class="arch">arch</span>
-					</a>
+			<div class='row'>
+				<div class='col-md-6'>
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<i class="fa fa-bars" style='margin-top: 5px;'></i>
+						</button>
+						<a class="navbar-brand" href="{{ URL::route('home') }}">
+							<span class="sens">Sens</span><span class="arch">arch</span>
+						</a>
+					</div>
 				</div>
+				<div class='col-md-6'>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
+						<ul class="nav navbar-nav navbar-right" style='margin-top: 10px;'>
+								<form class='form-horizontal' method='post'>
+									<div class='row' style='position: relative; right: 30px;'>
+										<div class='col-md-4 col-md-offset-2' style='padding: 0 2px;'>
+											<input type='text' class='form-control' placeholder='Email' name='email' style='width: 100%;'>
+										</div>
 
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
-					<ul class="nav navbar-nav navbar-right" style='margin-top: 10px;'>
-						<li>
-							<a href="/">
-								ENTRA COMO VISITANTE
-							</a>
-						</li>
-						<li>
-							<button class='btn btn-primary'>ENTRA</button>
-						</li>
-					</ul>
-				</div><!-- /.navbar-collapse -->
+										<div class='col-md-4' style='padding: 0 2px;'>
+											<input type='password' class='form-control' placeholder='Contraseña' name='password' style='width:100%;'>
+										</div>
+
+										<div class='col-md-2' style='padding: 0px 2px;'>
+											<button type="submit" class="btn btn-primary" style='width: 100%;'>Entra</button>
+										</div>
+									</div>
+								</form>
+								@if (Session::has('errors'))
+								<div class="alert alert-danger" style='width: 300px; float: right; text-align: left;'>
+									<ul>
+										{{ implode('', $errors->all('<li>:message</li>')) }}
+									</ul>
+								</div>
+								@endif
+							</div>
+						</ul>
+					</div><!-- /.navbar-collapse -->
+				</div>
 			</div>
 		</div><!-- /.container-fluid -->
 	</nav>
 	
 	<div style='height: 50px;'></div>
-	<div class='container'>
+	<div class='container' style='height: 75%;'>
 		<div class='row'>
 			<div class='col-md-8'>
-				<br><br>
+				<br>
 				<h1>
-					Conecta con la arquitectura <br>
+					Conecta con la arquitectura<br>
 					<small>Creando y compartiendo tus proyectos con todos</small>
 				</h1>
+				<br>
 				<ul class='top_list'>
 					<li>Muestra tus proyectos en curso para recibir sugerencias</li>
 					<li>Hazlos públicos para que se muestren como portafolio</li>
@@ -70,6 +89,7 @@
 					<li>Promociónate para que te vea todo el mundo</li>
 				</ul>
 
+				<br>
 				<span style='color: white; font-size: 2em;'>
 					¿A qué esperas?
 				</span>
@@ -78,7 +98,9 @@
 			<div class='col-md-4'>
 				<div class='top-sidebar'>
 					<center>
-						Empieza ahora. GRATIS.
+						<p style='font-family: Tahoma; font-size: 1.5em; color: #333333;'>
+							Empieza ahora. GRATIS
+						</p>
 					</center>	
 					<form class='form-horizontal' method='post' action="{{URL::route('register')}}">
 						<div class='form-group'>
@@ -102,49 +124,58 @@
 						<div class='form-group'>
 							<div class='col-md-12'>
 								<button style='width: 100%;' type="submit" class="btn btn-green">Crear cuenta</button>
+								<center>
+									He leído y acepto las <a href="{{URL::route('terms', array('target' => '_blank'))}}">condiciones de uso</a>
+								</center>
 							</div>
 						</div>
 					</form>
+					<hr>
+					<div class='row'>
+						<div class='col-md-12'>
+							<button class='btn btn-blue' style='width: 100%;'>
+								<i class="fa fa-suitcase" style='float: left;'></i>
+								Entra como visitante
+							</button>
+						</div>
+					</div>
+					
 				</div>
 			</div>
 		</div>
 		
 		<div id='login_img_wrapper'>
-			<img id='login_img' src="img/login_background.jpg">
+			<img id='login_img' src="img/img_background.jpg">
 		</div>
 	</div>
 	<div class='middle-row'>
 		<div class='container'>
 			<div class='row'>
 				<center>
-					<h2>¿QUÉ HACEMOS?</h2>
+					<h2>¿Como funciona?</h2>
 				</center>
 				<br><br>
 				<div class='col-md-3'>
 					<center>
-						{{ HTML::image('img/cloud.jpg', '', array('class' => 'login-icon')); }}
-						<br>
+						<p>{{ HTML::image('img/login_middle_1.jpg', '', array('class' => 'login_middle_img')); }}</p>
 						<p>Rellena tu perfil</p>
 					</center>
 				</div>
 				<div class='col-md-3'>
 					<center>
-						{{ HTML::image('img/share.jpg', '', array('class' => 'login-icon')); }}
-						<br>
+						<p>{{ HTML::image('img/login_middle_2.jpg', '', array('class' => 'login_middle_img')); }}</p>
 						<p>Añade tus proyectos</p>
 					</center>
 				</div>
 				<div class='col-md-3'>
 					<center>
-						{{ HTML::image('img/eye.jpg', '', array('class' => 'login-icon')); }}
-						<br>
+						<p>{{ HTML::image('img/login_middle_3.jpg', '', array('class' => 'login_middle_img')); }}</p>
 						<p>Descubre arquitectos</p>
 					</center>		
 				</div>
 				<div class='col-md-3'>
 					<center>
-						{{ HTML::image('img/eye.jpg', '', array('class' => 'login-icon')); }}
-						<br>
+						<p>{{ HTML::image('img/login_middle_4.jpg', '', array('class' => 'login_middle_img')); }}</p>
 						<p>Contacto profesional</p>
 					</center>		
 				</div>
@@ -152,14 +183,14 @@
 		</div>
 	</div>
 
-	<div style='background: black; border-top: 3px solid #3f729b;'>
-		<div class='container' style='padding: 10px 0; color: #EEEEEE;'>
+	<div id='login_footer'>
+		<div class='container'>
 			<div class='row'>
-				<div class='col-md-8'>
+				<div class='col-md-8' style='padding-left: 30px;'>
 					Copyright 2014 Sensarch. Todos los derechos reservados.
 				</div>
 
-				<div class='col-md-4'>
+				<div class='col-md-4' style='text-align: right;'>
 					<div class='col-md-4'>
 						<a href="https://www.facebook.com/sensarch">
 							<i class='fa fa-facebook'></i> facebook
@@ -178,8 +209,6 @@
 						</a>
 					</div>
 				</div>
-
-				
 			</div>
 		</div>
 	</div>
