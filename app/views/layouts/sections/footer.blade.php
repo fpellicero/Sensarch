@@ -1,12 +1,29 @@
-<div id="footer" class='row' style="background: #FFFFFF;">
-	<ul class="icons">
-		<li><a href="https://twitter.com/sens_arch" target="_blank" class="fa fa-twitter solo"><span>Twitter</span></a></li>
-		<li><a href="https://www.facebook.com/sensarch" target="_blank" class="fa fa-facebook solo"><span>Facebook</span></a></li>
-		<li><a href="http://plus.google.com/103791116641554183460/" target="_blank" class="fa fa-google-plus solo"><span>Google+</span></a></li>
-	</ul>
-	<div class="copyright">
-		<ul class="menu">
-			<li>&copy; Sensarch 2014 - <a href="{{URL::route('terms')}}" style="text-decoration:none;">Condiciones de servicio</a></li>
-		</ul>
+<div id='login_footer'>
+		<div class='container'>
+			<div class='row'>
+				<div class='col-md-8 col-sm-8 col-xs-8' style='padding-left: 30px;'>
+					Copyright 2014 Sensarch. Todos los derechos reservados.
+				</div>
+
+				<div class='col-md-4 col-sm-4 col-xs-4' style='text-align: right;'>
+					<div class='col-md-4 col-sm-4 col-xs-4'>
+						<a href="https://www.facebook.com/sensarch">
+							<i class='fa fa-facebook'></i> <span class='hidden-xs hidden-sm'>facebook</span>
+						</a>
+					</div>
+
+					<div class='col-md-4 col-sm-4 col-xs-4'>
+						<a href="https://twitter.com/sens_arch">
+							<i class='fa fa-twitter'></i> <span class='hidden-xs hidden-sm'>twitter</span>
+						</a>
+					</div>
+
+					<div class='col-md-4 col-sm-4 col-xs-4'>
+						<a href="https://plus.google.com/103791116641554183460">
+							<i class='fa fa-google-plus'></i> <span class='hidden-xs hidden-sm'>google</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-</div>
