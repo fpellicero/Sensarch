@@ -1,6 +1,7 @@
 <html>
 <head>
 	<title>Sensarch</title>
+	<meta name=viewport content="width=device-width, initial-scale=1">
 	@yield('tags')
 		@include('layouts.global_includes')
 	@yield('includes')

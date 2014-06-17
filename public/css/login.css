@@ -1,3 +1,7 @@
+html {
+	overflow-x: hidden;
+}
+
 h1 {
 	font-family: 'Tahoma' !important;
 	color: white !important;
@@ -84,6 +88,10 @@ h3 small {
 	font-family: Tahoma;
 	font-size: 1.1em !important;
 	color: white;
+}
+
+.btn:hover {
+	color: white !important;
 }
 
 #login_footer {

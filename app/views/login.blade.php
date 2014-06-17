@@ -155,10 +155,12 @@
 					<hr>
 					<div class='row'>
 						<div class='col-md-12'>
-							<button class='btn btn-blue' style='width: 100%;'>
-								<i class="fa fa-suitcase" style='float: left;'></i>
-								Entra como visitante
-							</button>
+							<a href="{{URL::route('home')}}">
+								<button class='btn btn-blue' style='width: 100%;'>
+									<i class="fa fa-suitcase" style='float: left;'></i>
+									Entra como visitante
+								</button>
+							</a>
 						</div>
 					</div>
 					
