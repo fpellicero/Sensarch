@@ -1,133 +1,187 @@
 <html class='login'>
 <head>
 	<title>Sensarch</title>
-	@include('layouts.global_includes')
 	{{ HTML::style('css/login.css') }}
 	{{ HTML::style('css/icons.css'); }}
+	{{ HTML::style('css/fonts.css'); }}
+
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-51360320-1', 'sensarch.com');
+	ga('send', 'pageview');
+	</script>
 </head>
 <body>
-	<div class='container-fluid'>
-		<div class='row' id='login_top'>
-			<div class='col-md-3 col-md-offset-1' id="logo_login">
-				<a href={{ URL::route('home') }}>
-					<span id="negrita">Sens</span><span id="thin">arch</span>
-				</a>
-			</div>
-			<div class='col-md-5 col-md-offset-2' id='login_form'>
-				<form class='form-inline' method='post'>
-					<div class='form-group' style='width: 50%'>
-						<input type='text' class='form-control' placeholder='Email' name='email'>
-					</div>
-
-					<div class='form-group'>
-						<input type='password' class='form-control' placeholder='Contraseña' name='password'>
-					</div>
-
-					<button type="submit" class="btn btn-primary">Entra</button>
-				</form>
-				@if (Session::has('errors'))
-				<div class="alert alert-danger" style='width: 300px; float: right; text-align: left;'>
-					<ul>
-						{{ implode('', $errors->all('<li>:message</li>')) }}
-					</ul>
+	<nav class="navbar navbar-white navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class='col-md-12'>
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<i class="fa fa-bars" style='margin-top: 5px;'></i>
+					</button>
+					<a class="navbar-brand" href="{{ URL::route('home') }}">
+						<span class="sens">Sens</span><span class="arch">arch</span>
+					</a>
 				</div>
-				@endif
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
+					<ul class="nav navbar-nav navbar-right" style='margin-top: 10px;'>
+						<li>
+							<a href="/">
+								ENTRA COMO VISITANTE
+							</a>
+						</li>
+						<li>
+							<button class='btn btn-primary'>ENTRA</button>
+						</li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div>
+		</div><!-- /.container-fluid -->
+	</nav>
+	
+	<div style='height: 50px;'></div>
+	<div class='container'>
+		<div class='row'>
+			<div class='col-md-8'>
+				<br><br>
+				<h1>
+					Conecta con la arquitectura <br>
+					<small>Creando y compartiendo tus proyectos con todos</small>
+				</h1>
+				<ul class='top_list'>
+					<li>Muestra tus proyectos en curso para recibir sugerencias</li>
+					<li>Hazlos públicos para que se muestren como portafolio</li>
+					<li>Crea tu página de empresa con todos tus compañeros</li>
+					<li>Sigue a tus compañeros favoritos</li>
+					<li>Promociónate para que te vea todo el mundo</li>
+				</ul>
+
+				<span style='color: white; font-size: 2em;'>
+					¿A qué esperas?
+				</span>
+
+			</div>
+			<div class='col-md-4'>
+				<div class='top-sidebar'>
+					<center>
+						Empieza ahora. GRATIS.
+					</center>	
+					<form class='form-horizontal' method='post' action="{{URL::route('register')}}">
+						<div class='form-group'>
+							<div class='col-md-6' style='padding-right: 2px;'>
+								<input type='text' class='form-control' placeholder='Nombre' name='first_name'>
+							</div>
+							<div class='col-md-6' style='padding-left: 2px;'>
+								<input type='text' class='form-control' placeholder='Apellido	' name='last_name'>
+							</div>
+						</div>
+						<div class='form-group'>
+							<div class='col-md-12'>	
+								<input type='email' class='form-control' placeholder='Correo electrónico' name='email'>
+							</div>
+						</div>
+						<div class='form-group'>
+							<div class='col-md-12'>
+								<input type='password' class='form-control' placeholder='Contraseña' name='password'>
+							</div>
+						</div>
+						<div class='form-group'>
+							<div class='col-md-12'>
+								<button style='width: 100%;' type="submit" class="btn btn-green">Crear cuenta</button>
+							</div>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 		
-		<div id='login_img_wrapper' style='width: 100% !important; overflow-x: hidden !important;'>
+		<div id='login_img_wrapper'>
 			<img id='login_img' src="img/login_background.jpg">
 		</div>
-
-
-		<div class='row' id='login_body'>
-			<h1 class='white'>
-				PROMOCIÓNATE<br>
-				<small>
-					PROFESIONALMENTE CON TU PORTAFOLIO <br><br>
-					<a href="#login-bottom">
-						<i class="fa fa-angle-down"></i>
-					</a>
-				</small>
-			</h1>
-		</div>
-
-		<div id='triangle'>
-			<div class='white_bg triangle_1'></div>
-			{{ HTML::image('img/triangle.png') }}
-			<div class='white_bg triangle_2'></div>
-		</div>
-
-
-		<div id='icon-login-wrapper' class='row'>
-			<center>
-				<h2>¿QUÉ HACEMOS?</h2>
-			</center>
-			<br><br>
-			<div class='col-md-3 col-md-offset-1'>
+	</div>
+	<div class='middle-row'>
+		<div class='container'>
+			<div class='row'>
 				<center>
-					{{ HTML::image('img/cloud.jpg', '', array('class' => 'login-icon')); }}
-					<br>
-					<p>sube tus proyectos que te permitan promocionarte</p>
+					<h2>¿QUÉ HACEMOS?</h2>
 				</center>
-			</div>
-			<div class='col-md-4 login-icons-mid'>
-				<center>
-					{{ HTML::image('img/share.jpg', '', array('class' => 'login-icon')); }}
-					<br>
-					<p>considéralos públicos para <br> que te puedan descubrir</p>
-				</center>
-			</div>
-			<div class='col-md-3'>
-				<center>
-					{{ HTML::image('img/eye.jpg', '', array('class' => 'login-icon')); }}
-					<br>
-					<p>descubre nuevos talentos y haz contactos profesionales</p>
-				</center>		
-			</div>
-		</div>
-
-		<div class='row' id='login-bottom'>
-			<div class='col-md-5 col-md-offset-1 quote'>
-				<p>La inspiración existe, pero tiene que encontrarte trabajando</p>
-				<p class='author'>- P. PICASSO</p>
-			</div>
-			<div class='col-md-4 col-md-offset-1'>
-				<div id='login_register'>
-					<h3>
-						REGÍSTRATE<br>
-						<small>ES GRATIS, Y LO SEGUIRÁ SIENDO</small>
-					</h3>
-					<form method='post' action="{{URL::route('register')}}">
-						<div class='form-group form-inline'>
-							<input type='text' class='form-control' placeholder='Nombre' name='first_name'>
-							<input type='text' class='form-control' placeholder='Apellido	' name='last_name'>
-						</div>
-						<div class='form-group'>
-							<input type='email' class='form-control' placeholder='Correo electrónico' name='email'>
-						</div>
-						<div class='form-group'>
-							<input type='password' class='form-control' placeholder='Contraseña' name='password'>
-						</div>
-						<button type="submit" class="btn btn-success">Súmate!</button>
-					</form>
-					<hr>
-					<h3>
-						<small>O entra a echar un vistazo!</small>
-					</h3>
-					<a href="{{ URL::route('home') }}">
-						<button class='btn btn-primary'>Entrar como visitante</button>
-					</a>
+				<br><br>
+				<div class='col-md-3'>
+					<center>
+						{{ HTML::image('img/cloud.jpg', '', array('class' => 'login-icon')); }}
+						<br>
+						<p>Rellena tu perfil</p>
+					</center>
+				</div>
+				<div class='col-md-3'>
+					<center>
+						{{ HTML::image('img/share.jpg', '', array('class' => 'login-icon')); }}
+						<br>
+						<p>Añade tus proyectos</p>
+					</center>
+				</div>
+				<div class='col-md-3'>
+					<center>
+						{{ HTML::image('img/eye.jpg', '', array('class' => 'login-icon')); }}
+						<br>
+						<p>Descubre arquitectos</p>
+					</center>		
+				</div>
+				<div class='col-md-3'>
+					<center>
+						{{ HTML::image('img/eye.jpg', '', array('class' => 'login-icon')); }}
+						<br>
+						<p>Contacto profesional</p>
+					</center>		
 				</div>
 			</div>
 		</div>
-
-		@include('layouts.sections.footer')
 	</div>
-</div>
+
+	<div style='background: black; border-top: 3px solid #3f729b;'>
+		<div class='container' style='padding: 10px 0; color: #EEEEEE;'>
+			<div class='row'>
+				<div class='col-md-8'>
+					Copyright 2014 Sensarch. Todos los derechos reservados.
+				</div>
+
+				<div class='col-md-4'>
+					<div class='col-md-4'>
+						<a href="https://www.facebook.com/sensarch">
+							<i class='fa fa-facebook'></i> facebook
+						</a>
+					</div>
+
+					<div class='col-md-4'>
+						<a href="https://twitter.com/sens_arch">
+							<i class='fa fa-twitter'></i> twitter
+						</a>
+					</div>
+
+					<div class='col-md-4'>
+						<a href="https://plus.google.com/103791116641554183460">
+							<i class='fa fa-google-plus'></i> google
+						</a>
+					</div>
+				</div>
+
+				
+			</div>
+		</div>
+	</div>
 </body>
 </html>
