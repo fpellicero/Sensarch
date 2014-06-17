@@ -1,6 +1,7 @@
 <html class='login'>
 <head>
 	<title>Sensarch</title>
+	<meta name=viewport content="width=device-width, initial-scale=1">
 	{{ HTML::style('css/login.css') }}
 	{{ HTML::style('css/icons.css'); }}
 	{{ HTML::style('css/fonts.css'); }}
