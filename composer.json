@@ -9,6 +9,9 @@
 		"bkwld/croppa": "~3.0",
 		"jones/web-artisan": "dev-master"
 	},
+	"require-dev": {
+		"panique/laravel-sass": "dev-master"
+	},
 	"autoload": {
 		"classmap": [
 			"app/commands",

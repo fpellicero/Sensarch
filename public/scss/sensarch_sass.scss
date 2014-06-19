@@ -1,0 +1,289 @@
+$font_stack: 'Tahoma';
+$font_project_title: 'Din Condensed';
+$blue: #3f729b;
+
+@font-face
+{
+	font-family: 'Gauntlet Classic';
+	src: url('../font/GauntletClasic.otf');
+}
+
+@font-face
+{
+	font-family: 'Gauntlet Thin';
+	src: url('../font/GauntletThin.otf');
+}
+
+h1, h2, p, div {
+	font-family: $font_stack;
+}
+
+html {
+	overflow-x: hidden;
+}
+
+h1 {
+	font-family: $font_stack;
+	font-weight: bold;
+	font-size: 2.5em;
+
+	small {
+		color: white !important;
+	}
+}
+
+h2 {
+	font-family: $font_stack !important;
+	color: $blue !important;
+}
+
+a {
+	transition: color 0.5s ease;
+}
+
+a:hover {
+	text-decoration: none !important;
+}
+
+
+
+.btn {
+	font-family: $font_stack;
+	color: white;
+}
+
+.btn:hover {
+	color: white !important;
+}
+
+.btn-green {
+	background: #8ec449;
+}
+
+.btn-blue {
+	background: #3f729b;
+}
+
+.navbar {
+	text-align: center;
+	border-bottom: 1px solid #DDDDDD !important;
+	li {
+		margin-left: 15px;
+		letter-spacing: 5px;
+	}
+
+	a {
+		font-family: $font_stack; 
+
+		.open {
+			background: none !important;
+		}
+	}
+
+	a:hover {
+		background: none !important;
+	}
+
+	.navbar-brand {
+		margin-top: 5px;
+		margin-left: 15px;
+		font-size: 2.8em;
+		.sens {
+			font-family: 'Gauntlet Classic';
+		}
+
+		.arch {
+			font-family: 'Gauntlet Thin';
+		}
+	}
+
+	.dropdown-menu {
+		min-width: 260px;
+		padding: 15px; 
+		padding-bottom: 0px;
+		box-shadow: none !important;
+		border-top: none !important;
+	}
+}
+
+.navbar-white {
+	background: white;
+}
+
+.navbar-transparent {
+	color: white;
+	transition: background-color 0.5s ease;
+	z-index: 2 !important;
+	border-bottom: none !important;
+}
+.navbar-transparent:hover {
+	background: rgba(0, 0, 0, 0.2);
+}
+
+#login-page {
+	h1 {
+		color: white !important;
+	}
+
+	.top_list {
+		font-family: $font_stack;
+		color: white;
+
+		li {
+			margin-bottom: 10px;
+			letter-spacing: 1px;
+		}
+	}
+
+	.top-sidebar {
+		background: rgba(255, 255, 255, 0.70);
+		border-bottom: 5px solid #3f729b;
+		padding: 30px;
+
+		.btn-green {
+			letter-spacing: 2px;
+			font-size: 1.2em !important;
+			font-weight: bold !important;
+		}
+
+		.btn-blue {
+			font-size: 1.1em !important;
+		}
+	}
+
+	#login_img_wrapper {
+		position: absolute;
+		overflow: hidden;
+		top: 0;
+		left: 0;
+		z-index: -5;
+		width: 100%;
+		min-height: 90%;
+	}
+
+
+	.middle-row {
+		width: 100%;
+		border-top: 3px solid #333333;
+		background: #f5f5f5;
+		margin-top: 25px;
+		padding-bottom: 25px;
+
+		img {
+			width: 100%;
+		}	
+	}
+}
+
+
+
+#footer {
+	background: #333333; 
+	border-top: 3px solid $blue;
+
+	.container {
+		color: #8a8a8a;
+		padding: 10px 0;
+	}
+
+	a {
+		color: #8a8a8a;
+	}
+
+	a:hover {
+		color: $blue;
+	}
+}
+
+#project_page {
+	h1, h2 {
+		font-family: $font_project_title;
+	}
+}
+
+.project_block {
+	background: white;
+	border: 1px solid #DDDDDD;
+	margin-bottom: 30px;
+
+	.project_block_cover {
+		height: 240px;
+		overflow: hidden;
+		background: #e3e3e3;
+		text-align: center;
+		
+		i {
+			font-size: 2em;
+			margin-top: 85px;
+			color: white;
+		}
+
+		img {
+			height: auto;
+			min-width: 100%;
+			position: relative;
+			top: -120;
+			-webkit-filter:grayscale(100%);
+			filter: grayscale(100%);
+			filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+			filter: gray; /* IE 6-9 */
+			-webkit-transition: all .6s ease;
+			-moz-transition: all 0.6s ease-in-out;
+		}
+
+		img:hover {
+			filter: none;
+			-webkit-filter:grayscale(0%);	
+		}
+	}
+
+	.project_block_info {
+		padding: 15px;
+		
+		.contextual {
+			float: right;
+		}
+
+		h2 {
+			color: black !important;
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
+	}
+}
+
+.contextual {
+	width: 65px;
+
+	.heart {
+		transition: background-color 0.5s ease;
+		height: 40px;
+		width: 40px;
+		padding: 14px 13px;
+		background: #DFDFDF;
+		color: white;
+		float: right;
+	}
+	
+	.count {
+		color: #DFDFDF;
+		line-height: 40px;
+		font-size: 1.5em;
+	}
+
+	.heart.like:hover, .heart.dislike {
+		cursor: pointer;
+		background-color: #af1d1d;	
+	}
+}
+
+.load_more_block {
+	width: 100%;
+	background: white;
+	height: 2.5em;
+	padding-top: 0.5em; 
+	text-align: center;
+	border: 2px dashed #DDDDDD;
+	font-size: 1.3em;
+	color: #969696;
+}

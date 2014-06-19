@@ -25,7 +25,7 @@
 
 @section('content')
 
-<div class='container'>
+<div id='project_page' class='container'>
 	@if(Sentry::check() && Sentry::getUser()->id == $project->author_id)
 	<div class='col-md-2 col-md-offset-9 project_context_links'>
 		<a href="{{ URL::route('editProject', $project->id) }}">

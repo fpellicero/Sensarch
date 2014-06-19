@@ -1,5 +1,5 @@
-<div class='project_old'>
-	<div class='project_cover_old'>
+<div class='project_block'>
+	<div class='project_block_cover'>
 		@if(Input::has('auth_code'))
 		<a href="{{ URL::route('showProject', $project->id) }}?auth_code={{Input::get('auth_code')}}" target='_blank'>
 		@else
@@ -9,7 +9,7 @@
 			<img class='project_cover_old' src="{{ Croppa::url($project->getCoverImgURL(), 825, 300,  array('quadrant' => 'C'))  }}">
 		</a>
 	</div>
-	<div class='project_info_old'>
+	<div class='project_block_info'>
 		
 		<div class='contextual'>
 			<div class='likes'>
