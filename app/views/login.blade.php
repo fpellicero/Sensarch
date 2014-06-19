@@ -2,29 +2,26 @@
 <head>
 	<title>Sensarch</title>
 	<meta name=viewport content="width=device-width, initial-scale=1">
-	{{ HTML::style('css/login.css') }}
-	{{ HTML::style('css/icons.css'); }}
-	{{ HTML::style('css/fonts.css'); }}
+
+	{{ HTML::style('css/sensarch_sass.css') }}
 
 	<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 	<script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	ga('create', 'UA-51360320-1', 'sensarch.com');
-	ga('send', 'pageview');
+		ga('create', 'UA-51360320-1', 'sensarch.com');
+		ga('send', 'pageview');
 	</script>
 </head>
-<body>
+<body id='login-page'>
 	<nav class="navbar navbar-white navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class='row'>
@@ -93,7 +90,7 @@
 	</nav>
 	
 	<div style='height: 50px;'></div>
-	<div class='container' style='height: 75%;'>
+	<div class='container' style='min-height: 500px;'>
 		<div class='row'>
 			<div class='col-md-8 col-sm-6 hidden-xs'>
 				<br>
@@ -118,7 +115,12 @@
 			</div>
 			<div class='col-xs-1 visible-xs'></div>
 			<div class='col-md-4 col-sm-6 col-xs-10'>
-				<div class='top-sidebar'>
+				<script type="text/javascript">
+					$(function() {
+						$('.top-sidebar').delay(500).fadeIn(800);
+					})
+				</script>
+				<div class='top-sidebar' style='display: none;'>
 					<center>
 						<p style='font-family: Tahoma; font-size: 1.5em; color: #333333;'>
 							Empieza ahora. GRATIS
@@ -207,34 +209,6 @@
 		</div>
 	</div>
 
-	<div id='login_footer'>
-		<div class='container'>
-			<div class='row'>
-				<div class='col-md-8 col-sm-8 col-xs-8' style='padding-left: 30px;'>
-					Copyright 2014 Sensarch. Todos los derechos reservados.
-				</div>
-
-				<div class='col-md-4 col-sm-4 col-xs-4' style='text-align: right;'>
-					<div class='col-md-4 col-sm-4 col-xs-4'>
-						<a href="https://www.facebook.com/sensarch">
-							<i class='fa fa-facebook'></i> <span class='hidden-xs hidden-sm'>facebook</span>
-						</a>
-					</div>
-
-					<div class='col-md-4 col-sm-4 col-xs-4'>
-						<a href="https://twitter.com/sens_arch">
-							<i class='fa fa-twitter'></i> <span class='hidden-xs hidden-sm'>twitter</span>
-						</a>
-					</div>
-
-					<div class='col-md-4 col-sm-4 col-xs-4'>
-						<a href="https://plus.google.com/103791116641554183460">
-							<i class='fa fa-google-plus'></i> <span class='hidden-xs hidden-sm'>google</span>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	@include('layouts.sections.footer')
 </body>
 </html>

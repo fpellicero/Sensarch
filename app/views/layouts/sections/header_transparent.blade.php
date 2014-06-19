@@ -22,7 +22,43 @@
 					<li><a href={{ URL::action('userProfile', array(Sentry::getUser()->id)) }}>PERFIL</a></li>
 					<li><a href={{ URL::route('logout') }}>SALIR</a></li>
 					@else
-					<li><a href="{{ URL::route('login') }}#login-bottom">CREA TU CUENTA</a></li>
+					<li class='visible-xs'>
+							<form action="{{ URL::route('login') }}" class='form-horizontal' method='post'>
+								<div class='row'>
+									<div class='col-md-12'>
+										<input type='text' class='form-control' placeholder='Email' name='email' style='width: 100%;'>
+										<br>
+										<input type='password' class='form-control' placeholder='Contraseña' name='password' style='width:100%;'>
+										<br>
+										<button type="submit" class="btn btn-primary" style='width: 100%;'>Entra</button>
+
+									</div>
+								</div>
+							</form>
+						</li>
+						<li>
+							<a href="{{ URL::route('login') }}">
+								CREA TU CUENTA
+							</a>
+						</li>
+						<li class="divider-vertical"></li>
+						<li class="dropdown hidden-xs">
+							<a class="dropdown-toggle" href="#" data-toggle="dropdown">ENTRA</a>
+							<div class="dropdown-menu" style="min-width: 260px; padding: 15px; padding-bottom: 0px;">
+								<form action="{{ URL::route('login') }}" class='form-horizontal' method='post'>
+									<div class='row'>
+										<div class='col-md-12'>
+											<input type='text' class='form-control' placeholder='Email' name='email' style='width: 100%;'>
+											<br>
+											<input type='password' class='form-control' placeholder='Contraseña' name='password' style='width:100%;'>
+											<br>
+											<button type="submit" class="btn btn-primary" style='width: 100%;'>Entra</button>
+
+										</div>
+									</div>
+								</form>
+							</div>
+						</li>
 					@endif
 				</ul>
 			</div><!-- /.navbar-collapse -->

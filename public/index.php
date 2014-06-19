@@ -46,4 +46,6 @@ $app = require_once __DIR__.'/../bootstrap/start.php';
 |
 */
 
+// REMOVE IN PRODUCTION!!
+
 $app->run();
