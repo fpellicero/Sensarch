@@ -293,3 +293,10 @@ a:hover {
 	font-size: 1.3em;
 	color: #969696;
 }
+
+#categories {
+	li.active {
+		background: $blue;
+		color: white;
+	}
+}

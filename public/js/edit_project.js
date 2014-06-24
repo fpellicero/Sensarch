@@ -28,6 +28,7 @@ $(function () {
 			var data = {
 				'title': $('#title').val(),
 				'private': $('#private').val(),
+				'categories': $('#categories').val(),
 				'user_id': $('#user_id').val(),
 				'description': $('#description').val(),
 				'city': $('#city').val(),
