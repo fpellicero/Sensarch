@@ -123,12 +123,10 @@ a:hover {
   width: 100%;
   min-height: 90%;
 }
-
 #login-page #login_img_wrapper img {
   min-width: 100%;
   min-height: 100%;
 }
-
 #login-page .middle-row {
   width: 100%;
   border-top: 3px solid #333;

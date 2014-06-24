@@ -47,9 +47,7 @@ $app = require_once __DIR__.'/../bootstrap/start.php';
 */
 
 // REMOVE IN PRODUCTION!!
-<<<<<<< HEAD
-=======
 SassCompiler::run("scss/", "css/");
->>>>>>> 7681386456e566e9a98af2ee0163a89409abff09
+
 
 $app->run();
