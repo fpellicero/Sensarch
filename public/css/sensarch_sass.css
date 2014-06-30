@@ -238,3 +238,14 @@ a:hover {
 #more_info_form span.input-group-addon {
   background: white;
 }
+.page-description {
+  font-family: Tahoma;
+  font-size: 0.8em;
+  width: 65%;
+  margin-top: 105px;
+}
+.page_info {
+  text-align: right;
+  margin-top: -15px;
+  margin-right: 15px;
+}

@@ -41,6 +41,11 @@ Route::post('project/{id}/edit', 'ProjectController@update');
 Route::get('project/{id}/delete', array('as' => 'destroyProject', 'uses' => 'ProjectController@destroy'))->before('auth');
 
 /*
+ * Routes handling Pages
+ */
+Route::get('page/{id}', array('as' => 'showPage', 'uses' => 'PageController@show'));
+
+/*
  * Routes handling likes
  */
 Route::post('project/{id}/like', 'ProjectController@like');
