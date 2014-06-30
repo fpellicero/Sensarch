@@ -58,30 +58,21 @@ class LoginController extends BaseController {
 			$user['password'] = Input::get('password');
 			
 			
-
 			Sentry::register($user, true);
 
 			Mail::queue('emails.welcome', array('user' => $user), function ($message) use ($user) {
 				$message->to($user['email'])->subject('Bienvenido a Sensarch!');
 			});
 
-			$credentials = array(
-				'email' => $user['email'],
-				'password' => $user['password']
-			);
-
-
-
-
-			if (Sentry::authenticate($credentials, false)) {
-				
-				return Redirect::route('home');
+			if (Sentry::authenticate($user)) {
+				$user = Sentry::getUser();
+				return Response::json(array('user_id' => $user->id, 'name' => $user->first_name . ' ' . $user->last_name), 201);
 			}
+
 		}
 		catch (Exception $e)
 		{
-			die($e->getMessage());
-			return Redirect::route('login');
+			return Response::json('', 500);
 		}
 	}
 

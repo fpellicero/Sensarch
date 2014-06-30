@@ -5,7 +5,6 @@
 
 	{{ HTML::style('css/sensarch_sass.css') }}
 
-
 	<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -131,20 +130,20 @@
 				<form class='form-horizontal'>
 					<div class='form-group'>
 						<div class='col-md-6 col-sm-6 col-xs-6' style='padding-right: 2px;'>
-							<input type='text' class='form-control' placeholder='Nombre' name='first_name'>
+							<input id='first_name' type='text' class='form-control' placeholder='Nombre' name='first_name'>
 						</div>
 						<div class='col-md-6 col-sm-6 col-xs-6' style='padding-left: 2px;'>
-							<input type='text' class='form-control' placeholder='Apellido	' name='last_name'>
+							<input id='last_name' type='text' class='form-control' placeholder='Apellido	' name='last_name'>
 						</div>
 					</div>
 					<div class='form-group'>
 						<div class='col-md-12'>	
-							<input type='email' class='form-control' placeholder='Correo electrónico' name='email'>
+							<input id='email' type='email' class='form-control' placeholder='Correo electrónico' name='email'>
 						</div>
 					</div>
 					<div class='form-group'>
 						<div class='col-md-12'>
-							<input type='password' class='form-control' placeholder='Contraseña' name='password'>
+							<input id='password' type='password' class='form-control' placeholder='Contraseña' name='password'>
 						</div>
 					</div>
 					<div class='form-group'>
@@ -175,61 +174,74 @@
 	<div class='row'>
 		<div id='more_info_form' class='col-md-12' style='display: none;'>
 			<h2>
-				Benvenido Adolfo Hitler,
+				Benvenido <span id='user_name'></span>,
 				<br>
-				<small>Cuéntanos algo sobre vosotros para irnos conociendo</small>
+				<small>Cuéntanos algo sobre ti para irnos conociendo</small>
 			</h2>
 			<div class='row'>
 				<form>
-					<div class='col-md-6'>
+					<div class='col-xs-5'>
 						<div class='form-group'>
-							<input type='text' name='current_city' class='form-control' placeholder='Ciudad actual'>
+							<input id='current_city' type='text' name='current_city' class='form-control' placeholder='Ciudad actual'>
 						</div>
 						<div class='form-group'>
-							<input type='text' name='current_country' class='form-control' placeholder='País actual'>
+							<input id='current_country' type='text' name='current_country' class='form-control' placeholder='País actual'>
 						</div>
+						<input id='current_address' type='text' name='current_address' style='display: none;'>
 						<br>
 						
 						<div class='form-group'>
-							<input type='text' name='current_job' class='form-control' placeholder='Ocupación actual'>
+							<input id='current_job' type='text' name='current_job' class='form-control' placeholder='Ocupación actual'>
 						</div>
 						<div class='form-group'>
-							<input type='text' name='current_company' class='form-control' placeholder='Empresa actual'>
+							<input id='current_company' type='text' name='current_company' class='form-control' placeholder='Empresa actual'>
 						</div>
 						<div class='form-group'>
-							<input type='text' name='past_job' class='form-control' placeholder='Anterior ocupación'>
+							<input id='past_job' type='text' name='past_job' class='form-control' placeholder='Anterior ocupación'>
 						</div>
 						<div class='form-group'>						
-							<input type='text' name='past_company' class='form-control' placeholder='Anterior empresa'>
+							<input id='past_company' type='text' name='past_company' class='form-control' placeholder='Anterior empresa'>
 						</div>
 					</div>
 
-					<div class='col-md-6'>
+					<div class='col-xs-5'>
 						<div class='form-group'>
 							<div class='input-group'>
 								<span class="input-group-addon">&nbsp;<i class='fa fa-facebook'>&nbsp;</i></span>
-								<input type='text' name='current_job' class='form-control' placeholder='facebook.com/'>
+								<input id='facebook' type='text' name='facebook' class='form-control' placeholder='facebook.com/'>
 							</div>
 						</div>
 						<div class='form-group'>
 							<div class='input-group'>
 								<span class="input-group-addon"><i class='fa fa-twitter'></i></span>
-								<input type='text' name='current_company' class='form-control' placeholder='twitter.com/'>
+								<input id='twitter' type='text' name='twitter' class='form-control' placeholder='twitter.com/'>
 							</div>
 						</div>
 						<div class='form-group'>
 							<div class='input-group'>
 								<span class="input-group-addon"><i class='fa fa-linkedin'></i></span>
-								<input type='text' name='past_job' class='form-control' placeholder='linkedin.com/'>
+								<input id='linkedin' type='text' name='linkedin' class='form-control' placeholder='linkedin.com/'>
 							</div>
 						</div>
 						<div class='form-group'>
 							<div class='input-group'>
 								<span class="input-group-addon"><i class='fa fa-instagram'></i></span>						
-								<input type='text' name='past_company' class='form-control' placeholder='instagram.com/'>
+								<input id='instagram' type='text' name='instagram' class='form-control' placeholder='instagram.com/'>
 							</div>
 						</div>
 					</div>
+
+						<div class='col-xs-2'>
+						<div class='form-group'>
+							<label for='profile_pic'>Sube una foto de perfil</label>
+							{{ Form::file('profile_pic', array('class' => 'form-control hidden', 'id' => 'profile_pic_control')) }}
+							<img id='profile_pic_preview' class='rounded-corner	' style='width: 100%;' src="/img/profile_blank.png">
+							<center><a id='profile_pic_link' href="javascript:void(0)">Sube una imagen</a></center>
+						</div>
+					</div>
+
+					<button style='width: 20%; position: absolute; bottom: 25px; right: 25px;' type="submit" class="btn btn-green">Ir a mi perfil</button>
+					
 				</form>
 			</div>
 		</div>

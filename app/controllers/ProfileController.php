@@ -70,13 +70,10 @@ class ProfileController extends BaseController {
 				'email' => 'required|email',
 				'profile_pic' => 'image',
 				'password' => 'sometimes|confirmed',
-				'facebook' => 'url',
-				'twitter' => 'url',
-				'linkedin' => 'url',
-				'instagram' => 'url',
 				'languages' => 'exists:languages,id'
 				)
 			);
+
 
 		if ($validator->fails()) {
 			return Redirect::back()->withErrors($validator);

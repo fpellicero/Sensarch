@@ -37,6 +37,17 @@ Route::filter('auth', function()
 {
 	
 	if (!Sentry::check()) {
+		if (Input::has('email') && Input::has('password')) {
+			die('hose');
+			$user = array(
+				'email' => Input::get('email'),
+				'password' => Input::get('password')
+				);
+
+			if (!Sentry::authenticate($user)) {
+				return Redirect::route('login');
+			}
+		}
 		return Redirect::route('login');
 	}
 	
