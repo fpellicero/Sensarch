@@ -25,10 +25,13 @@ Route::get('login', array('as' => 'login', 'uses' => 'LoginController@loginPage'
 Route::post('login', 'LoginController@loginAttempt');
 Route::get('logout', array('as' => 'logout', 'uses' => 'LoginController@logout'));
 
+Route::get('professional', array('as' => 'loginProfessional', 'uses' => 'LoginController@professionalLoginPage' ));
+
 /*
  *	User register
  */
 Route::post('register', array('as' => 'register', 'uses' => 'LoginController@register'));
+Route::post('register/professional', array('as' => 'registerProfessional', 'uses' => 'LoginController@registerProfessional'));
 
 /*
  * Routes handling Projects
@@ -44,6 +47,8 @@ Route::get('project/{id}/delete', array('as' => 'destroyProject', 'uses' => 'Pro
  * Routes handling Pages
  */
 Route::get('page/{id}', array('as' => 'showPage', 'uses' => 'PageController@show'));
+Route::post('page', array('as' => 'newPage', 'uses' => 'PageController@store'));
+Route::post('page/{id}', 'PageController@update');
 
 /*
  * Routes handling likes
