@@ -19,7 +19,11 @@
 					<ul class="nav navbar-nav navbar-right" style='margin-top: 10px;'>
 						@if(Sentry::check())
 						<li><a href={{ URL::route('home') }}>HOME</a></li>
-						<li><a href={{ URL::action('userProfile', array(Sentry::getUser()->id)) }}>PERFIL</a></li>
+						@if(Sentry::getUser()->type == 'personal')
+							<li><a href={{ URL::action('userProfile', array(Sentry::getUser()->id)) }}>PERFIL</a></li>
+						@else
+							<li><a href={{ URL::action('showPage', array(Page::where('user_id', Sentry::getUser()->id)->first()->id)) }}>MI PÁGINA</a></li>
+						@endif
 						<li><a href={{ URL::route('logout') }}>SALIR</a></li>
 						@else
 						<li class='visible-xs'>

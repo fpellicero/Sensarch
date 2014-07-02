@@ -42,8 +42,18 @@
 		@if($user)
 		<span class='project_author'>
 			<i>
+				@if($user->type == 'personal')
 				<a href="{{ URL::route('userProfile', $user->id) }}">
-					{{$user->getFirstName()}} {{$user->getLastName()}}</a> en
+					{{$user->getFirstName()}} {{$user->getLastName()}}
+				</a>
+				@elseif($user->type == 'professional')
+
+					<a href="{{ URL::route('showPage', $page->id) }}">
+						{{ $page->name }}
+					</a>
+				@endif
+				en
+
 				</i>
 				@endif
 				<i>

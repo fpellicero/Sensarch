@@ -23,7 +23,7 @@
 		<div id='project-feed'>
 			<span id='num-projects' class='hidden'>3</span>
 			@foreach($projects as $index => $project)
-				@include('blocks.project', array('project' => $project, 'user' => User::find($project->author_id)))
+				@include('blocks.project', array('project' => $project, 'user' => User::find($project->author_id), 'page' => Page::where('user_id', $project->author_id)->first()))
 			@endforeach
 		</div>
 		

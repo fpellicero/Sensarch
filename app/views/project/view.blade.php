@@ -46,9 +46,15 @@
 				<h2 class='project_page_subtitle'>
 					<small>
 						<strong>
+							@if($user->type == 'personal')
 							<a href="{{ URL::route('userProfile', $user->id) }}">
 								{{ $user->getFirstName() }} {{ $user->getLastName() }}
 							</a>
+							@elseif($user->type == 'professional')
+							<a href="{{ URL::route('showPage', $page->id) }}">
+								{{ $page->name }}
+							</a>
+							@endif
 						</strong>
 						en {{ $project->city }}
 					</small>

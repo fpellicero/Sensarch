@@ -13,7 +13,17 @@ class PageController extends BaseController {
 
 		$page = Page::find($id);
 
-		return View::make('page/view', array('page' => $page));
+		$user = User::find($page->user_id);
+		$projects = $user->projects->filter(function($project) use ($page) {
+
+			if (Sentry::check() && Sentry::getUser()->id == $page->user_id) {
+				return true;
+			}else {
+				return !$project->private;
+			}
+		});
+
+		return View::make('page/view', array('page' => $page, 'projects' => $projects));
 	}
 
 
@@ -27,7 +37,6 @@ class PageController extends BaseController {
 	{
 		$page = Page::find($id);
 
-		$page->user_id = Input::get('user_id');
 		$page->city = Input::get('city');
 		$page->country = Input::get('country');
 		$page->description = Input::get('description');
@@ -48,7 +57,7 @@ class PageController extends BaseController {
 		$page = new Page;
 
 		$page->name = Input::get('name');
-		$page->user_id = Input::get('user_id');
+		$page->user_id = (int) Input::get('user_id');
 		$page->save();
 
 		return Response::json(array('page_id' => $page->id), 201);
@@ -62,6 +71,9 @@ class PageController extends BaseController {
 	 */
 	public function edit($id)
 	{
+		$page = Page::find($id);
+		
+		return View::make('page/edit', array('page' => $page));
 		
 	}
 

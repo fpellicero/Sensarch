@@ -105,8 +105,6 @@ $(function() {
 					document.location.href = '/page/' + page_id;
 				}
 			});
-
-			
 		})
 
 		

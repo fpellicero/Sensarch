@@ -62,7 +62,7 @@ class LoginController extends BaseController {
 			$user['email'] = Input::get('email');
 			$user['password'] = Input::get('password');
 
-			$user['type'] = 'professional';			
+			$user['type'] = 'personal';			
 			
 			Sentry::register($user, true);
 
@@ -96,7 +96,7 @@ class LoginController extends BaseController {
 			if (Sentry::authenticate($user)) {
 				$user = Sentry::getUser();
 
-				return Response::json(array('user_id' => $user->id, 'name' => $user->first_name . ' ' . $user->last_name), 201);
+				return Response::json(array('user_id' => $user->id), 201);
 			}
 
 		}

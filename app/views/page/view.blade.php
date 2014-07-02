@@ -17,14 +17,14 @@
 	
 				<div id='user_info'>
 					<h1>{{ $page->name}}</h1>
-					@if ($page->current_city)
-						@if($page->current_country)
-							<span>{{$page->current_city}}, {{$page->current_country}}</span>
+					@if ($page->city)
+						@if($page->country)
+							<span>{{$page->city}}, {{$page->country}}</span>
 						@else
-							<span>{{$page->current_city}}</span>
+							<span>{{$page->city}}</span>
 						@endif
-					@elsif ($page->current_country)
-						<span>{{$page->current_country}}</span>
+					@elseif ($page->country)
+						<span>{{$page->country}}</span>
 					@endif
 
 					@if($page->description)
@@ -92,6 +92,10 @@
 				</div>
 				@endif
 			</a>
+
+			@foreach($projects as $index => $project)
+				@include('blocks.project', array('project' => $project, 'user' => NULL, 'page' => $page))
+			@endforeach
 
 		</div>
 	</div>
