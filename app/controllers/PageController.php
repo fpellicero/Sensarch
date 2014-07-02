@@ -37,6 +37,9 @@ class PageController extends BaseController {
 	{
 		$page = Page::find($id);
 
+		if (Input::has('name')) {
+			$page->name = Input::get('name');
+		}
 		$page->city = Input::get('city');
 		$page->country = Input::get('country');
 		$page->description = Input::get('description');
@@ -49,7 +52,11 @@ class PageController extends BaseController {
 
 		$page->save();
 
-		return Response::json('', 200);
+		if (Request::ajax()) {
+			return Response::json('', 200);
+		}else {
+			return Redirect::route('showPage', $page->id);
+		}
 	}
 
 	public function store()

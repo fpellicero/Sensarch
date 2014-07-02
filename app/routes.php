@@ -49,7 +49,7 @@ Route::get('project/{id}/delete', array('as' => 'destroyProject', 'uses' => 'Pro
 Route::get('page/{id}', array('as' => 'showPage', 'uses' => 'PageController@show'));
 Route::post('page', array('as' => 'newPage', 'uses' => 'PageController@store'));
 Route::post('page/{id}', 'PageController@update');
-Route::get('page/{id}/edit', 'PageController@edit');
+Route::get('page/{id}/edit', array('as' => 'editPage', 'uses' => 'PageController@edit'));
 
 /*
  * Routes handling likes
