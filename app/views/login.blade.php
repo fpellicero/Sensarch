@@ -32,7 +32,7 @@
 							<span class="sr-only">Toggle navigation</span>
 							<i class="fa fa-bars" style='margin-top: 5px;'></i>
 						</button>
-						<a class="navbar-brand" href="{{ URL::route('home') }}">
+						<a class="navbar-brand" href="{{ URL::route('login') }}">
 							<span class="sens">Sens</span><span class="arch">arch</span>
 						</a>
 					</div>
@@ -149,7 +149,7 @@
 					<div class='form-group'>
 						<div class='col-md-12'>
 							<button style='width: 100%;' type="submit" class="btn btn-green">Crear cuenta</button>
-							<center>
+							<center style='margin-top: 5px; font-size: 0.8em;'>
 								He leído y acepto las <a href="{{URL::route('terms', array('target' => '_blank'))}}">condiciones de uso</a>
 							</center>
 						</div>
@@ -162,6 +162,15 @@
 							<button class='btn btn-blue' style='width: 100%;'>
 								<i class="fa fa-suitcase" style='float: left;'></i>
 								Entra como visitante
+							</button>
+						</a>
+					</div>
+					<br><br>
+					<div class='col-md-12'>
+						<a href="{{URL::route('loginProfessional')}}">
+							<button class='btn btn-blue' style='width: 100%;'>
+								<i class="fa fa-users" style='float: left;'></i>
+								¿Tienes un despacho?
 							</button>
 						</a>
 					</div>

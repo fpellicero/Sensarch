@@ -258,18 +258,6 @@ a:hover {
 	-webkit-filter:grayscale(0%);
 }
 
-#cover_picture img {
-	min-height: 80%;
-	min-width: 100%;
-}
-#cover_picture {
-	overflow: hidden;
-	background: #EEEEEE;
-	position: fixed;
-	width: 100%;
-	z-index: 1;
-}
-
 #cover_picture_spacer {
 	height: 80%;
 }

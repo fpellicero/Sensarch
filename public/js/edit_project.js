@@ -1,8 +1,10 @@
 var img_home;
 var images;
 var images_delete;
+var id_spinner;
 
 $(function () {
+	id_spinner = 0;
 	images_delete = [];
 	$('#cover_picture a').click(function() {$('#cover_file').trigger('click')})
 
@@ -22,13 +24,13 @@ $(function () {
 		preview_images(this);
 	});
 
-	$('form').submit(function () {
+	$('form').submit(function (event) {
 
 		if(!validateInput()) {
 			var data = {
 				'title': $('#title').val(),
 				'private': $('#private').val(),
-				'user_id': $('#user_id').val(),
+				'author_id': $('#user_id').val(),
 				'description': $('#description').val(),
 				'city': $('#city').val(),
 				'img_home': img_home,
@@ -48,6 +50,17 @@ $(function () {
 		return false;
 	});
 });
+
+var num_disables = 0;
+function disable_submit () {
+	num_disables++;
+	$('form button').addClass('disabled');
+}
+
+function enable_submit () {
+	num_disables--;
+	if (num_disables == 0) {$('form button').removeClass('disabled')};
+}
 
 function validateInput () {
 	var errors = false;
@@ -81,12 +94,13 @@ function preview_cover(input) {
 	
 	if (input.files && input.files[0]) {
 
+		$('.add_pic_message').attr('style', 'opacity: 0.1;');
+		$('#cover_image_loader').show();
+		disable_submit();
+
 		var reader = new FileReader();
 
 		reader.onload = function(e) {
-
-
-			img_home = $('#img_home').attr('src', e.target.result);
 
 			var img = new Image;
 			img.src = e.target.result;
@@ -108,7 +122,14 @@ function preview_cover(input) {
 					"img_data": canvas.toDataURL('image/png')
 				},
 				success: function (response) {
+					$('.add_pic_message').attr('style', '');
+					$('#cover_image_loader').hide();
 					img_home = response.image_id
+					$('#img_home').attr('src', response.url);
+
+				},
+				complete: function (response) {
+					enable_submit();
 				}
 			})
 		};
@@ -144,6 +165,8 @@ function preview_images (input) {
 	}
 
 	for (var i = files.length - 1; i >= 0; i--) {
+		$('#images_wrapper').prepend("<div id='spinner-" + id_spinner++ + "' class='col-md-4 col-sm-6 project_page_image'><div class='preview_spinner thumbnail'><i class='fa fa-spin fa-spinner'></i></div></div>");
+		disable_submit();
 		var reader = new FileReader();
 		reader.onloadend = function(e) {
 			
@@ -168,7 +191,9 @@ function preview_images (input) {
 					'img_data': imgcanvas.toDataURL('image/png')
 				},
 				success: function (response) {
+					enable_submit();
 					images.push(response.image_id);
+					$('#spinner-' + --id_spinner).remove();
 					$('#images_wrapper').prepend("<div id='image-new-" + response.image_id + "' class='col-md-4 col-sm-6 project_page_image'><div class='thumbnail'><a href='javascript:void(0)' class='link_delete' onclick='deleteImageNew(" + response.image_id + ")'><i class='fa fa-times-circle'></i></a><img class='img_project' src=" + response.url + "></div></div>");
 
 				}

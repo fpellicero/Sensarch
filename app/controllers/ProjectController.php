@@ -25,9 +25,10 @@ class ProjectController extends BaseController {
 		$rules = array(
 			'title' => 'Required',
 			'city' => 'Required',
-			'user_id' => 'Required',
+			//'user_id' => 'Required',
 			'description' => 'Required',
-			'img_home' => 'Required'
+			'img_home' => 'Required',
+			'private' => 'Required'
 			);
 
 		$validator = Validator::make(Input::all(), $rules);
@@ -41,8 +42,9 @@ class ProjectController extends BaseController {
 		$project->title = Input::get('title');
 		$project->description = Input::get('description');
 		$project->city = Input::get('city');
-		$project->author_id = Input::get('user_id');
+		$project->author_id = Sentry::getUser()->id;
 		$project->img_home = Input::get('img_home');
+		$project->private = Input::get('private');
 		$project->save();
 
 

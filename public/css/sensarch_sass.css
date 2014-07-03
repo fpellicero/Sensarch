@@ -248,3 +248,30 @@ a:hover {
   text-align: right;
   margin-right: 15px;
 }
+#cover_picture {
+  overflow: hidden;
+  background: #eee;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  height: 80%;
+}
+#cover_picture img {
+  min-width: 100%;
+  min-height: 100%;
+}
+.preview_spinner {
+  height: 150px;
+  text-align: center;
+  font-size: 2em;
+  padding-top: 60px !important;
+}
+#cover_image_loader {
+  text-align: center;
+  position: absolute;
+  margin-top: 20%;
+  font-size: 2em;
+  font-family: Din Condensed;
+  width: 100%;
+  opacity: 0.85;
+}
