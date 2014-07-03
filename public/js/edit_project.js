@@ -125,7 +125,9 @@ function preview_cover(input) {
 					$('.add_pic_message').attr('style', '');
 					$('#cover_image_loader').hide();
 					img_home = response.image_id
-					$('#img_home').attr('src', response.url);
+					url = response.url.split('.');
+					url = url[0] + '-320x250.' + url[1];
+					$('#img_home').attr('src', url);
 
 				},
 				complete: function (response) {
@@ -194,7 +196,9 @@ function preview_images (input) {
 					enable_submit();
 					images.push(response.image_id);
 					$('#spinner-' + --id_spinner).remove();
-					$('#images_wrapper').prepend("<div id='image-new-" + response.image_id + "' class='col-md-4 col-sm-6 project_page_image'><div class='thumbnail'><a href='javascript:void(0)' class='link_delete' onclick='deleteImageNew(" + response.image_id + ")'><i class='fa fa-times-circle'></i></a><img class='img_project' src=" + response.url + "></div></div>");
+					url = response.url.split('.');
+					url = url[0] + '-320x250.' + url[1];
+					$('#images_wrapper').prepend("<div id='image-new-" + response.image_id + "' class='col-md-4 col-sm-6 project_page_image'><div class='thumbnail'><a href='javascript:void(0)' class='link_delete' onclick='deleteImageNew(" + response.image_id + ")'><i class='fa fa-times-circle'></i></a><img class='img_project' src=" + url + "></div></div>");
 
 				}
 			});

@@ -16,7 +16,7 @@
 			Cambiar
 		</div>
 	</a>
-	<div id='cover_image_loader' style='display: hidden;'>
+	<div id='cover_image_loader' style='display: none;'>
 		<i class='fa fa-spin fa-spinner'></i>
 	</div>
 	<img src="{{ $project->getCoverImgURL() }}" id='img_home'>
