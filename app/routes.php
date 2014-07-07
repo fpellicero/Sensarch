@@ -72,6 +72,7 @@ Route::post('user/{id}', 'ProfileController@update')->before('auth');
  */
 Route::post('images', 'ImageController@store');
 Route::get('project/list/{offset}/{user_id}', 'HomeController@getProjects');
+Route::get('user/{id}/category/{category_id}', 'ProfileController@getProjects');
 
 
 /*

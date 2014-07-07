@@ -11,6 +11,7 @@ class ProfileController extends BaseController {
 	public function show($id)
 	{
 		$user = Sentry::findUserById($id);
+		
 		$projects = $user->projects->filter(function($project) use ($id) {
 			
 			// No agafem projectes esborrats
@@ -31,9 +32,35 @@ class ProfileController extends BaseController {
 				return !$project->private;
 			}
 		});
+
 		$languages = $user->languages;
 
-		return View::make('user/view', array('user' => $user, 'projects' => $projects, 'languages' => $languages));
+		return View::make('user/view', array('user' => $user, 'projects' => $projects, 'categories' => Category::all()));
+	}
+
+	public function getProjects($id, $category_id = '-1')
+	{
+		$user = Sentry::findUserById($id);
+
+		$projects = $user->projects->filter(function($project) use ($id, $category_id) {
+
+			if ($category_id != '-1' && 0 == $project->categories()->where('id', $category_id)->count()) {
+				return false;
+			}
+
+			if (Input::has('auth_code')) {
+				$user = User::find($id);
+				return Input::get('auth_code') == $user->activation_code;
+			}
+
+			if (Sentry::check() && Sentry::getUser()->id == $id) {
+				return true;
+			}else {
+				return !$project->private;
+			}
+		});
+
+		return View::make('ajax/projects_blocks')->with('projects', $projects);
 	}
 
 

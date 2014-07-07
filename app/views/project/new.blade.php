@@ -66,6 +66,16 @@
 					{{ Form::select('private', array('0' => 'Público', '1' => 'Privado'), NULL, array('id' => 'private', 'class' => 'form-control')); }}
 				</div>
 			</div>
+			<div class='col-md-4 col-md-offset-4'>
+				<div class='form-group'>
+					<label for="categories">Categorías del proyecto:</label>
+					<select id='categories' name='categories[]' multiple class='form-control form-select'>
+						@foreach($categories as $category)
+							<option value="{{ $category->id }}">{{ $category->name }}</option>
+						@endforeach
+					</select>
+				</div>
+			</div>
 			<div class='col-md-8 col-md-offset-2 description'>
 				<div id='description_form' class='form-group'>
 					<textarea rows='15' placeholder='Descripción del proyecto' class='form-control' id='description' name='description'></textarea>

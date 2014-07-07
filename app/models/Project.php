@@ -17,6 +17,11 @@
 			return $this->hasMany('Image', 'project_id');
 		}
 
+		function categories()
+		{
+			return $this->belongsToMany('Category');
+		}
+
 		function likes()
 		{
 			return $this->belongsToMany('User', 'likes');

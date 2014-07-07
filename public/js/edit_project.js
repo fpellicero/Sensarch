@@ -31,6 +31,7 @@ $(function () {
 				'title': $('#title').val(),
 				'private': $('#private').val(),
 				'author_id': $('#user_id').val(),
+				'categories': $('#categories').val(),
 				'description': $('#description').val(),
 				'city': $('#city').val(),
 				'img_home': img_home,

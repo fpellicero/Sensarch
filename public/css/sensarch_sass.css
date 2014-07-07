@@ -230,6 +230,7 @@ a:hover {
   font-size: 1.3em;
   color: #969696;
 }
+<<<<<<< HEAD
 #more_info_form {
   background: rgba(255, 255, 255, 0.70);
   border-bottom: 5px solid #3f729b;
@@ -295,4 +296,9 @@ a:hover {
 }
 .concept_block .value {
   color: #999;
+=======
+#categories li.active {
+  background: #3f729b;
+  color: white;
+>>>>>>> categories
 }

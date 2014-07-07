@@ -10,7 +10,7 @@ class ProjectController extends BaseController {
 	 */
 	public function create()
 	{
-		return View::make('project/new');
+		return View::make('project/new', array('categories' => Category::all()));
 	}
 
 
@@ -45,6 +45,12 @@ class ProjectController extends BaseController {
 		$project->author_id = Sentry::getUser()->id;
 		$project->img_home = Input::get('img_home');
 		$project->private = Input::get('private');
+		
+		if(Input::has('categories')) {
+			$categories = Input::get('categories');
+			$project->categories()->sync($categories);
+		}
+
 		$project->save();
 
 
@@ -113,7 +119,21 @@ class ProjectController extends BaseController {
 	{
 		$project = Project::find($id);
 
-		return View::make('project/edit', array('project' => $project));
+		$query = sprintf(
+			"SELECT * 
+			FROM categories c 
+			WHERE 
+				NOT EXISTS(
+					SELECT * 
+					FROM category_project cp 
+					WHERE cp.project_id = %s AND 
+					c.id = cp.category_id
+				)",
+			$project->id);
+
+		$categories= DB::select(DB::raw($query));
+
+		return View::make('project/edit', array('project' => $project, 'categories' => $categories));
 	}
 
 
@@ -131,6 +151,14 @@ class ProjectController extends BaseController {
 		$project->city = Input::get('city');
 		$project->description = Input::get('description');
 		$project->private = Input::get('private');
+
+		if(Input::has('categories')) {
+			$categories = Input::get('categories');
+		}else {
+			$categories = array();
+		}
+		$project->categories()->sync($categories);
+
 		$project->save();
 
 		if (Input::has('img_home')) {
