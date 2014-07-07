@@ -1,6 +1,7 @@
 var user_id;
 var page_name;
 var page_id;
+var page_img;
 
 $(function() {
 
@@ -57,6 +58,10 @@ $(function() {
 			var data = {
 				'name': $('#user_name').html(),
 				'email': $('#email').val()
+			}
+
+			if (page_img != null) {
+				data.page_img = page_img
 			}
 
 			if ($('#city').val()) {
@@ -118,6 +123,17 @@ function readURL(input) {
 		var reader = new FileReader();
 		reader.onload = function(e) {
 			$('#profile_pic_preview').attr('src', e.target.result);
+			$.ajax({
+				url: '/images',
+				type: 'POST',
+				data: {
+					'img_type': 'page',
+					'img_data': e.target.result
+				},
+				success: function (response) {
+					page_img = response.image_id;
+				}
+			});
 		}
 
 		reader.readAsDataURL(input.files[0]);

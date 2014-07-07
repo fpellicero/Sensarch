@@ -23,8 +23,8 @@
 
 			<div class='form-group'>
 				<div class='col-md-12'>
-					<label for='profile_pic'>Sube una foto de perfil</label>
-					<!-- {{ Form::file('profile_pic', array('class' => 'form-control', 'id' => 'profile_pic_control')) }} -->
+					<label for='page_img'>Sube una foto de perfil</label>
+					{{ Form::file('page_img', array('class' => 'form-control', 'id' => 'profile_pic_control')) }}
 				</div>
 				<div class='col-md-2'>
 					<img id='profile_pic_preview' class='rounded-corner	' style='width: 100%;' src="{{ $page->getProfilePicUrl() }}">

@@ -40,6 +40,46 @@ class PageController extends BaseController {
 		if (Input::has('name')) {
 			$page->name = Input::get('name');
 		}
+
+		if (!Request::ajax() && Input::file('page_img')) {
+			$file = Input::file('page_img');
+			if ($file) {
+
+				$img_old = Image::find($page->page_img);
+				if ($img_old) {
+					$filepath = 'pages/' . Image::find($page->page_img)->filename;
+					Croppa::delete($filepath);
+					Image::destroy($page->page_img);
+				}
+
+				$destinationPath = 'pages/';
+				$filename = $page->id . '.' . $file->getClientOriginalExtension();
+				$file->move($destinationPath, $filename);
+
+				$img = new Image();
+				$img->filename = $filename;
+				$img->project_id = 0;
+				$img->img_type = 'page';
+				$img->save();
+
+				$page->page_img = $img->id;
+			}
+		}
+
+		if (Request::ajax() && Input::get('page_img')) {
+				$img = Image::find(Input::get('page_img'));
+				$img->project_id = $page->id;
+				$img->img_type = 'page';
+
+				$image_name = explode('.', $img->filename);
+				$destFilename = $page->id . '.' . $image_name[1];
+				File::move('tmp/' . $img->filename, 'pages/' . $destFilename);
+				
+				$img->filename = $destFilename;
+				$img->save();
+
+				$page->page_img = $img->id;
+		}
 		$page->city = Input::get('city');
 		$page->country = Input::get('country');
 		$page->description = Input::get('description');

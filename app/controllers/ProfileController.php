@@ -12,11 +12,19 @@ class ProfileController extends BaseController {
 	{
 		$user = Sentry::findUserById($id);
 		$projects = $user->projects->filter(function($project) use ($id) {
+			
+			// No agafem projectes esborrats
+			if ($project->deleted_at != NULL) {
+				return false;
+			}
+
+			// Comprovem si tenim els codis de autenticació
 			if (Input::has('auth_code')) {
 				$user = User::find($id);
 				return Input::get('auth_code') == $user->activation_code;
 			}
 
+			// Comprobem si el projecte es públic o si som l'usuari propietari
 			if (Sentry::check() && Sentry::getUser()->id == $id) {
 				return true;
 			}else {
@@ -24,6 +32,7 @@ class ProfileController extends BaseController {
 			}
 		});
 		$languages = $user->languages;
+
 		return View::make('user/view', array('user' => $user, 'projects' => $projects, 'languages' => $languages));
 	}
 
@@ -103,31 +112,42 @@ class ProfileController extends BaseController {
 			$user->languages()->sync($languages);
 		}
 
-		$file = Input::file('profile_pic');
-		if ($file) {
+		if (Request::ajax() && Input::get('user_img')) {
+			$img = Image::find(Input::get('user_img'));
 
-			/*
-			 * Delete the old profile picture
-			 */
-			$img_old = Image::find($user->profile_pic);
-			if ($img_old) {
-				$filepath = 'profiles/' . Image::find($user->profile_pic)->filename;
-				Croppa::delete($filepath);
-				Image::destroy($user->profile_pic);
-			}
+			$image_name = explode('.', $img->filename);
+			$destFilename = $user->id . '.' . $image_name[1];
+			File::move('tmp/' . $img->filename, 'profiles/' . $destFilename);
 
-			$destinationPath = 'profiles';
-			$filename = $user->id . '.' . $file->getClientOriginalExtension();
-			$file->move($destinationPath, $filename);
-
-			$img = new Image();
-			$img->filename = $filename;
-			$img->project_id = 0;
-			$img->img_type = 'profile';
+			$img->filename = $destFilename;
 			$img->save();
 
 			$user->profile_pic = $img->id;
+		} else {
+			$file = Input::file('profile_pic');
+			if ($file) {
+				$img_old = Image::find($user->profile_pic);
+				if ($img_old) {
+					$filepath = 'profiles/' . Image::find($user->profile_pic)->filename;
+					Croppa::delete($filepath);
+					Image::destroy($user->profile_pic);
+				}
+
+				$destinationPath = 'profiles';
+				$filename = $user->id . '.' . $file->getClientOriginalExtension();
+				$file->move($destinationPath, $filename);
+
+				$img = new Image();
+				$img->filename = $filename;
+				$img->project_id = 0;
+				$img->img_type = 'profile';
+				$img->save();
+
+				$user->profile_pic = $img->id;
+			}
+
 		}
+
 
 		$user->save();
 

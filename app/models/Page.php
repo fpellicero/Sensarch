@@ -1,18 +1,23 @@
 <?php 
 
-	class Page extends Eloquent
+class Page extends Eloquent
+{
+	protected $table = 'pages';
+	protected $softDelete = true;
+
+	function user()
 	{
-		protected $table = 'pages';
-		protected $softDelete = true;
+		return $this->belongsTo('User');
+	}
 
-		function user()
-		{
-			return $this->belongsTo('User');
-		}
-
-		public function getProfilePicURL()
-		{
+	public function getProfilePicURL()
+	{
+		$img = Image::find($this->page_img);
+		if ($img) {
+			return '/pages/' . $img->filename;
+		}else {
 			return '/img/profile_blank.png';
 		}
 	}
+}
 ?>
