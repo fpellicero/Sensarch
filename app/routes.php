@@ -43,6 +43,8 @@ Route::get('project/{id}/edit', array('as' => 'editProject', 'uses' => 'ProjectC
 Route::post('project/{id}/edit', 'ProjectController@update');
 Route::get('project/{id}/delete', array('as' => 'destroyProject', 'uses' => 'ProjectController@destroy'))->before('auth');
 
+Route::get('concepts', 'ConceptController@feed');
+
 /*
  * Routes handling Pages
  */

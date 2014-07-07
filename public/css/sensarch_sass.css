@@ -275,3 +275,24 @@ a:hover {
   width: 100%;
   opacity: 0.85;
 }
+.concept_block {
+  background: white;
+  border: 1px solid #ddd;
+  margin-bottom: 30px;
+}
+.concept_block .img_wrapper {
+  height: 200px;
+  background: #e3e3e3;
+  overflow: hidden;
+}
+.concept_block img {
+  min-width: 100%;
+  min-height: 100%;
+}
+.concept_block .concept_label {
+  font-weight: bold;
+  color: #3c3c3c;
+}
+.concept_block .value {
+  color: #999;
+}

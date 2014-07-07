@@ -348,3 +348,29 @@ a:hover {
 	width: 100%;
 	opacity: 0.85;
 }
+
+.concept_block {
+	background: white;
+	border: 1px solid #DDDDDD;
+	margin-bottom: 30px;	
+	
+	.img_wrapper {
+		height: 200px;
+		background: #e3e3e3;
+		overflow: hidden;
+	}
+	
+	img {
+		min-width: 100%;
+		min-height: 100%;
+	}
+
+	.concept_label {
+		font-weight: bold;
+		color: #3c3c3c;
+	}
+
+	.value {
+		color: #999999;
+	}
+}
