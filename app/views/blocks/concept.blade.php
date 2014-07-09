@@ -1,9 +1,11 @@
 <div class='concept_block row'>
 				<div class='img_wrapper col-xs-3'>
-					<img src="/img/profile_blank.png">
+					<img src="{{ Croppa::url($concept->getImgUrl(), 250, 250) }}">
 				</div>
 				<div class='concept_info col-xs-9'>
-					<h2>{{ $concept->title }}</h2>
+					<a href="http://{{ $concept->url }}" target='_blank'>
+						<h2>{{ $concept->title }}</h2>
+					</a>
 
 					<div>
 						<span class='concept_label'>Entrega:</span>
@@ -15,7 +17,14 @@
 					</div>
 					<div>
 						<span class='concept_label'>Idioma:</span>
-						<span class='value'>{{ $concept->language->name }}</span>
+						<span class='value'>
+							@foreach($concept->languages as $index => $language)
+								@if ($index > 0)
+									,
+								@endif
+								{{ $language->name }}
+							@endforeach
+						</span>
 					</div>
 					<div>
 						<span class='concept_label'>Localización:</span>
@@ -27,7 +36,14 @@
 					</div>
 					<div>
 						<span class='concept_label'>Categoria:</span>
-						<span class='value'>Lorem ipsum</span>
+						<span class='value'>
+							@foreach($concept->categories as $index => $category)
+								@if ($index > 0)
+									,
+								@endif
+								{{ $category->name }}
+							@endforeach
+						</span>
 					</div>
 				</div>
 			</div>

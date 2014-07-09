@@ -45,13 +45,13 @@ class ProjectController extends BaseController {
 		$project->author_id = Sentry::getUser()->id;
 		$project->img_home = Input::get('img_home');
 		$project->private = Input::get('private');
-		
+
+		$project->save();
+
 		if(Input::has('categories')) {
 			$categories = Input::get('categories');
 			$project->categories()->sync($categories);
 		}
-
-		$project->save();
 
 
 		/*

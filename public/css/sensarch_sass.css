@@ -230,7 +230,6 @@ a:hover {
   font-size: 1.3em;
   color: #969696;
 }
-<<<<<<< HEAD
 #more_info_form {
   background: rgba(255, 255, 255, 0.70);
   border-bottom: 5px solid #3f729b;
@@ -287,6 +286,8 @@ a:hover {
   overflow: hidden;
 }
 .concept_block img {
+  position: absolute;
+  left: 0;
   min-width: 100%;
   min-height: 100%;
 }
@@ -296,9 +297,16 @@ a:hover {
 }
 .concept_block .value {
   color: #999;
-=======
+}
 #categories li.active {
   background: #3f729b;
   color: white;
->>>>>>> categories
+}
+#no_results {
+  color: #999;
+  margin-top: 130px;
+  font-size: 1.5em;
+}
+#no_results i {
+  font-size: 2.5em;
 }

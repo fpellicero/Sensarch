@@ -43,7 +43,12 @@ Route::get('project/{id}/edit', array('as' => 'editProject', 'uses' => 'ProjectC
 Route::post('project/{id}/edit', 'ProjectController@update');
 Route::get('project/{id}/delete', array('as' => 'destroyProject', 'uses' => 'ProjectController@destroy'))->before('auth');
 
-Route::get('concepts', 'ConceptController@feed');
+/*
+ * Routes handling Concepts
+ */
+Route::get('concepts/feed', 'ConceptController@feed');
+Route::get('concepts/import', 'ConceptController@import');
+Route::post('concepts/search', 'ConceptController@search');
 
 /*
  * Routes handling Pages
@@ -88,3 +93,6 @@ Route::get('email/{id}', array('as' => 'activationEmail', 'uses' => 'AdminUsers@
 
 Route::get('admin/projects', 'AdminProjects@index')->before('isAdmin');
 Route::get('admin/projects/import', 'AdminProjects@import')->before('isAdmin');
+
+Route::get('admin/concepts/new', 'AdminConcepts@create')->before('isAdmin');
+Route::post('admin/concepts/new', 'AdminConcepts@store')->before('isAdmin');

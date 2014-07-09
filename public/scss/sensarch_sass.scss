@@ -294,7 +294,6 @@ a:hover {
 	color: #969696;
 }
 
-<<<<<<< HEAD
 #more_info_form {
 	background: rgba(255, 255, 255, 0.70);
 	border-bottom: 5px solid #3f729b;
@@ -362,6 +361,8 @@ a:hover {
 	}
 	
 	img {
+		position: absolute;
+		left: 0;
 		min-width: 100%;
 		min-height: 100%;
 	}
@@ -380,5 +381,14 @@ a:hover {
 	li.active {
 		background: $blue;
 		color: white;
+	}
+}
+
+#no_results {
+	color: #999;
+	margin-top: 130px;
+	font-size: 1.5em;
+	i {
+		font-size: 2.5em;
 	}
 }

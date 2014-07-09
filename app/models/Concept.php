@@ -6,16 +6,20 @@
 	{
 		protected $table = 'concepts';
 
-		function language()
+		function categories()
 		{
-			return $this->belongsTo('Language');
+			return $this->belongsToMany('Category');
+		}
+		function languages()
+		{
+			return $this->belongsToMany('Language');
 		}
 
 
 		function getImgURL($width = NULL, $height = NULL)
 		{
-			if ($this->cover_img) {
-				$img = Image::find($this->cover_img);
+			if ($this->img_id) {
+				$img = Image::find($this->img_id);
 				return '/concepts/' . $this->id . '/' . $img->filename;
 			}else {
 				return '';
