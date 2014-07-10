@@ -14,8 +14,8 @@ class HomeController extends BaseController {
 
 		$projects = Project::orderBy('created_at', 'DESC')
 			->where('private', 0)
-			->whereNull('deleted_at')
 			->orWhere('author_id', $user_id)
+			->whereNull('deleted_at')
 			->take(5)
 			->get();
 		return View::make('home')->with('projects', $projects);
