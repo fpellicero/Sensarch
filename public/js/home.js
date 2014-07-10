@@ -14,7 +14,7 @@ $(function  () {
 
 		request.done(function  (projects) {
 			$(projects).appendTo('#project-feed');
-			num_projects += 10;
+			num_projects += 5;
 			$('.load_more_block a').show();
 			$('.load_more_block span').hide();		
 		});
