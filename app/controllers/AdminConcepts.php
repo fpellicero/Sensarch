@@ -12,7 +12,7 @@ class AdminConcepts extends BaseController {
 
 		$concepts = Concept::all();
 
-		//return View::make('admin.project.index', array('projects' => $projects));
+		return View::make('admin.concept.index', array('concepts' => $concepts));
 	}
 
 	/**
@@ -98,7 +98,9 @@ class AdminConcepts extends BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$concept = Concept::find($id);
+
+		return View::make('admin/concept/edit', array('concept' => $concept));
 	}
 
 

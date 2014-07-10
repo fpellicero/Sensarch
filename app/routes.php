@@ -94,5 +94,7 @@ Route::get('email/{id}', array('as' => 'activationEmail', 'uses' => 'AdminUsers@
 Route::get('admin/projects', 'AdminProjects@index')->before('isAdmin');
 Route::get('admin/projects/import', 'AdminProjects@import')->before('isAdmin');
 
-Route::get('admin/concepts/new', 'AdminConcepts@create')->before('isAdmin');
+Route::get('admin/concepts/new', array('as' => 'adminAddConcept', 'uses' => 'AdminConcepts@create'))->before('isAdmin');
 Route::post('admin/concepts/new', 'AdminConcepts@store')->before('isAdmin');
+Route::get('admin/concepts', 'AdminConcepts@index')->before('isAdmin');
+Route::get('admin/concepts/{id}', array('as' => 'adminEditConcept', 'uses' => 'AdminConcepts@edit'))->before('isAdmin');
