@@ -1,4 +1,4 @@
-var num_projects = 10;
+var num_projects = 5;
 
 $(function  () {
 	$('#load_more_link').click(function () {
