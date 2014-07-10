@@ -3,7 +3,7 @@
 					<img src="{{ Croppa::url($concept->getImgUrl(), 250, 250) }}">
 				</div>
 				<div class='concept_info col-xs-9'>
-					<a href="http://{{ $concept->url }}" target='_blank'>
+					<a href="{{ $concept->url }}" target='_blank'>
 						<h2>{{ $concept->title }}</h2>
 					</a>
 
