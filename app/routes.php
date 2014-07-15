@@ -44,11 +44,11 @@ Route::post('project/{id}/edit', 'ProjectController@update');
 Route::get('project/{id}/delete', array('as' => 'destroyProject', 'uses' => 'ProjectController@destroy'))->before('auth');
 
 /*
- * Routes handling Concepts
+ * Routes handling Contests
  */
-Route::get('concepts/feed', 'ConceptController@feed');
-Route::get('concepts/import', 'ConceptController@import');
-Route::post('concepts/search', 'ConceptController@search');
+Route::get('contests', 'ConceptController@feed');
+//Route::get('concepts/import', 'ConceptController@import');
+Route::post('contests/search', 'ConceptController@search');
 
 /*
  * Routes handling Pages
@@ -94,8 +94,8 @@ Route::get('email/{id}', array('as' => 'activationEmail', 'uses' => 'AdminUsers@
 Route::get('admin/projects', 'AdminProjects@index')->before('isAdmin');
 Route::get('admin/projects/import', 'AdminProjects@import')->before('isAdmin');
 
-Route::get('admin/concepts/new', array('as' => 'adminAddConcept', 'uses' => 'AdminConcepts@create'))->before('isAdmin');
-Route::post('admin/concepts/new', 'AdminConcepts@store')->before('isAdmin');
-Route::get('admin/concepts', 'AdminConcepts@index')->before('isAdmin');
-Route::get('admin/concepts/{id}', array('as' => 'adminEditConcept', 'uses' => 'AdminConcepts@edit'))->before('isAdmin');
-Route::post('admin/concepts/{id}', 'AdminConcepts@update')->before('isAdmin');
+Route::get('admin/contests/new', array('as' => 'adminAddConcept', 'uses' => 'AdminConcepts@create'))->before('isAdmin');
+Route::post('admin/contests/new', 'AdminConcepts@store')->before('isAdmin');
+Route::get('admin/contests', 'AdminConcepts@index')->before('isAdmin');
+Route::get('admin/contests/{id}', array('as' => 'adminEditConcept', 'uses' => 'AdminConcepts@edit'))->before('isAdmin');
+Route::post('admin/contests/{id}', 'AdminConcepts@update')->before('isAdmin');

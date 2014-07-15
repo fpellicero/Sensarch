@@ -36,7 +36,7 @@ $(function () {
 		data.max_prize = $( "#slider-range" ).slider( "values", 1 );
 
 		$.ajax({
-			url: '/concepts/search',
+			url: '/contests/search',
 			type: 'POST',
 			data: data,
 			success: function (response) {
