@@ -98,3 +98,4 @@ Route::get('admin/concepts/new', array('as' => 'adminAddConcept', 'uses' => 'Adm
 Route::post('admin/concepts/new', 'AdminConcepts@store')->before('isAdmin');
 Route::get('admin/concepts', 'AdminConcepts@index')->before('isAdmin');
 Route::get('admin/concepts/{id}', array('as' => 'adminEditConcept', 'uses' => 'AdminConcepts@edit'))->before('isAdmin');
+Route::post('admin/concepts/{id}', 'AdminConcepts@update')->before('isAdmin');
