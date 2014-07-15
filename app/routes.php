@@ -99,3 +99,5 @@ Route::post('admin/contests/new', 'AdminConcepts@store')->before('isAdmin');
 Route::get('admin/contests', 'AdminConcepts@index')->before('isAdmin');
 Route::get('admin/contests/{id}', array('as' => 'adminEditConcept', 'uses' => 'AdminConcepts@edit'))->before('isAdmin');
 Route::post('admin/contests/{id}', 'AdminConcepts@update')->before('isAdmin');
+Route::get('admin/categories', 'AdminCategories@index')->before('isAdmin');
+Route::post('admin/categories/new', 'AdminCategories@store')->before('isAdmin');
