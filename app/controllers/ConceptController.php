@@ -89,9 +89,12 @@ class ConceptController extends BaseController {
 
 		echo "<pre>";
 		foreach ($items as $item) {
-			$desc = preg_split("/(?<=\w)\b\s*/", $item->description, -1, PREG_SPLIT_NO_EMPTY);
-;
-			var_dump($item);
+			$description = $item->description;
+
+			$matches = array();
+			preg_match("/(*UTF8)Entrega: \d* \w*[\s]*[\d]*/i", $description, $matches['entrega']);
+			preg_match_all("/(*UTF8)[\w]*:[\s]*[\d]*/i", $description, $matches['inscripción']);
+			var_dump($matches);
 		}
 		echo "</pre>";
 	}

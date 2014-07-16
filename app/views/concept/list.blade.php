@@ -8,7 +8,7 @@
 
 <div class='container'>
 	<div class='col-md-3 hidden-sm hidden-xs' style='padding-top: 25px;'>
-			<form>
+			<form id='concept_search'>
 				<div class="input-group">
 					<span class="input-group-addon">
 						<i class='fa fa-search'></i>

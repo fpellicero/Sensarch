@@ -2,9 +2,9 @@ $(function () {
 	$( "#slider-range" ).slider({
 		range: true,
 		min: 1000,
-		max: 100000,
+		max: 120000,
 		step: 1000,
-		values: [ 1000, 100000 ],
+		values: [ 1000, 120000 ],
 		slide: function( event, ui ) {
 			$( "#amount" ).val( ui.values[ 0 ] + "€ - " + ui.values[ 1 ] + "€" );
 		}
@@ -12,7 +12,7 @@ $(function () {
 	$( "#amount" ).val($( "#slider-range" ).slider( "values", 0 ) +
 		"€ - " + $( "#slider-range" ).slider( "values", 1 ) + "€" );
 	
-	$('form').submit(function (event) {
+	$('form#concept_search').submit(function (event) {
 		event.preventDefault();
 		var data = new Object
 

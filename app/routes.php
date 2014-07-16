@@ -47,7 +47,7 @@ Route::get('project/{id}/delete', array('as' => 'destroyProject', 'uses' => 'Pro
  * Routes handling Contests
  */
 Route::get('contests', 'ConceptController@feed');
-//Route::get('concepts/import', 'ConceptController@import');
+Route::get('concepts/import', 'ConceptController@import');
 Route::post('contests/search', 'ConceptController@search');
 
 /*
