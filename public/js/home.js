@@ -1,4 +1,4 @@
-var num_projects = 5;
+var num_projects = 6;
 
 $(function  () {
 	$('#comments_sidebar').hide();
