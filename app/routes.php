@@ -44,6 +44,11 @@ Route::post('project/{id}/edit', 'ProjectController@update');
 Route::get('project/{id}/delete', array('as' => 'destroyProject', 'uses' => 'ProjectController@destroy'))->before('auth');
 
 /*
+ * Routes handling comments
+ */
+Route::post('project/{id}/comments', array('as' => 'createComment', 'uses' => 'CommentController@store'))->before('auth');
+
+/*
  * Routes handling Contests
  */
 Route::get('contests', 'ConceptController@feed');
@@ -59,7 +64,7 @@ Route::post('page/{id}', 'PageController@update');
 Route::get('page/{id}/edit', array('as' => 'editPage', 'uses' => 'PageController@edit'));
 
 /*
- * Routes handling likes
+ * Routes handling Likes
  */
 Route::post('project/{id}/like', 'ProjectController@like');
 Route::post('project/{id}/dislike', 'ProjectController@dislike');

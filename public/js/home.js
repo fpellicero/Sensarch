@@ -1,6 +1,15 @@
 var num_projects = 5;
 
 $(function  () {
+	$('#comments_sidebar').hide();
+	$('#comments_sidebar textarea').autosize();
+	$('#toggle_comments_link').click(function () {
+		$('#comments_sidebar').toggle('slide', {direction: 'right'}, 800);
+	})
+
+	$('#comments_close_link').click(function() {
+		$('#comments_sidebar').toggle('slide', {direction: 'right'}, 800);
+	})
 	$('#load_more_link').click(function () {
 		
 		$('.load_more_block a').hide();
