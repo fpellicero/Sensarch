@@ -61,6 +61,7 @@ a:hover {
   background: none !important;
 }
 .navbar .navbar-brand {
+  color: #3f729b;
   margin-top: 5px;
   margin-left: 15px;
   font-size: 2.8em;
@@ -82,10 +83,13 @@ a:hover {
   background: white;
 }
 .navbar-transparent {
-  color: white;
+  color: white !important;
   transition: background-color 0.5s ease;
   z-index: 2 !important;
   border-bottom: none !important;
+}
+.navbar-transparent .navbar-brand {
+  color: white !important;
 }
 .navbar-transparent:hover {
   background: rgba(0, 0, 0, 0.2);
@@ -157,7 +161,11 @@ a:hover {
 .project_block {
   background: white;
   border: 1px solid #ddd;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
   margin-bottom: 30px;
+}
+.project_block .contextual {
+  width: 170px;
 }
 .project_block .project_block_cover {
   height: 240px;
@@ -175,12 +183,6 @@ a:hover {
   min-width: 100%;
   position: relative;
   top: -120;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
-  /* Firefox 3.5+ */
-  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
-  /* IE 6-9 */
-  filter: gray;
   -webkit-transition: all 0.6s ease;
   -moz-transition: all 0.6s ease-in-out;
 }
@@ -194,13 +196,20 @@ a:hover {
 .project_block .project_block_info .contextual {
   float: right;
 }
+.project_block .project_block_info a {
+  color: black;
+}
 .project_block .project_block_info h2 {
-  color: black !important;
   margin-top: 0px;
   margin-bottom: 0px;
 }
 .contextual {
-  width: 65px;
+  width: 200px;
+  position: relative;
+  left: 5%;
+}
+.contextual .likes {
+  float: left;
 }
 .contextual .heart {
   transition: background-color 0.5s ease;
@@ -209,9 +218,10 @@ a:hover {
   padding: 14px 13px;
   background: #dfdfdf;
   color: white;
-  float: right;
+  margin-left: 20px;
 }
 .contextual .count {
+  float: left;
   color: #dfdfdf;
   line-height: 40px;
   font-size: 1.5em;
@@ -219,6 +229,22 @@ a:hover {
 .contextual .heart.like:hover, .contextual .heart.dislike {
   cursor: pointer;
   background-color: #af1d1d;
+}
+.contextual .comment-icon {
+  transition: background-color 0.5s ease;
+  height: 40px;
+  width: 40px;
+  padding: 14px 13px;
+  background: #dfdfdf;
+  color: white;
+  margin-left: 20px;
+}
+.contextual .comments {
+  float: left;
+  margin-left: 10px;
+}
+.contextual #comments.count {
+  position: relative;
 }
 .load_more_block {
   width: 100%;
@@ -309,4 +335,138 @@ a:hover {
 }
 #no_results i {
   font-size: 2.5em;
+}
+#comments_sidebar {
+  height: 100%;
+  background: black;
+  opacity: 0.8;
+  z-index: 50;
+  width: 30%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: white;
+}
+#comments_sidebar .login_link {
+  margin-top: -30px;
+}
+#comments_sidebar .login_link a {
+  color: #3f729b;
+}
+#comments_sidebar h3 {
+  margin-left: 20px;
+  font-size: 2em;
+}
+#comments_sidebar #comments_close_link {
+  font-size: 1.2em;
+  position: absolute;
+  right: 20;
+  top: 15;
+}
+#comments_sidebar .comments-sidebar-content {
+  margin: 20px;
+  margin-right: 40px;
+  max-height: 70%;
+  overflow-y: auto;
+}
+#comments_sidebar form {
+  margin-top: 2px;
+  margin-left: 20px;
+  margin-right: 40px;
+}
+#comments_sidebar .comment {
+  margin-bottom: 10px;
+  clear: both;
+}
+#comments_sidebar .comment-author {
+  margin-right: 5%;
+}
+#comments_sidebar .comment-body {
+  margin-left: 10%;
+  width: 90%;
+  font-size: 0.9em;
+  text-align: left;
+}
+#comments_sidebar .comment-date {
+  font-size: 0.8em;
+  color: #333;
+  float: right;
+}
+#comments_sidebar input {
+  float: right;
+}
+#comments_sidebar textarea {
+  height: 50px;
+}
+@media (min-width: 600px) and (max-width: 1100px) {
+  #comments_sidebar {
+    width: 50%;
+  }
+}
+@media (max-width: 600px) {
+  #comments_sidebar {
+    width: 90%;
+  }
+}
+#content-wrapper {
+  background: #f5efe6;
+  text-align: justify;
+  position: relative;
+  z-index: 3;
+  padding-top: 25px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+  padding-bottom: 25px;
+}
+#user_info_wrapper {
+  background: white;
+  padding-top: 20px;
+  margin-bottom: 30px;
+  margin-top: -10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+#user_info_wrapper #user_info {
+  background: #fff;
+  color: #3c3c3c;
+  height: 205px;
+}
+#user_info_wrapper #profile_img {
+  float: left;
+  height: 225px;
+  margin-right: 20px;
+  width: 260px;
+  overflow: hidden;
+}
+#user_info_wrapper #profile_img img {
+  height: 100%;
+}
+#user_info_wrapper .user_occupation {
+  position: relative;
+  top: 80px;
+}
+#user_info_wrapper .user_social {
+  position: absolute;
+  right: 30px;
+  color: #b2b2b2;
+  bottom: 70px;
+  font-size: 1.4em;
+}
+#user_info_wrapper .user_lang {
+  position: absolute;
+  right: 30px;
+  bottom: 40px;
+}
+#user_info_wrapper #edit_profile_link {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+#profile_img a {
+  background: none repeat scroll 0 0 #000;
+  border-radius: 5px;
+  bottom: 10px;
+  color: #fff;
+  opacity: 0.7;
+  padding: 5px;
+  position: absolute;
+  right: 10px;
 }

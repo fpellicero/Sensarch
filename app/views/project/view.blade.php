@@ -25,6 +25,40 @@
 
 @section('content')
 
+<div id='comments_sidebar'>
+	<a id='comments_close_link' href="javascript:void(0)">
+		<i class='fa fa-times'></i>
+	</a>
+	<h3>COMENTARIOS</h3>
+	<div class='comments-sidebar-content'>
+			@foreach($project->comments as $comment)
+				<div class='comment'>
+
+					<div class='comment-author'>
+						{{ $comment->author->first_name }} {{ $comment->author->last_name }} <span style='font-size: 0.8em; font-style: italic;'>dijo...</span>
+					</div>
+
+					<div class='comment-body'>
+						{{ $comment->comment }}	
+					</div>
+
+					<div class='comment-date'>{{ date('j \d\e F', strtotime($comment->created_at)) }}</div>
+				</div>
+			@endforeach
+		</div>
+		@if (Sentry::check())
+			{{ Form::open(array('url' => URL::route('createComment', $project->id)))}}
+				{{ Form::textarea('comment', NULL, array('class' => 'form-control')) }}
+				{{ Form::submit('Publicar', array('class' => 'btn btn-blue')) }}
+			{{ Form::close()}}
+		@else
+			<center>
+				<span class='login_link' style='margin-left: 20px;'>Quieres añadir un comentario? <br>
+					<a href="{{URL::route('login')}}">Crea tu cuenta ahora!</a></span>
+			</center>
+		@endif
+</div>
+
 <div id='project_page' class='container'>
 	@if(Sentry::check() && Sentry::getUser()->id == $project->author_id)
 	<div class='col-md-2 col-md-offset-9 project_context_links'>
@@ -76,6 +110,14 @@
 							<i class="fa fa-heart-o"></i>
 						</div>
 						@endif
+					</div>
+					<div class='comments'>
+						<span id="comments" class='count'>{{ count($project->comments) }}</span>
+						<a id='toggle_comments_link' href="javascript:void(0)">
+							<div project-id="{{$project->id}}" class='comment-icon img-circle'>
+								<i class='fa fa-comment'></i>
+							</div>
+						</a>
 					</div>
 
 

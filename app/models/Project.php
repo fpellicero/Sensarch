@@ -27,6 +27,11 @@
 			return $this->belongsToMany('User', 'likes');
 		}
 
+		function comments()
+		{
+			return $this->hasMany('Comment', 'project_id');
+		}
+
 		
 
 		function getCoverImgURL($width = NULL, $height = NULL)
