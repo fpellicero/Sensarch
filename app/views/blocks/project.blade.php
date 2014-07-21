@@ -5,7 +5,7 @@
 		@else
 			<a href="{{ URL::route('showProject', $project->id) }}" target='_blank'>
 		@endif
-				<i class="fa fa-refresh fa-spin"></i>
+				<i class="fa fa-spinner fa-spin"></i>
 				<img class='project_cover_old' src="{{ Croppa::url($project->getCoverImgURL(), 825, 300,  array('quadrant' => 'C'))  }}">
 			</a>
 	</div>

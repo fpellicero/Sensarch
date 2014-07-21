@@ -28,7 +28,7 @@
 		</div>
 		
 		<div class='load_more_block'>
-			<span style='display: none;'><i class="fa fa-spin fa-refresh"></i></span>
+			<span style='display: none;'><i class="fa fa-spin fa-spinner"></i></span>
 			<a id='load_more_link' href="javascript:void(0)">
 				VER MAS
 			</a>
