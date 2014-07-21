@@ -38,7 +38,7 @@ Route::post('register/professional', array('as' => 'registerProfessional', 'uses
  */
 Route::get('project/new', array('as' => 'newProject', 'uses' => 'ProjectController@create'))->before('auth');
 Route::post('project/new', 'ProjectController@store');
-Route::get('project/{id}', array('as' => 'showProject', 'uses' => 'ProjectController@show', 'before' => 'userActive'));
+Route::get('project/{id}', array('as' => 'showProject', 'uses' => 'ProjectController@show'));
 Route::get('project/{id}/edit', array('as' => 'editProject', 'uses' => 'ProjectController@edit'));
 Route::post('project/{id}/edit', 'ProjectController@update');
 Route::get('project/{id}/delete', array('as' => 'destroyProject', 'uses' => 'ProjectController@destroy'))->before('auth');
@@ -73,7 +73,7 @@ Route::post('project/{id}/dislike', 'ProjectController@dislike');
 /*
  * Routes handling Profile
  */
-Route::get('user/{id}', array('as' => 'userProfile', 'uses' => 'ProfileController@show', 'before' => 'userActive'));
+Route::get('user/{id}', array('as' => 'userProfile', 'uses' => 'ProfileController@show'));
 Route::get('user/{id}/edit', array('as' => 'editUserProfile', 'uses' => 'ProfileController@edit'))->before('auth');
 Route::post('user/{id}', 'ProfileController@update')->before('auth');
 

@@ -67,7 +67,8 @@ Route::filter('userActive', function($route) {
 	if ($action['as'] == 'userProfile') {
 		$user = User::find($route->getParameter('id'));
 	}else {
-		return true;
+		$project = Project::find($route->getParameter('id'));
+		$user = User::find($project->author_id);
 	}
 
 	if (!$user->isActivated()) {
