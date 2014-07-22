@@ -108,7 +108,8 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Cartalyst\Sentry\SentryServiceProvider',
 		'Bkwld\Croppa\ServiceProvider',
-		'Jones\WebArtisan\WebArtisanServiceProvider'
+		'Jones\WebArtisan\WebArtisanServiceProvider',
+		'Kmd\Logviewer\LogviewerServiceProvider'
 
 	),
 
